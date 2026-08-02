@@ -2,7 +2,9 @@ import pool from "../db/client.js";
 
 export interface HealthStatus {
   status: "ok";
-  database: "up";
+  checks: {
+    database: "up";
+  };
 }
 
 export async function checkHealth(): Promise<HealthStatus> {
@@ -10,6 +12,8 @@ export async function checkHealth(): Promise<HealthStatus> {
 
   return {
     status: "ok",
-    database: "up",
+    checks: {
+      database: "up"
+    }
   };
 }
