@@ -1,10 +1,59 @@
 import { LogInput } from "../schemas/log.schema.js";
-import { logRepository } from "../repositories/log.repository.js";
+import { logRepository, LogRow } from "../repositories/log.repository.js";
+import { ParsedLogsQuery } from "../utils/query-params.js";
+import { encodeCursor } from "../utils/cursor.js";
+
+export interface LogApiShape {
+  id: string;
+  timestamp: string;
+  level: string;
+  service: string;
+  message: string;
+  attributes: Record<string, unknown>;
+}
+
+export interface LogsQueryResult {
+  logs: LogApiShape[];
+  next_cursor: string | null;
+}
+
+function formatRow(row: LogRow): LogApiShape {
+  return {
+    id: row.id,
+    timestamp: row.timestamp.toISOString(),
+    level: row.level,
+    service: row.service,
+    message: row.message,
+    attributes: row.attributes,
+  };
+}
 
 export class LogService {
   async ingest(logs: LogInput[]): Promise<void> {
     await logRepository.insertMany(logs);
   }
-}
 
+  async query(params: ParsedLogsQuery): Promise<LogsQueryResult> {
+  const rows = await logRepository.findMany(params);
+  const hasMore = rows.length > params.limit;
+  const pageRows = hasMore ? rows.slice(0, params.limit) : rows;
+
+  const logs = pageRows.map(formatRow);
+
+  let next_cursor: string | null = null;
+
+  if (hasMore) {
+    const last = pageRows[pageRows.length - 1];
+    if (!last) {
+      throw new Error("expected at least one row when hasMore is true");
+    }
+    next_cursor = encodeCursor({
+      timestamp: last.timestamp.toISOString(),
+      id: last.id,
+    });
+  }
+
+  return { logs, next_cursor };
+}
+}
 export const logService = new LogService();
