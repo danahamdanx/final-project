@@ -1,6 +1,7 @@
 import { FastifyInstance } from "fastify";
 
 import { validateTopLevel, validateBatch } from "../utils/validation.js";
+import { parseLogsQuery } from "../utils/query-params.js";
 import { logService } from "../services/log.service.js";
 
 export async function logsRoute(app: FastifyInstance) {
@@ -16,17 +17,23 @@ export async function logsRoute(app: FastifyInstance) {
     const { accepted, rejected } = validateBatch(topLevel.data.logs);
 
     if (accepted.length === 0) {
-      return reply.status(400).send({
-        accepted: 0,
-        rejected,
-      });
+      return reply.status(400).send({ accepted: 0, rejected });
     }
 
     await logService.ingest(accepted);
 
-    return reply.status(200).send({
-      accepted: accepted.length,
-      rejected,
-    });
+    return reply.status(200).send({ accepted: accepted.length, rejected });
+  });
+
+  app.get("/logs", async (request, reply) => {
+    const parsed = parseLogsQuery(request.query as Record<string, unknown>);
+
+    if (!parsed.success) {
+      return reply.status(400).send({ error: parsed.error });
+    }
+
+    const result = await logService.query(parsed.data);
+
+    return reply.status(200).send(result);
   });
 }
