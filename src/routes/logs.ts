@@ -3,6 +3,8 @@ import { FastifyInstance } from "fastify";
 import { validateTopLevel, validateBatch } from "../utils/validation.js";
 import { parseLogsQuery } from "../utils/query-params.js";
 import { logService } from "../services/log.service.js";
+import { parseAggregateQuery } from "../utils/aggregate-params.js";
+
 
 export async function logsRoute(app: FastifyInstance) {
   app.post("/logs", async (request, reply) => {
@@ -36,4 +38,16 @@ export async function logsRoute(app: FastifyInstance) {
 
     return reply.status(200).send(result);
   });
+
+  app.get("/logs/aggregate", async (request, reply) => {
+  const parsed = parseAggregateQuery(request.query as Record<string, unknown>);
+
+  if (!parsed.success) {
+    return reply.status(400).send({ error: parsed.error });
+  }
+
+  const result = await logService.aggregate(parsed.data);
+
+  return reply.status(200).send(result);
+});
 }
