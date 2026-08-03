@@ -26,7 +26,7 @@ export interface AggregateBucket {
 
 export interface AggregateResult {
   buckets: AggregateBucket[];
-}  
+}
 
 function formatRow(row: LogRow): LogApiShape {
   return {
@@ -45,45 +45,39 @@ export class LogService {
   }
 
   async query(params: ParsedLogsQuery): Promise<LogsQueryResult> {
-  const rows = await logRepository.findMany(params);
-  const hasMore = rows.length > params.limit;
-  const pageRows = hasMore ? rows.slice(0, params.limit) : rows;
+    const rows = await logRepository.findMany(params);
+    const hasMore = rows.length > params.limit;
+    const pageRows = hasMore ? rows.slice(0, params.limit) : rows;
 
-  const logs = pageRows.map(formatRow);
+    const logs = pageRows.map(formatRow);
 
-  let next_cursor: string | null = null;
+    let next_cursor: string | null = null;
 
-  if (hasMore) {
-    const last = pageRows[pageRows.length - 1];
-    if (!last) {
-      throw new Error("expected at least one row when hasMore is true");
+    if (hasMore) {
+      const last = pageRows[pageRows.length - 1];
+      if (!last) {
+        throw new Error("expected at least one row when hasMore is true");
+      }
+      next_cursor = encodeCursor({
+        timestamp: last.timestamp.toISOString(),
+        id: last.id,
+      });
     }
-    next_cursor = encodeCursor({
-      timestamp: last.timestamp.toISOString(),
-      id: last.id,
-    });
+
+    return { logs, next_cursor };
   }
 
-  return { logs, next_cursor };
+  async aggregate(params: ParsedAggregateQuery): Promise<AggregateResult> {
+    const rows = await logRepository.aggregate(params);
+
+    const buckets = rows.map((row) => ({
+      start: row.bucket_start.toISOString(),
+      group: row.group_value,
+      count: Number(row.count),
+    }));
+
+    return { buckets };
+  }
 }
-
-async aggregate(params: ParsedAggregateQuery): Promise<AggregateResult> {
-  const rows = await logRepository.aggregate(params);
-
-  const buckets = rows.map((row) => ({
-    start: row.bucket_start.toISOString(),
-    group: row.group_value,
-    count: Number(row.count),
-  }));
-
-  return { buckets };
-}
-}
-
-
-
-
-
-
 
 export const logService = new LogService();
