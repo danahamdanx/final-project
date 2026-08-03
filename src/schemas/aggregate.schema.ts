@@ -9,8 +9,8 @@ export const aggregateQuerySchema = z
     service: z.string().trim().min(1).optional(),
     level: logLevelSchema.optional(),
     q: z.string().trim().min(1).optional(),
-    since: z.iso.datetime(),
-    until: z.iso.datetime(),
+    since: z.iso.datetime({ message: "since is required and must be a valid ISO 8601 timestamp" }),
+    until: z.iso.datetime({ message: "until is required and must be a valid ISO 8601 timestamp" }),
     bucket: bucketSchema,
     group_by: groupBySchema.optional(),
   })
