@@ -53,10 +53,10 @@ export function buildLogQuery(params: ParsedLogsQuery): BuiltQuery {
   }
 
   for (const [key, value] of Object.entries(params.attributes)) {
-  values.push(key);
-  values.push(value);
-  conditions.push(`attributes ->> $${values.length - 1} = $${values.length}`);
-}
+    values.push(key);
+    values.push(value);
+    conditions.push(`attributes ->> $${values.length - 1} = $${values.length}`);
+  }
 
   if (params.parsedCursor) {
     values.push(params.parsedCursor.timestamp);
@@ -79,60 +79,6 @@ export function buildLogQuery(params: ParsedLogsQuery): BuiltQuery {
   `;
 
   return { sql, values };
-}
-
-export class LogRepository {
- async insertMany(logs: LogInput[]): Promise<void> {
-    if (logs.length === 0) {
-      return;
-    }
-
-    const values: unknown[] = [];
-    const placeholders: string[] = [];
-
-    logs.forEach((log, index) => {
-      const offset = index * 5;
-
-      placeholders.push(
-        `($${offset + 1}, $${offset + 2}, $${offset + 3}, $${offset + 4}, $${offset + 5})`
-      );
-
-      values.push(
-        log.timestamp,
-        log.level,
-        log.service,
-        log.message,
-        JSON.stringify(log.attributes)
-      );
-    });
-
-    await pool.query(
-      `
-      INSERT INTO logs (
-        timestamp,
-        level,
-        service,
-        message,
-        attributes
-      )
-      VALUES
-      ${placeholders.join(",")}
-      `,
-      values
-    );
-  }
-
-  async findMany(params: ParsedLogsQuery): Promise<LogRow[]> {
-    const { sql, values } = buildLogQuery(params);
-    const result = await pool.query(sql, values);
-    return result.rows;
-  }
-
-  async aggregate(params: ParsedAggregateQuery): Promise<AggregateRow[]> {
-  const { sql, values } = buildAggregateQuery(params);
-  const result = await pool.query(sql, values);
-  return result.rows;
-}
 }
 
 function bucketExpression(bucket: string): string {
@@ -202,4 +148,59 @@ export function buildAggregateQuery(params: ParsedAggregateQuery): BuiltQuery {
 
   return { sql, values };
 }
+
+export class LogRepository {
+  async insertMany(logs: LogInput[]): Promise<void> {
+    if (logs.length === 0) {
+      return;
+    }
+
+    const values: unknown[] = [];
+    const placeholders: string[] = [];
+
+    logs.forEach((log, index) => {
+      const offset = index * 5;
+
+      placeholders.push(
+        `($${offset + 1}, $${offset + 2}, $${offset + 3}, $${offset + 4}, $${offset + 5})`
+      );
+
+      values.push(
+        log.timestamp,
+        log.level,
+        log.service,
+        log.message,
+        JSON.stringify(log.attributes)
+      );
+    });
+
+    await pool.query(
+      `
+      INSERT INTO logs (
+        timestamp,
+        level,
+        service,
+        message,
+        attributes
+      )
+      VALUES
+      ${placeholders.join(",")}
+      `,
+      values
+    );
+  }
+
+  async findMany(params: ParsedLogsQuery): Promise<LogRow[]> {
+    const { sql, values } = buildLogQuery(params);
+    const result = await pool.query(sql, values);
+    return result.rows;
+  }
+
+  async aggregate(params: ParsedAggregateQuery): Promise<AggregateRow[]> {
+    const { sql, values } = buildAggregateQuery(params);
+    const result = await pool.query(sql, values);
+    return result.rows;
+  }
+}
+
 export const logRepository = new LogRepository();
