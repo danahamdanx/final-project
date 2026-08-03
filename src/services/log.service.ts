@@ -2,6 +2,7 @@ import { LogInput } from "../schemas/log.schema.js";
 import { logRepository, LogRow } from "../repositories/log.repository.js";
 import { ParsedLogsQuery } from "../utils/query-params.js";
 import { encodeCursor } from "../utils/cursor.js";
+import { ParsedAggregateQuery } from "../utils/aggregate-params.js";
 
 export interface LogApiShape {
   id: string;
@@ -16,6 +17,16 @@ export interface LogsQueryResult {
   logs: LogApiShape[];
   next_cursor: string | null;
 }
+
+export interface AggregateBucket {
+  start: string;
+  group: string | null;
+  count: number;
+}
+
+export interface AggregateResult {
+  buckets: AggregateBucket[];
+}  
 
 function formatRow(row: LogRow): LogApiShape {
   return {
@@ -55,5 +66,24 @@ export class LogService {
 
   return { logs, next_cursor };
 }
+
+async aggregate(params: ParsedAggregateQuery): Promise<AggregateResult> {
+  const rows = await logRepository.aggregate(params);
+
+  const buckets = rows.map((row) => ({
+    start: row.bucket_start.toISOString(),
+    group: row.group_value,
+    count: Number(row.count),
+  }));
+
+  return { buckets };
 }
+}
+
+
+
+
+
+
+
 export const logService = new LogService();
