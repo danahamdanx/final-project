@@ -167,6 +167,47 @@ describe("GET /logs/aggregate — time range boundaries", () => {
     const totalCount = body.buckets.reduce((sum: number, b: any) => sum + b.count, 0);
     expect(totalCount).toBe(2);
   });
+
+  it("returns an empty buckets array (not an error) when since equals until", async () => {
+    const response = await app.inject({
+      method: "GET",
+      url: "/logs/aggregate?since=2026-08-02T12:00:00Z&until=2026-08-02T12:00:00Z&bucket=1h",
+    });
+    const body = response.json();
+
+    expect(response.statusCode).toBe(200);
+    expect(body.buckets).toEqual([]);
+  });
+});
+
+describe("GET /logs/aggregate — omits empty buckets", () => {
+  beforeEach(async () => {
+    await clearLogs();
+    await app.inject({
+      method: "POST",
+      url: "/logs",
+      payload: {
+        logs: [
+          { timestamp: "2026-08-02T12:02:00Z", level: "info", service: "a", message: "x" },
+          { timestamp: "2026-08-02T12:15:00Z", level: "info", service: "a", message: "y" },
+        ],
+      },
+    });
+  });
+
+  it("does not return buckets for time windows with no data", async () => {
+    const response = await app.inject({
+      method: "GET",
+      url: "/logs/aggregate?since=2026-08-02T12:00:00Z&until=2026-08-02T12:20:00Z&bucket=5m",
+    });
+    const body = response.json();
+
+    expect(response.statusCode).toBe(200);
+    expect(body.buckets).toEqual([
+      { start: "2026-08-02T12:00:00.000Z", group: null, count: 1 },
+      { start: "2026-08-02T12:15:00.000Z", group: null, count: 1 },
+    ]);
+  });
 });
 
 describe("GET /logs/aggregate — multiple groups within the same bucket", () => {
@@ -339,6 +380,35 @@ describe("GET /logs/aggregate — filters", () => {
 
     expect(response.statusCode).toBe(200);
     expect(body.buckets).toEqual([]);
+  });
+});
+
+describe("GET /logs/aggregate — multiple attribute filters", () => {
+  beforeEach(async () => {
+    await clearLogs();
+    await app.inject({
+      method: "POST",
+      url: "/logs",
+      payload: {
+        logs: [
+          { timestamp: "2026-08-02T12:01:00Z", level: "info", service: "a", message: "x", attributes: { user_id: "123", region: "eu" } },
+          { timestamp: "2026-08-02T12:02:00Z", level: "info", service: "a", message: "y", attributes: { user_id: "123", region: "us" } },
+          { timestamp: "2026-08-02T12:03:00Z", level: "info", service: "a", message: "z", attributes: { user_id: "456", region: "eu" } },
+        ],
+      },
+    });
+  });
+
+  it("combines multiple attr.<key> filters with AND", async () => {
+    const response = await app.inject({
+      method: "GET",
+      url: "/logs/aggregate?since=2026-08-02T12:00:00Z&until=2026-08-02T12:05:00Z&bucket=5m&attr.user_id=123&attr.region=eu",
+    });
+    const body = response.json();
+
+    expect(response.statusCode).toBe(200);
+    const totalCount = body.buckets.reduce((sum: number, b: any) => sum + b.count, 0);
+    expect(totalCount).toBe(1);
   });
 });
 

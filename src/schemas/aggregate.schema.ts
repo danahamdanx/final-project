@@ -14,8 +14,8 @@ export const aggregateQuerySchema = z
     bucket: bucketSchema,
     group_by: groupBySchema.optional(),
   })
-  .refine((data) => new Date(data.until) > new Date(data.since), {
-    message: "until must be later than since",
+  .refine((data) => new Date(data.until) >= new Date(data.since), {
+    message: "until must not be earlier than since",
   });
 
 export type AggregateQueryInput = z.infer<typeof aggregateQuerySchema>;
