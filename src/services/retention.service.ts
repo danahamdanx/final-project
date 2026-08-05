@@ -4,15 +4,11 @@ function getRetentionDays(): number {
   const raw = process.env.RETENTION_DAYS ?? "30";
   const parsed = Number(raw);
 
-  if (!Number.isFinite(parsed) || parsed <= 0) {
+  if (!Number.isInteger(parsed) || parsed <= 0) {
     throw new Error(`invalid RETENTION_DAYS value: '${raw}'`);
   }
 
   return parsed;
-}
-
-function formatDate(date: Date): string {
-  return date.toISOString().slice(0, 10);
 }
 
 interface PartitionInfo {
@@ -50,8 +46,8 @@ export interface RetentionResult {
   droppedPartitions: string[];
 }
 
-export async function runRetention(): Promise<RetentionResult> {
-  const retentionDays = getRetentionDays();
+export async function runRetention(retentionDaysOverride?: number): Promise<RetentionResult> {
+  const retentionDays = retentionDaysOverride ?? getRetentionDays();
 
   const cutoff = new Date();
   cutoff.setUTCHours(0, 0, 0, 0);
@@ -62,7 +58,6 @@ export async function runRetention(): Promise<RetentionResult> {
 
   for (const partition of partitions) {
     if (partition.partitionStart < cutoff) {
-      // DROP TABLE عملية شبه فورية — مافيش long-running lock ولا table bloat
       await pool.query(`DROP TABLE IF EXISTS ${partition.partitionName}`);
       droppedPartitions.push(partition.partitionName);
     }
