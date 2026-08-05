@@ -13,6 +13,7 @@ services:
       DATABASE_NAME: logs
       DATABASE_USER: postgres
       DATABASE_PASSWORD: postgres
+      RETENTION_DAYS: ${RETENTION_DAYS:-30}
     depends_on:
       postgres:
         condition: service_healthy
