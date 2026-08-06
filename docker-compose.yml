@@ -9,7 +9,7 @@ services:
       NODE_ENV: production
       PORT: 8080
       DATABASE_HOST: postgres
-      DATABASE_PORT: 5433:5432
+      DATABASE_PORT: 5432
       DATABASE_NAME: logs
       DATABASE_USER: postgres
       DATABASE_PASSWORD: postgres
@@ -17,11 +17,8 @@ services:
     depends_on:
       postgres:
         condition: service_healthy
-    deploy:
-      resources:
-        limits:
-          cpus: "0.5"
-          memory: 256M
+    cpus: 0.5
+    mem_limit: 256m
 
   postgres:
     image: postgres:16-alpine
@@ -38,11 +35,8 @@ services:
       interval: 5s
       timeout: 5s
       retries: 10
-    deploy:
-      resources:
-        limits:
-          cpus: "1.0"
-          memory: 1G
+    cpus: 1.0
+    mem_limit: 1g
 
 volumes:
   postgres_data:
