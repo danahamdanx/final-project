@@ -15,7 +15,7 @@ export const options = {
       rate: 1,
       timeUnit: "1s",
       duration: "30s",
-      preAllocatedVUs: 10,
+      preAllocatedVUs: 20,
       exec: "aggregate",
     },
   },
