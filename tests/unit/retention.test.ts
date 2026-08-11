@@ -1,8 +1,13 @@
 import { describe, expect, it, vi, beforeEach, afterAll } from "vitest";
 
-vi.mock("../../src/db/client.js", () => ({
-  default: { query: vi.fn().mockResolvedValue({ rows: [] }) },
-}));
+vi.mock("../../src/db/client.js", () => {
+  const mockQuery = vi.fn().mockResolvedValue({ rows: [] });
+  return {
+    readPool: { query: mockQuery },
+    writePool: { query: mockQuery },
+    default: { query: mockQuery },
+  };
+});
 
 import { runRetention } from "../../src/services/retention.service.js";
 
