@@ -1,4 +1,5 @@
-import pool from "../db/client.js";
+
+import { readPool, writePool } from "../db/client.js";
 
 export interface HealthStatus {
   status: "ok";
@@ -8,7 +9,7 @@ export interface HealthStatus {
 }
 
 export async function checkHealth(): Promise<HealthStatus> {
-  await pool.query("SELECT 1");
+  await readPool.query("SELECT 1");
 
   return {
     status: "ok",

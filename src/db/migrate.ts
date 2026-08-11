@@ -1,9 +1,9 @@
 import { readdir, readFile } from "node:fs/promises";
 import path from "node:path";
-import pool from "./client.js";
+import { readPool, writePool } from "../db/client.js";
 
 export async function runMigrations(): Promise<void> {
-  await pool.query(`
+  await readPool.query(`
     CREATE TABLE IF NOT EXISTS schema_migrations (
       version TEXT PRIMARY KEY,
       executed_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
@@ -17,7 +17,7 @@ export async function runMigrations(): Promise<void> {
     .sort();
 
   for (const file of files) {
-    const exists = await pool.query(
+    const exists = await readPool.query(
       "SELECT 1 FROM schema_migrations WHERE version = $1",
       [file]
     );
@@ -28,7 +28,7 @@ export async function runMigrations(): Promise<void> {
 
     const sql = await readFile(path.join(migrationsDir, file), "utf8");
 
-    const client = await pool.connect();
+    const client = await readPool.connect();
 
     try {
       await client.query("BEGIN");

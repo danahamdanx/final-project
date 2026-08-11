@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { buildAggregateQuery } from "../../src/repositories/log.repository.js";
-import { ParsedAggregateQuery } from "../../src/utils/aggregate-params.js";
+import type { ParsedAggregateQuery } from "../../src/utils/aggregate-params.js";
 
 function baseParams(overrides: Partial<ParsedAggregateQuery> = {}): ParsedAggregateQuery {
   return {

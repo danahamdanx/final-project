@@ -5,7 +5,7 @@ import { registerErrorHandler } from "./plugins/error-handler.js";
 
 export function buildApp() {
   const app = Fastify({
-    logger: true,
+    logger: false,
   });
 
   app.register(healthRoute);

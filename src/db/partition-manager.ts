@@ -1,4 +1,4 @@
-import pool from "./client.js";
+import { readPool, writePool } from "../db/client.js";
 
 const PARTITION_LOOKAHEAD_DAYS = 7;
 
@@ -11,7 +11,7 @@ function partitionName(date: Date): string {
 }
 
 async function partitionExists(name: string): Promise<boolean> {
-  const result = await pool.query(
+  const result = await readPool.query(
     `SELECT 1 FROM pg_class WHERE relname = $1`,
     [name]
   );
@@ -30,9 +30,17 @@ async function createDailyPartition(date: Date): Promise<void> {
   nextDay.setUTCDate(nextDay.getUTCDate() + 1);
   const end = formatDate(nextDay);
 
-  await pool.query(`
+  await readPool.query(`
     CREATE TABLE IF NOT EXISTS ${name} PARTITION OF logs
     FOR VALUES FROM ('${start}') TO ('${end}')
+  `);
+
+  await readPool.query(`
+    ALTER TABLE ${name} SET (
+      autovacuum_vacuum_cost_delay = 0,
+      autovacuum_vacuum_scale_factor = 0.2,
+      autovacuum_vacuum_threshold = 5000
+    )
   `);
 }
 

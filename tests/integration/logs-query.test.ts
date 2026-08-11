@@ -9,6 +9,8 @@ import {
 
 import { buildApp } from "../../src/app.js";
 import { clearLogs } from "../helpers/database.js";
+import { flushIngestion } from "../helpers/flush.js";
+
 
 const app = buildApp();
 
@@ -54,6 +56,8 @@ async function seedLogs() {
       ],
     },
   });
+  await flushIngestion();
+
 }
 
 describe("GET /logs — filtering", () => {
@@ -119,6 +123,7 @@ describe("GET /logs — filtering", () => {
         ],
       },
     });
+    await flushIngestion();
 
     const response = await app.inject({ method: "GET", url: "/logs?attr.cached=true" });
     const body = response.json();
@@ -218,6 +223,7 @@ describe("GET /logs — sorting", () => {
         ],
       },
     });
+    await flushIngestion();
 
     const first = await app.inject({ method: "GET", url: "/logs" });
     const second = await app.inject({ method: "GET", url: "/logs" });
@@ -288,6 +294,7 @@ describe("GET /logs — cursor pagination", () => {
         ],
       },
     });
+    await flushIngestion()
 
     const page1 = await app.inject({ method: "GET", url: "/logs?limit=1" });
     const body1 = page1.json();

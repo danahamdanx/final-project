@@ -3,6 +3,8 @@ import { logRepository, LogRow } from "../repositories/log.repository.js";
 import { ParsedLogsQuery } from "../utils/query-params.js";
 import { encodeCursor } from "../utils/cursor.js";
 import { ParsedAggregateQuery } from "../utils/aggregate-params.js";
+import { ingestionBuffer } from "./ingestion-buffer.service.js";
+
 
 export interface LogApiShape {
   id: string;
@@ -41,7 +43,8 @@ function formatRow(row: LogRow): LogApiShape {
 
 export class LogService {
   async ingest(logs: LogInput[]): Promise<void> {
-    await logRepository.insertMany(logs);
+        ingestionBuffer.add(logs);
+
   }
 
   async query(params: ParsedLogsQuery): Promise<LogsQueryResult> {

@@ -5,7 +5,6 @@ import { parseLogsQuery } from "../utils/query-params.js";
 import { logService } from "../services/log.service.js";
 import { parseAggregateQuery } from "../utils/aggregate-params.js";
 
-
 export async function logsRoute(app: FastifyInstance) {
   app.post("/logs", async (request, reply) => {
     const topLevel = validateTopLevel(request.body);
@@ -39,15 +38,23 @@ export async function logsRoute(app: FastifyInstance) {
     return reply.status(200).send(result);
   });
 
-  app.get("/logs/aggregate", async (request, reply) => {
-  const parsed = parseAggregateQuery(request.query as Record<string, unknown>);
+ app.get("/logs/aggregate", async (request, reply) => {
+   const receivedAt = Date.now();
 
-  if (!parsed.success) {
-    return reply.status(400).send({ error: parsed.error });
-  }
+   const parsed = parseAggregateQuery(request.query as Record<string, unknown>);
 
-  const result = await logService.aggregate(parsed.data);
+   if (!parsed.success) {
+     return reply.status(400).send({ error: parsed.error });
+   }
 
-  return reply.status(200).send(result);
-});
+   const beforeQuery = Date.now();
+   const result = await logService.aggregate(parsed.data);
+   const afterQuery = Date.now();
+
+   console.log(
+     `aggregate timing: queueWait=${beforeQuery - receivedAt}ms dbQuery=${afterQuery - beforeQuery}ms total=${afterQuery - receivedAt}ms rows=${result.buckets.length}`
+   );
+
+   return reply.status(200).send(result);
+ });
 }

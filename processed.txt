@@ -1,0 +1,2058 @@
+Statistical profiling result from isolate-0x43f1a000-74129-v8.log, (7426 ticks, 164 unaccounted, 0 excluded).
+
+ [Shared libraries]:
+   ticks  total  nonlib   name
+   2667   35.9%          /home/dana/.nvm/versions/node/v24.18.0/bin/node
+    235    3.2%          /usr/lib/x86_64-linux-gnu/libc.so.6
+     21    0.3%          [vdso]
+      7    0.1%          /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.33
+      1    0.0%          /usr/lib/x86_64-linux-gnu/libm.so.6
+
+ [JavaScript]:
+   ticks  total  nonlib   name
+    153    2.1%    3.4%  Builtin: LoadIC
+    145    2.0%    3.2%  JS: *runChecks /home/dana/final-project/node_modules/zod/v4/core/schemas.cjs:63:27
+    137    1.8%    3.0%  Builtin: LoadIC_Megamorphic
+    109    1.5%    2.4%  Builtin: KeyedStoreIC
+    106    1.4%    2.4%  JS: *inst._zod.parse /home/dana/final-project/node_modules/zod/v4/core/schemas.cjs:1455:23
+     85    1.1%    1.9%  JS: *<anonymous> /home/dana/final-project/dist/repositories/log.repository.js:117:22
+     78    1.1%    1.7%  JS: *<anonymous> :1:20
+     73    1.0%    1.6%  JS: *writeValues /home/dana/final-project/node_modules/pg-protocol/dist/serializer.js:63:30
+     67    0.9%    1.5%  Builtin: StringAdd_CheckNone
+     59    0.8%    1.3%  Builtin: BaselineOutOfLinePrologue
+     55    0.7%    1.2%  Builtin: CallFunction_ReceiverIsAny
+     50    0.7%    1.1%  JS: *write node:buffer:1185:40
+     49    0.7%    1.1%  Builtin: CallFunction_ReceiverIsNotNullOrUndefined
+     47    0.6%    1.0%  Builtin: LoadGlobalIC
+     46    0.6%    1.0%  Builtin: KeyedStoreIC_Megamorphic
+     44    0.6%    1.0%  RegExp: ^(?:(?:\d\d[2468][048]|\d\d[13579][26]|\d\d0[48]|[02468][048]00|[13579][26]00)-02-29|\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\d|30)|(?:02)-(?:0[1-9]|1\d|2[0-8])))T(?:(?:[01]\d|2[0-3]):[0-5]\d(?::[0-5]\d(?:\.\d+)?)?(?:Z))$
+     43    0.6%    1.0%  Builtin: KeyedLoadIC_Megamorphic
+     35    0.5%    0.8%  Builtin: Call_ReceiverIsNotNullOrUndefined
+     31    0.4%    0.7%  Builtin: ArrayPrototypePush
+     30    0.4%    0.7%  Builtin: Call_ReceiverIsAny
+     27    0.4%    0.6%  Builtin: RecordWriteIgnoreFP
+     27    0.4%    0.6%  Builtin: KeyedLoadIC_PolymorphicName
+     26    0.4%    0.6%  Builtin: RecordWriteSaveFP
+     26    0.4%    0.6%  Builtin: CallFunction_ReceiverIsNullOrUndefined
+     24    0.3%    0.5%  JS: *<anonymous> /home/dana/final-project/dist/utils/validation.js:12:18
+     23    0.3%    0.5%  Builtin: Call_ReceiverIsNullOrUndefined
+     22    0.3%    0.5%  Builtin: KeyedLoadIC
+     22    0.3%    0.5%  Builtin: ArrayPrototypeShift
+     20    0.3%    0.4%  Builtin: StoreIC
+     20    0.3%    0.4%  Builtin: LoadICTrampoline_Megamorphic
+     19    0.3%    0.4%  RegExp: "(?:c|\\u0063)(?:o|\\u006[Ff])(?:n|\\u006[Ee])(?:s|\\u0073)(?:t|\\u0074)(?:r|\\u0072)(?:u|\\u0075)(?:c|\\u0063)(?:t|\\u0074)(?:o|\\u006[Ff])(?:r|\\u0072)"\s*:
+     19    0.3%    0.4%  Builtin: ObjectPrototypeHasOwnProperty
+     18    0.2%    0.4%  Builtin: CreateShallowObjectLiteral
+     16    0.2%    0.4%  Builtin: CreateTypedArray
+     15    0.2%    0.3%  RegExp: "(?:_|\\u005[Ff])(?:_|\\u005[Ff])(?:p|\\u0070)(?:r|\\u0072)(?:o|\\u006[Ff])(?:t|\\u0074)(?:o|\\u006[Ff])(?:_|\\u005[Ff])(?:_|\\u005[Ff])"\s*:
+     15    0.2%    0.3%  Builtin: GrowFastSmiOrObjectElements
+     14    0.2%    0.3%  Builtin: ArrayPrototypeJoin
+     13    0.2%    0.3%  Builtin: RegExpPrototypeTestFast
+     12    0.2%    0.3%  Builtin: StoreIC_Megamorphic
+     12    0.2%    0.3%  Builtin: LoadICTrampoline
+     11    0.1%    0.2%  JS: *inst._zod.run /home/dana/final-project/node_modules/zod/v4/core/schemas.cjs:122:25
+     11    0.1%    0.2%  JS: *inst._zod.check /home/dana/final-project/node_modules/zod/v4/core/schemas.cjs:2246:23
+     11    0.1%    0.2%  JS: *inst._zod.check /home/dana/final-project/node_modules/zod/v4/core/checks.cjs:598:23
+     11    0.1%    0.2%  Builtin: RegExpPrototypeTest
+     10    0.1%    0.2%  JS: +writevGeneric node:internal/stream_base_commons:121:23
+     10    0.1%    0.2%  JS: *when._a.when /home/dana/final-project/node_modules/zod/v4/core/checks.cjs:346:45
+     10    0.1%    0.2%  JS: *<anonymous> /home/dana/final-project/node_modules/zod/v4/core/parse.cjs:59:30
+     10    0.1%    0.2%  Builtin: ToString
+     10    0.1%    0.2%  Builtin: LoadIC_NoFeedback
+     10    0.1%    0.2%  Builtin: FastNewClosure
+     10    0.1%    0.2%  Builtin: CEntry_Return1_ArgvOnStack_BuiltinExit
+      9    0.1%    0.2%  JS: +inst._zod.parse /home/dana/final-project/node_modules/zod/v4/core/schemas.cjs:1455:23
+      9    0.1%    0.2%  JS: *when._a.when /home/dana/final-project/node_modules/zod/v4/core/checks.cjs:375:45
+      9    0.1%    0.2%  JS: *get node:internal/bootstrap/node:474:8
+      9    0.1%    0.2%  Builtin: StrictEqual_Baseline
+      9    0.1%    0.2%  Builtin: FindOrderedHashSetEntry
+      9    0.1%    0.2%  Builtin: BaselineLeaveFrame
+      9    0.1%    0.2%  Builtin: AsyncFunctionEnter
+      8    0.1%    0.2%  JS: *emit node:events:456:44
+      7    0.1%    0.2%  JS: +resOnFinish node:_http_server:1072:21
+      6    0.1%    0.1%  JS: +nextTick node:internal/process/task_queues:113:18
+      6    0.1%    0.1%  Builtin: ToBooleanForBaselineJump
+      6    0.1%    0.1%  Builtin: ResolvePromise
+      6    0.1%    0.1%  Builtin: GetProperty
+      6    0.1%    0.1%  Builtin: Construct
+      5    0.1%    0.1%  RegExp: ^-?\d+(?:\.\d+)?$
+      5    0.1%    0.1%  JS: +validateBatch /home/dana/final-project/dist/utils/validation.js:9:23
+      5    0.1%    0.1%  JS: +pushAsyncContext node:internal/async_hooks:547:26
+      5    0.1%    0.1%  JS: +parserOnHeadersComplete node:_http_common:77:33
+      5    0.1%    0.1%  JS: +emit node:events:456:44
+      5    0.1%    0.1%  JS: +<anonymous> :1:20
+      5    0.1%    0.1%  JS: +<anonymous> /home/dana/final-project/node_modules/pg/lib/connection.js:131:19
+      5    0.1%    0.1%  JS: *inst._zod.parse /home/dana/final-project/node_modules/zod/v4/core/schemas.cjs:167:23
+      5    0.1%    0.1%  JS: *inst._zod.check /home/dana/final-project/node_modules/zod/v4/core/checks.cjs:384:23
+      5    0.1%    0.1%  Builtin: TypedArrayPrototypeSet
+      5    0.1%    0.1%  Builtin: TypedArrayPrototypeLength
+      5    0.1%    0.1%  Builtin: StringSubstring
+      5    0.1%    0.1%  Builtin: StringPrototypeTrim
+      5    0.1%    0.1%  Builtin: StoreFastElementIC_InBounds
+      5    0.1%    0.1%  Builtin: JSBuiltinsConstructStub
+      5    0.1%    0.1%  Builtin: DefineNamedOwnIC
+      5    0.1%    0.1%  Builtin: Call_ReceiverIsNullOrUndefined_Baseline_Compact
+      5    0.1%    0.1%  Builtin: CallWithArrayLike
+      5    0.1%    0.1%  Builtin: ArrayPrototypeSlice
+      4    0.1%    0.1%  JS: +writeOrBuffer node:internal/streams/writable:546:23
+      4    0.1%    0.1%  JS: +popAsyncContext node:internal/async_hooks:561:25
+      4    0.1%    0.1%  JS: +get hasSubscribers node:diagnostics_channel:306:21
+      4    0.1%    0.1%  JS: +allocUnsafe node:buffer:452:42
+      4    0.1%    0.1%  JS: +_addListener node:events:540:22
+      4    0.1%    0.1%  JS: +<anonymous> /home/dana/final-project/node_modules/zod/v4/core/parse.cjs:59:30
+      4    0.1%    0.1%  JS: +<anonymous> /home/dana/final-project/node_modules/pg-pool/index.js:467:36
+      4    0.1%    0.1%  JS: +<anonymous> /home/dana/final-project/dist/utils/validation.js:12:18
+      4    0.1%    0.1%  JS: +<anonymous> /home/dana/final-project/dist/repositories/log.repository.js:117:22
+      4    0.1%    0.1%  Builtin: StrictEqual_WithFeedback
+      4    0.1%    0.1%  Builtin: InterpreterEntryTrampoline
+      4    0.1%    0.1%  Builtin: FastNewRestArguments
+      4    0.1%    0.1%  Builtin: FastNewObject
+      4    0.1%    0.1%  Builtin: Construct_WithFeedback
+      4    0.1%    0.1%  Builtin: ConstructFunction
+      4    0.1%    0.1%  Builtin: AsyncFunctionAwait
+      4    0.1%    0.1%  Builtin: Add_WithFeedback
+      4    0.1%    0.1%  Builtin: Add_Baseline
+      3    0.0%    0.1%  JS: ^preRouting /home/dana/final-project/node_modules/fastify/fastify.js:802:32
+      3    0.0%    0.1%  JS: ^insertGuarded node:internal/timers:361:23
+      3    0.0%    0.1%  JS: +unenroll node:timers:71:18
+      3    0.0%    0.1%  JS: +removeListener node:events:678:28
+      3    0.0%    0.1%  JS: +inst._zod.parse /home/dana/final-project/node_modules/zod/v4/core/schemas.cjs:713:23
+      3    0.0%    0.1%  JS: +get node:internal/streams/readable:1446:8
+      3    0.0%    0.1%  JS: +find /home/dana/final-project/node_modules/find-my-way/index.js:567:39
+      3    0.0%    0.1%  JS: +connect /home/dana/final-project/node_modules/pg-pool/index.js:190:10
+      3    0.0%    0.1%  JS: +_release /home/dana/final-project/node_modules/pg-pool/index.js:384:11
+      3    0.0%    0.1%  JS: +_asJson /home/dana/final-project/node_modules/pino/lib/tools.js:144:18
+      3    0.0%    0.1%  JS: +Reply.code /home/dana/final-project/node_modules/fastify/lib/reply.js:334:33
+      3    0.0%    0.1%  JS: +LOG /home/dana/final-project/node_modules/pino/lib/tools.js:47:16
+      3    0.0%    0.1%  JS: +<anonymous> node:internal/validators:546:51
+      3    0.0%    0.1%  JS: *inst._zod.parse /home/dana/final-project/node_modules/zod/v4/core/schemas.cjs:713:23
+      3    0.0%    0.1%  JS: *inst._zod.check /home/dana/final-project/node_modules/zod/v4/core/checks.cjs:355:23
+      3    0.0%    0.1%  Builtin: StringToLowerCaseIntl
+      3    0.0%    0.1%  Builtin: StringPrototypeCharCodeAt
+      3    0.0%    0.1%  Builtin: StringAddConvertRight
+      3    0.0%    0.1%  Builtin: NumberToString
+      3    0.0%    0.1%  Builtin: LoadICBaseline
+      3    0.0%    0.1%  Builtin: LoadGlobalICTrampoline
+      3    0.0%    0.1%  Builtin: ForInEnumerate
+      3    0.0%    0.1%  Builtin: FindOrderedHashMapEntry
+      3    0.0%    0.1%  Builtin: FastFunctionPrototypeBind
+      3    0.0%    0.1%  Builtin: DateConstructor
+      3    0.0%    0.1%  Builtin: Call_ReceiverIsNotNullOrUndefined_Baseline_Compact
+      3    0.0%    0.1%  Builtin: CallBoundFunction
+      2    0.0%    0.0%  RegExp: ^[\^_`a-zA-Z\-0-9!#$%&'*+.|~]+$
+      2    0.0%    0.0%  JS: ~runChecks /home/dana/final-project/node_modules/zod/v4/core/schemas.cjs:63:27
+      2    0.0%    0.0%  JS: ~insertMany /home/dana/final-project/dist/repositories/log.repository.js:111:21
+      2    0.0%    0.0%  JS: ~getSchemaSerializer /home/dana/final-project/node_modules/fastify/lib/schemas.js:145:30
+      2    0.0%    0.0%  JS: ^StringDecoder node:string_decoder:60:23
+      2    0.0%    0.0%  JS: ^SonicBoom.release /home/dana/final-project/node_modules/sonic-boom/index.js:175:18
+      2    0.0%    0.0%  JS: ^Reply.send /home/dana/final-project/node_modules/fastify/lib/reply.js:150:33
+      2    0.0%    0.0%  JS: ^<anonymous> node:internal/modules/cjs/loader:1267:24
+      2    0.0%    0.0%  JS: +write node:buffer:1185:40
+      2    0.0%    0.0%  JS: +write /home/dana/final-project/node_modules/sonic-boom/index.js:306:16
+      2    0.0%    0.0%  JS: +wrappedFn node:internal/errors:537:21
+      2    0.0%    0.0%  JS: +subarray node:buffer:1254:46
+      2    0.0%    0.0%  JS: +setLevel /home/dana/final-project/node_modules/pino/lib/levels.js:77:19
+      2    0.0%    0.0%  JS: +set node:internal/streams/readable:218:8
+      2    0.0%    0.0%  JS: +set node:internal/streams/readable:135:8
+      2    0.0%    0.0%  JS: +runChecks /home/dana/final-project/node_modules/zod/v4/core/schemas.cjs:63:27
+      2    0.0%    0.0%  JS: +routeHandler /home/dana/final-project/node_modules/fastify/lib/route.js:457:25
+      2    0.0%    0.0%  JS: +query /home/dana/final-project/node_modules/pg-pool/index.js:431:8
+      2    0.0%    0.0%  JS: +parserOnIncoming node:_http_server:1142:26
+      2    0.0%    0.0%  JS: +onwrite node:internal/streams/writable:613:17
+      2    0.0%    0.0%  JS: +onStreamRead node:internal/stream_base_commons:166:22
+      2    0.0%    0.0%  JS: +lookup /home/dana/final-project/node_modules/find-my-way/index.js:532:43
+      2    0.0%    0.0%  JS: +inst._zod.run /home/dana/final-project/node_modules/zod/v4/core/schemas.cjs:122:25
+      2    0.0%    0.0%  JS: +handler /home/dana/final-project/node_modules/fastify/lib/handle-request.js:95:18
+      2    0.0%    0.0%  JS: +get node:internal/streams/readable:134:8
+      2    0.0%    0.0%  JS: +get node:internal/streams/duplex:161:8
+      2    0.0%    0.0%  JS: +get node:internal/bootstrap/node:97:8
+      2    0.0%    0.0%  JS: +get node:_http_outgoing:837:16
+      2    0.0%    0.0%  JS: +fromStringFast node:buffer:494:24
+      2    0.0%    0.0%  JS: +deprecate node:internal/util:177:19
+      2    0.0%    0.0%  JS: +clearBuffer node:internal/streams/writable:742:21
+      2    0.0%    0.0%  JS: +checkListener node:events:265:23
+      2    0.0%    0.0%  JS: +check._a.check /home/dana/final-project/node_modules/zod/v4/core/checks.cjs:444:47
+      2    0.0%    0.0%  JS: +bumpLru /home/dana/final-project/node_modules/toad-cache/dist/toad-cache.cjs:361:10
+      2    0.0%    0.0%  JS: +addChunk node:internal/streams/readable:552:18
+      2    0.0%    0.0%  JS: +addCString /home/dana/final-project/node_modules/pg-protocol/dist/buffer-writer.js:37:15
+      2    0.0%    0.0%  JS: +_write node:internal/streams/writable:451:16
+      2    0.0%    0.0%  JS: +_storeHeader node:_http_outgoing:402:22
+      2    0.0%    0.0%  JS: +_send /home/dana/final-project/node_modules/pg/lib/connection.js:164:8
+      2    0.0%    0.0%  JS: +_pulseQueryQueue /home/dana/final-project/node_modules/pg/lib/client.js:603:19
+      2    0.0%    0.0%  JS: +_parse /home/dana/final-project/node_modules/secure-json-parse/index.js:17:17
+      2    0.0%    0.0%  JS: +_handleReadyForQuery /home/dana/final-project/node_modules/pg/lib/client.js:368:23
+      2    0.0%    0.0%  JS: +Socket._writeGeneric node:net:995:42
+      2    0.0%    0.0%  JS: +Socket._read node:net:780:34
+      2    0.0%    0.0%  JS: +Readable.setEncoding node:internal/streams/readable:589:42
+      2    0.0%    0.0%  JS: +Readable node:internal/streams/readable:322:18
+      2    0.0%    0.0%  JS: +FastBuffer node:internal/buffer:960:1
+      2    0.0%    0.0%  JS: +<anonymous> /home/dana/final-project/dist/routes/logs.js:9:23
+      2    0.0%    0.0%  JS: *removeListener node:events:678:28
+      2    0.0%    0.0%  JS: *nextTick node:internal/process/task_queues:113:18
+      2    0.0%    0.0%  JS: *getEncodingOps node:buffer:794:24
+      2    0.0%    0.0%  JS: *get node:internal/streams/readable:134:8
+      2    0.0%    0.0%  JS: *check._a.check /home/dana/final-project/node_modules/zod/v4/core/checks.cjs:444:47
+      2    0.0%    0.0%  JS: *<anonymous> node:internal/validators:470:42
+      2    0.0%    0.0%  JS: *<anonymous> node:internal/validators:187:40
+      2    0.0%    0.0%  Builtin: TypedArrayPrototypeBuffer
+      2    0.0%    0.0%  Builtin: SetPrototypeHas
+      2    0.0%    0.0%  Builtin: ResumeGeneratorTrampoline
+      2    0.0%    0.0%  Builtin: RegExpPrototypeExec
+      2    0.0%    0.0%  Builtin: NewStrictArgumentsElements
+      2    0.0%    0.0%  Builtin: LessThan_Baseline
+      2    0.0%    0.0%  Builtin: KeyedStoreICTrampoline_Megamorphic
+      2    0.0%    0.0%  Builtin: KeyedLoadICTrampoline_Megamorphic
+      2    0.0%    0.0%  Builtin: KeyedLoadICBaseline
+      2    0.0%    0.0%  Builtin: JSEntry
+      2    0.0%    0.0%  Builtin: HandleApiCallOrConstruct
+      2    0.0%    0.0%  Builtin: FunctionPrototypeCall
+      2    0.0%    0.0%  Builtin: FulfillPromise
+      2    0.0%    0.0%  Builtin: FastNewFunctionContextFunction
+      2    0.0%    0.0%  Builtin: EnqueueMicrotask
+      2    0.0%    0.0%  Builtin: CreateShallowArrayLiteral
+      2    0.0%    0.0%  Builtin: CallVarargs
+      2    0.0%    0.0%  Builtin: ArrayForEach
+      1    0.0%    0.0%  RegExp: [^\t\x20-\x7e\x80-\xff]
+      1    0.0%    0.0%  JS: ~xorBuffers /home/dana/final-project/node_modules/pg/lib/crypto/sasl.js:241:20
+      1    0.0%    0.0%  JS: ~inst._zod.check /home/dana/final-project/node_modules/zod/v4/core/checks.cjs:384:23
+      1    0.0%    0.0%  JS: ~_flushOutput node:_http_outgoing:1159:63
+      1    0.0%    0.0%  JS: ~Reply.then /home/dana/final-project/node_modules/fastify/lib/reply.js:476:33
+      1    0.0%    0.0%  JS: ~Plugin.finish /home/dana/final-project/node_modules/avvio/lib/plugin.js:216:36
+      1    0.0%    0.0%  JS: ~Boot /home/dana/final-project/node_modules/avvio/index.js:26:15
+      1    0.0%    0.0%  JS: ~<anonymous> node:internal/main/run_main_module:1:1
+      1    0.0%    0.0%  JS: ~<anonymous> node:internal/crypto/mac:1:1
+      1    0.0%    0.0%  JS: ~<anonymous> /home/dana/final-project/node_modules/ajv/dist/vocabularies/applicator/allOf.js:1:1
+      1    0.0%    0.0%  JS: ~<anonymous> /home/dana/final-project/dist/routes/logs.js:9:23
+      1    0.0%    0.0%  JS: ^write /home/dana/final-project/node_modules/sonic-boom/index.js:306:16
+      1    0.0%    0.0%  JS: ^wrapper node:fs:808:19
+      1    0.0%    0.0%  JS: ^wrapSafe node:internal/modules/cjs/loader:1762:18
+      1    0.0%    0.0%  JS: ^uncork node:_http_outgoing:265:51
+      1    0.0%    0.0%  JS: ^setupResponseListeners /home/dana/final-project/node_modules/fastify/lib/reply.js:953:33
+      1    0.0%    0.0%  JS: ^setOwnProperty node:internal/util:712:24
+      1    0.0%    0.0%  JS: ^set node:_http_outgoing:229:16
+      1    0.0%    0.0%  JS: ^resOnFinish node:_http_server:1072:21
+      1    0.0%    0.0%  JS: ^rawBody /home/dana/final-project/node_modules/fastify/lib/content-type-parser.js:235:18
+      1    0.0%    0.0%  JS: ^processHeader node:_http_outgoing:538:23
+      1    0.0%    0.0%  JS: ^parserOnHeadersComplete node:_http_common:77:33
+      1    0.0%    0.0%  JS: ^parse /home/dana/final-project/node_modules/pg/lib/connection.js:176:8
+      1    0.0%    0.0%  JS: ^once node:events:649:44
+      1    0.0%    0.0%  JS: ^onResFinished /home/dana/final-project/node_modules/fastify/lib/reply.js:956:25
+      1    0.0%    0.0%  JS: ^onEnd /home/dana/final-project/node_modules/fastify/lib/content-type-parser.js:279:18
+      1    0.0%    0.0%  JS: ^onDestroy node:internal/streams/destroy:93:21
+      1    0.0%    0.0%  JS: ^normalizeRequirableId node:internal/bootstrap/realm:299:31
+      1    0.0%    0.0%  JS: ^normalize node:path:1293:12
+      1    0.0%    0.0%  JS: ^makeRequireFunction node:internal/modules/helpers:145:29
+      1    0.0%    0.0%  JS: ^join /home/dana/final-project/node_modules/pg-protocol/dist/buffer-writer.js:82:9
+      1    0.0%    0.0%  JS: ^internalBinding node:internal/bootstrap/realm:182:45
+      1    0.0%    0.0%  JS: ^inst._zod.check /home/dana/final-project/node_modules/zod/v4/core/schemas.cjs:2246:23
+      1    0.0%    0.0%  JS: ^insertMany /home/dana/final-project/dist/repositories/log.repository.js:111:21
+      1    0.0%    0.0%  JS: ^info /home/dana/final-project/node_modules/pino/lib/levels.js:32:9
+      1    0.0%    0.0%  JS: ^incomingRequest /home/dana/final-project/node_modules/fastify/lib/log-controller.js:47:19
+      1    0.0%    0.0%  JS: ^handleRequest /home/dana/final-project/node_modules/fastify/lib/handle-request.js:25:24
+      1    0.0%    0.0%  JS: ^getTimerDuration node:internal/timers:421:26
+      1    0.0%    0.0%  JS: ^getDeprecationWarningEmitter node:internal/util:113:38
+      1    0.0%    0.0%  JS: ^getDefaultTriggerAsyncId node:internal/async_hooks:441:34
+      1    0.0%    0.0%  JS: ^get /home/dana/final-project/node_modules/fastify/lib/reply.js:103:9
+      1    0.0%    0.0%  JS: ^format /home/dana/final-project/node_modules/quick-format-unescaped/index.js:8:16
+      1    0.0%    0.0%  JS: ^encodeRealpathResult node:fs:2676:30
+      1    0.0%    0.0%  JS: ^deriveConstraints /home/dana/final-project/node_modules/find-my-way/lib/constrainer.js:61:21
+      1    0.0%    0.0%  JS: ^createPool node:buffer:177:20
+      1    0.0%    0.0%  JS: ^callback node:internal/streams/writable:762:63
+      1    0.0%    0.0%  JS: ^bumpLru /home/dana/final-project/node_modules/toad-cache/dist/toad-cache.cjs:361:10
+      1    0.0%    0.0%  JS: ^buildAsyncConstraintCallback /home/dana/final-project/node_modules/fastify/fastify.js:695:41
+      1    0.0%    0.0%  JS: ^arrayClone node:events:874:20
+      1    0.0%    0.0%  JS: ^afterWrite node:internal/streams/writable:697:20
+      1    0.0%    0.0%  JS: ^addChunk node:internal/streams/readable:552:18
+      1    0.0%    0.0%  JS: ^_write node:internal/streams/writable:451:16
+      1    0.0%    0.0%  JS: ^_release /home/dana/final-project/node_modules/pg-pool/index.js:384:11
+      1    0.0%    0.0%  JS: ^_parse /home/dana/final-project/node_modules/secure-json-parse/index.js:17:17
+      1    0.0%    0.0%  JS: ^_onceWrap node:events:635:19
+      1    0.0%    0.0%  JS: ^_flush node:_http_outgoing:1142:51
+      1    0.0%    0.0%  JS: ^_addListener node:events:540:22
+      1    0.0%    0.0%  JS: ^Readable.read node:internal/streams/readable:649:35
+      1    0.0%    0.0%  JS: ^Readable.on node:internal/streams/readable:1134:33
+      1    0.0%    0.0%  JS: ^OutgoingMessage node:_http_outgoing:105:25
+      1    0.0%    0.0%  JS: ^<anonymous> node:internal/validators:417:42
+      1    0.0%    0.0%  JS: ^<anonymous> /home/dana/final-project/node_modules/pg-pool/index.js:467:36
+      1    0.0%    0.0%  JS: ^<anonymous> /home/dana/final-project/node_modules/pg-pool/index.js:449:18
+      1    0.0%    0.0%  JS: +write_ node:_http_outgoing:892:16
+      1    0.0%    0.0%  JS: +writeU_Int32BE node:internal/buffer:806:24
+      1    0.0%    0.0%  JS: +writePayload /home/dana/final-project/node_modules/fastify/lib/reply.js:697:23
+      1    0.0%    0.0%  JS: +write /home/dana/final-project/node_modules/pino/lib/proto.js:206:16
+      1    0.0%    0.0%  JS: +validateTopLevel /home/dana/final-project/dist/utils/validation.js:6:26
+      1    0.0%    0.0%  JS: +toString node:buffer:908:46
+      1    0.0%    0.0%  JS: +submit /home/dana/final-project/node_modules/pg/lib/query.js:152:9
+      1    0.0%    0.0%  JS: +socketListenerWrap node:_http_server:1318:37
+      1    0.0%    0.0%  JS: +set node:internal/streams/writable:260:8
+      1    0.0%    0.0%  JS: +set node:_http_outgoing:229:16
+      1    0.0%    0.0%  JS: +safeDecodeURI /home/dana/final-project/node_modules/find-my-way/lib/url-sanitizer.js:46:24
+      1    0.0%    0.0%  JS: +runInAsyncScope node:async_hooks:220:18
+      1    0.0%    0.0%  JS: +removeAt node:internal/priority_queue:94:11
+      1    0.0%    0.0%  JS: +remotePort node:net:961:46
+      1    0.0%    0.0%  JS: +remoteAddress node:net:953:52
+      1    0.0%    0.0%  JS: +readableAddChunkPushByteMode node:internal/streams/readable:465:38
+      1    0.0%    0.0%  JS: +promisify /home/dana/final-project/node_modules/pg-pool/index.js:30:19
+      1    0.0%    0.0%  JS: +processTicksAndRejections node:internal/process/task_queues:72:35
+      1    0.0%    0.0%  JS: +preHandlerCallbackInner /home/dana/final-project/node_modules/fastify/lib/handle-request.js:184:34
+      1    0.0%    0.0%  JS: +percolateUp node:internal/priority_queue:71:14
+      1    0.0%    0.0%  JS: +parse /home/dana/final-project/node_modules/pg-protocol/dist/serializer.js:39:15
+      1    0.0%    0.0%  JS: +parse /home/dana/final-project/node_modules/pg-protocol/dist/parser.js:26:10
+      1    0.0%    0.0%  JS: +onResFinished /home/dana/final-project/node_modules/fastify/lib/reply.js:956:25
+      1    0.0%    0.0%  JS: +onEofChunk node:internal/streams/readable:790:20
+      1    0.0%    0.0%  JS: +onEnd /home/dana/final-project/node_modules/fastify/lib/content-type-parser.js:279:18
+      1    0.0%    0.0%  JS: +maybeReadMore_ node:internal/streams/readable:866:24
+      1    0.0%    0.0%  JS: +isTraceHTTPEnabled node:internal/http:47:28
+      1    0.0%    0.0%  JS: +inst.safeParse /home/dana/final-project/node_modules/zod/v4/classic/schemas.cjs:196:22
+      1    0.0%    0.0%  JS: +inst._zod.parse /home/dana/final-project/node_modules/zod/v4/core/schemas.cjs:167:23
+      1    0.0%    0.0%  JS: +inst._zod.parse /home/dana/final-project/node_modules/zod/v4/core/schemas.cjs:1006:23
+      1    0.0%    0.0%  JS: +inst._zod.check /home/dana/final-project/node_modules/zod/v4/core/schemas.cjs:2246:23
+      1    0.0%    0.0%  JS: +inst._zod.check /home/dana/final-project/node_modules/zod/v4/core/checks.cjs:384:23
+      1    0.0%    0.0%  JS: +insertMany /home/dana/final-project/dist/repositories/log.repository.js:111:21
+      1    0.0%    0.0%  JS: +ingest /home/dana/final-project/dist/services/log.service.js:17:17
+      1    0.0%    0.0%  JS: +hasAsyncIdStack node:internal/async_hooks:541:25
+      1    0.0%    0.0%  JS: +handleReadyForQuery /home/dana/final-project/node_modules/pg/lib/query.js:136:22
+      1    0.0%    0.0%  JS: +handlePacket /home/dana/final-project/node_modules/pg-protocol/dist/parser.js:91:17
+      1    0.0%    0.0%  JS: +get node:internal/streams/writable:228:8
+      1    0.0%    0.0%  JS: +get node:internal/streams/writable:1008:8
+      1    0.0%    0.0%  JS: +get node:events:272:16
+      1    0.0%    0.0%  JS: +get /home/dana/final-project/node_modules/fastify/lib/request.js:213:9
+      1    0.0%    0.0%  JS: +genLog /home/dana/final-project/node_modules/pino/lib/tools.js:40:17
+      1    0.0%    0.0%  JS: +endReadableNT node:internal/streams/readable:1723:23
+      1    0.0%    0.0%  JS: +end node:_http_outgoing:1034:45
+      1    0.0%    0.0%  JS: +destroy node:internal/streams/destroy:49:17
+      1    0.0%    0.0%  JS: +createPool node:buffer:177:20
+      1    0.0%    0.0%  JS: +child /home/dana/final-project/node_modules/pino/lib/proto.js:85:16
+      1    0.0%    0.0%  JS: +byteLength node:buffer:844:20
+      1    0.0%    0.0%  JS: +bind node:async_hooks:251:7
+      1    0.0%    0.0%  JS: +assert node:internal/assert:8:16
+      1    0.0%    0.0%  JS: +asChindings /home/dana/final-project/node_modules/pino/lib/tools.js:238:22
+      1    0.0%    0.0%  JS: +addCommandComplete /home/dana/final-project/node_modules/pg/lib/result.js:28:21
+      1    0.0%    0.0%  JS: +actualWrite /home/dana/final-project/node_modules/sonic-boom/index.js:636:22
+      1    0.0%    0.0%  JS: +_writeRaw node:_http_outgoing:372:19
+      1    0.0%    0.0%  JS: +_unrefTimer node:net:527:52
+      1    0.0%    0.0%  JS: +_handleParseComplete /home/dana/final-project/node_modules/pg/lib/client.js:491:23
+      1    0.0%    0.0%  JS: +_handleCommandComplete /home/dana/final-project/node_modules/pg/lib/client.js:480:25
+      1    0.0%    0.0%  JS: +Socket._getpeername node:net:928:41
+      1    0.0%    0.0%  JS: +ServerResponse node:_http_server:201:24
+      1    0.0%    0.0%  JS: +Reply.send /home/dana/final-project/node_modules/fastify/lib/reply.js:150:33
+      1    0.0%    0.0%  JS: +Readable.removeListener node:internal/streams/readable:1166:45
+      1    0.0%    0.0%  JS: +Readable.read node:internal/streams/readable:649:35
+      1    0.0%    0.0%  JS: +IncomingMessage node:_http_incoming:53:25
+      1    0.0%    0.0%  JS: +AsyncResource node:async_hooks:181:14
+      1    0.0%    0.0%  JS: +<anonymous> node:internal/validators:470:42
+      1    0.0%    0.0%  JS: +<anonymous> node:internal/validators:187:40
+      1    0.0%    0.0%  JS: +<anonymous> node:internal/validators:164:40
+      1    0.0%    0.0%  JS: +<anonymous> node:internal/validators:118:3
+      1    0.0%    0.0%  JS: +<anonymous> node:internal/util:775:18
+      1    0.0%    0.0%  JS: +<anonymous> node:internal/modules/cjs/loader:901:37
+      1    0.0%    0.0%  JS: +<anonymous> node:internal/fs/utils:914:60
+      1    0.0%    0.0%  JS: +<anonymous> /home/dana/final-project/node_modules/pg-pool/index.js:449:18
+      1    0.0%    0.0%  JS: *processTicksAndRejections node:internal/process/task_queues:72:35
+      1    0.0%    0.0%  JS: *get node:_http_incoming:113:16
+      1    0.0%    0.0%  JS: *_asString /home/dana/final-project/node_modules/pino/lib/tools.js:88:20
+      1    0.0%    0.0%  JS: *_addListener node:events:540:22
+      1    0.0%    0.0%  Builtin: WeakSetPrototypeHas
+      1    0.0%    0.0%  Builtin: Typeof
+      1    0.0%    0.0%  Builtin: TypedArrayPrototypeToStringTag
+      1    0.0%    0.0%  Builtin: ToName
+      1    0.0%    0.0%  Builtin: StringPrototypeTrimStart
+      1    0.0%    0.0%  Builtin: StringPrototypeToString
+      1    0.0%    0.0%  Builtin: StringPrototypeIncludes
+      1    0.0%    0.0%  Builtin: StringPrototypeEndsWith
+      1    0.0%    0.0%  Builtin: StringIndexOf
+      1    0.0%    0.0%  Builtin: StringEqual
+      1    0.0%    0.0%  Builtin: StoreIC_NoFeedback
+      1    0.0%    0.0%  Builtin: StoreICTrampoline_Megamorphic
+      1    0.0%    0.0%  Builtin: StoreICBaseline
+      1    0.0%    0.0%  Builtin: SetPrototypeAdd
+      1    0.0%    0.0%  Builtin: RunMicrotasks
+      1    0.0%    0.0%  Builtin: PromiseResolveThenableJob
+      1    0.0%    0.0%  Builtin: PromiseCapabilityDefaultResolve
+      1    0.0%    0.0%  Builtin: OrdinaryGetOwnPropertyDescriptor
+      1    0.0%    0.0%  Builtin: ObjectToString
+      1    0.0%    0.0%  Builtin: NumberPrototypeToString
+      1    0.0%    0.0%  Builtin: NumberIsSafeInteger
+      1    0.0%    0.0%  Builtin: MathTrunc
+      1    0.0%    0.0%  Builtin: MapPrototypeGet
+      1    0.0%    0.0%  Builtin: LoadIC_StringLength
+      1    0.0%    0.0%  Builtin: LoadGlobalICBaseline
+      1    0.0%    0.0%  Builtin: KeyedHasIC_PolymorphicName
+      1    0.0%    0.0%  Builtin: KeyedHasICBaseline
+      1    0.0%    0.0%  Builtin: KeyedHasIC
+      1    0.0%    0.0%  Builtin: JsonStringify
+      1    0.0%    0.0%  Builtin: JSRunMicrotasksEntry
+      1    0.0%    0.0%  Builtin: JSEntryTrampoline
+      1    0.0%    0.0%  Builtin: InstanceOf_Baseline
+      1    0.0%    0.0%  Builtin: GreaterThan_Baseline
+      1    0.0%    0.0%  Builtin: GreaterThanOrEqual_Baseline
+      1    0.0%    0.0%  Builtin: FunctionPrototypeApply
+      1    0.0%    0.0%  Builtin: FindNonDefaultConstructorOrConstruct
+      1    0.0%    0.0%  Builtin: Divide
+      1    0.0%    0.0%  Builtin: DeleteProperty
+      1    0.0%    0.0%  Builtin: CreateEmptyArrayLiteral
+      1    0.0%    0.0%  Builtin: CreateDataProperty
+      1    0.0%    0.0%  Builtin: CreateArrayFromSlowBoilerplateHelper
+      1    0.0%    0.0%  Builtin: CopyDataProperties
+      1    0.0%    0.0%  Builtin: CloneFastJSArrayFillingHoles
+      1    0.0%    0.0%  Builtin: CloneFastJSArray
+      1    0.0%    0.0%  Builtin: CallFunctionTemplate_Generic
+      1    0.0%    0.0%  Builtin: CallForwardVarargs
+      1    0.0%    0.0%  Builtin: CallApiCallbackOptimizedNoProfiling
+      1    0.0%    0.0%  Builtin: CallApiCallbackGeneric
+      1    0.0%    0.0%  Builtin: CEntry_Return1_ArgvOnStack_NoBuiltinExit
+      1    0.0%    0.0%  Builtin: ArrayUnshift
+      1    0.0%    0.0%  Builtin: ArrayShift
+      1    0.0%    0.0%  Builtin: ArrayPrototypePop
+      1    0.0%    0.0%  Builtin: ArrayPop
+      1    0.0%    0.0%  Builtin: ArrayIteratorPrototypeNext
+      1    0.0%    0.0%  Builtin: ArrayIsArray
+
+ [C++]:
+   ticks  total  nonlib   name
+    782   10.5%   17.4%  epoll_pwait@@GLIBC_2.6
+    303    4.1%    6.7%  writev@@GLIBC_2.2.5
+    108    1.5%    2.4%  pthread_cond_signal@@GLIBC_2.3.2
+    106    1.4%    2.4%  syscall@@GLIBC_2.2.5
+     98    1.3%    2.2%  __write@@GLIBC_2.2.5
+     79    1.1%    1.8%  __read@@GLIBC_2.2.5
+     52    0.7%    1.2%  fputc@@GLIBC_2.2.5
+     31    0.4%    0.7%  __libc_malloc@@GLIBC_2.2.5
+     19    0.3%    0.4%  std::ostream::put(char)@@GLIBCXX_3.4
+     13    0.2%    0.3%  std::ostream::sentry::sentry(std::ostream&)@@GLIBCXX_3.4
+     11    0.1%    0.2%  __open@@GLIBC_2.2.5
+      8    0.1%    0.2%  __mmap@@GLIBC_PRIVATE
+      6    0.1%    0.1%  operator new(unsigned long)@@GLIBCXX_3.4
+      6    0.1%    0.1%  isprint@@GLIBC_2.2.5
+      5    0.1%    0.1%  __munmap@@GLIBC_PRIVATE
+      5    0.1%    0.1%  __libc_free@@GLIBC_2.2.5
+      4    0.1%    0.1%  brk@@GLIBC_2.2.5
+      3    0.0%    0.1%  std::ostream& std::ostream::_M_insert<long>(long)@@GLIBCXX_3.4.9
+      3    0.0%    0.1%  std::__detail::_Prime_rehash_policy::_M_need_rehash(unsigned long, unsigned long, unsigned long) const@@GLIBCXX_3.4.18
+      3    0.0%    0.1%  node::ParseEncoding(char const*, node::encoding)
+      2    0.0%    0.0%  std::ostreambuf_iterator<char, std::char_traits<char> > std::num_put<char, std::ostreambuf_iterator<char, std::char_traits<char> > >::_M_insert_int<long>(std::ostreambuf_iterator<char, std::char_traits<char> >, std::ios_base&, char, long) const@@GLIBCXX_3.4
+      2    0.0%    0.0%  std::basic_ostream<char, std::char_traits<char> >& std::__ostream_insert<char, std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*, long)@@GLIBCXX_3.4.9
+      2    0.0%    0.0%  std::_Rb_tree_increment(std::_Rb_tree_node_base const*)@@GLIBCXX_3.4
+      2    0.0%    0.0%  sigemptyset@@GLIBC_2.2.5
+      2    0.0%    0.0%  shutdown@@GLIBC_2.2.5
+      2    0.0%    0.0%  setsockopt@@GLIBC_2.2.5
+      2    0.0%    0.0%  node::InternalCallbackScope::Close()
+      2    0.0%    0.0%  _init
+      2    0.0%    0.0%  __madvise@@GLIBC_PRIVATE
+      2    0.0%    0.0%  __getpid@@GLIBC_2.2.5
+      2    0.0%    0.0%  __connect@@GLIBC_2.2.5
+      2    0.0%    0.0%  __clock_gettime@@GLIBC_PRIVATE
+      2    0.0%    0.0%  _IO_file_xsputn@@GLIBC_2.2.5
+      1    0.0%    0.0%  std::ostreambuf_iterator<char, std::char_traits<char> > std::num_put<char, std::ostreambuf_iterator<char, std::char_traits<char> > >::_M_insert_int<unsigned long>(std::ostreambuf_iterator<char, std::char_traits<char> >, std::ios_base&, char, unsigned long) const@@GLIBCXX_3.4
+      1    0.0%    0.0%  std::ostream::operator<<(int)@@GLIBCXX_3.4
+      1    0.0%    0.0%  std::ostream::flush()@@GLIBCXX_3.4
+      1    0.0%    0.0%  std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::append(char const*, unsigned long)
+      1    0.0%    0.0%  operator new[](unsigned long, std::nothrow_t const&)@@GLIBCXX_3.4
+      1    0.0%    0.0%  operator delete(void*)@@GLIBCXX_3.4
+      1    0.0%    0.0%  node::NodeArrayBufferAllocator::Free(void*, unsigned long)
+      1    0.0%    0.0%  node::NodeArrayBufferAllocator::AllocateUninitialized(unsigned long)
+      1    0.0%    0.0%  node::InternalCallbackScope::~InternalCallbackScope()
+      1    0.0%    0.0%  node::InternalCallbackScope::InternalCallbackScope(node::Environment*, std::variant<v8::Local<v8::Object>, v8::Local<v8::Object>*>, node::async_context const&, int, v8::Local<v8::Value>)
+      1    0.0%    0.0%  malloc_usable_size@@GLIBC_2.2.5
+      1    0.0%    0.0%  epoll_ctl@@GLIBC_2.3.2
+      1    0.0%    0.0%  accept4@@GLIBC_2.10
+      1    0.0%    0.0%  __socket@@GLIBC_PRIVATE
+      1    0.0%    0.0%  __pthread_once@GLIBC_2.2.5
+      1    0.0%    0.0%  __pthread_mutex_lock@GLIBC_2.2.5
+      1    0.0%    0.0%  __pthread_getspecific@GLIBC_2.2.5
+      1    0.0%    0.0%  _IO_fwrite@@GLIBC_2.2.5
+
+ [Summary]:
+   ticks  total  nonlib   name
+   2642   35.6%   58.8%  JavaScript
+   1689   22.7%   37.6%  C++
+    330    4.4%    7.3%  GC
+   2931   39.5%          Shared libraries
+    164    2.2%          Unaccounted
+
+ [C++ entry points]:
+   ticks    cpp   total   name
+    303   44.1%    4.1%  writev@@GLIBC_2.2.5
+     95   13.8%    1.3%  pthread_cond_signal@@GLIBC_2.3.2
+     87   12.7%    1.2%  __write@@GLIBC_2.2.5
+     52    7.6%    0.7%  fputc@@GLIBC_2.2.5
+     27    3.9%    0.4%  syscall@@GLIBC_2.2.5
+     23    3.3%    0.3%  __libc_malloc@@GLIBC_2.2.5
+     19    2.8%    0.3%  std::ostream::put(char)@@GLIBCXX_3.4
+     13    1.9%    0.2%  std::ostream::sentry::sentry(std::ostream&)@@GLIBCXX_3.4
+     11    1.6%    0.1%  __open@@GLIBC_2.2.5
+      6    0.9%    0.1%  isprint@@GLIBC_2.2.5
+      5    0.7%    0.1%  operator new(unsigned long)@@GLIBCXX_3.4
+      5    0.7%    0.1%  __read@@GLIBC_2.2.5
+      5    0.7%    0.1%  __libc_free@@GLIBC_2.2.5
+      3    0.4%    0.0%  node::ParseEncoding(char const*, node::encoding)
+      2    0.3%    0.0%  std::ostreambuf_iterator<char, std::char_traits<char> > std::num_put<char, std::ostreambuf_iterator<char, std::char_traits<char> > >::_M_insert_int<long>(std::ostreambuf_iterator<char, std::char_traits<char> >, std::ios_base&, char, long) const@@GLIBCXX_3.4
+      2    0.3%    0.0%  std::ostream& std::ostream::_M_insert<long>(long)@@GLIBCXX_3.4.9
+      2    0.3%    0.0%  std::basic_ostream<char, std::char_traits<char> >& std::__ostream_insert<char, std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*, long)@@GLIBCXX_3.4.9
+      2    0.3%    0.0%  setsockopt@@GLIBC_2.2.5
+      2    0.3%    0.0%  brk@@GLIBC_2.2.5
+      2    0.3%    0.0%  _init
+      2    0.3%    0.0%  __connect@@GLIBC_2.2.5
+      2    0.3%    0.0%  __clock_gettime@@GLIBC_PRIVATE
+      2    0.3%    0.0%  _IO_file_xsputn@@GLIBC_2.2.5
+      1    0.1%    0.0%  std::ostreambuf_iterator<char, std::char_traits<char> > std::num_put<char, std::ostreambuf_iterator<char, std::char_traits<char> > >::_M_insert_int<unsigned long>(std::ostreambuf_iterator<char, std::char_traits<char> >, std::ios_base&, char, unsigned long) const@@GLIBCXX_3.4
+      1    0.1%    0.0%  std::ostream::operator<<(int)@@GLIBCXX_3.4
+      1    0.1%    0.0%  std::ostream::flush()@@GLIBCXX_3.4
+      1    0.1%    0.0%  std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::append(char const*, unsigned long)
+      1    0.1%    0.0%  operator new[](unsigned long, std::nothrow_t const&)@@GLIBCXX_3.4
+      1    0.1%    0.0%  node::NodeArrayBufferAllocator::Free(void*, unsigned long)
+      1    0.1%    0.0%  node::NodeArrayBufferAllocator::AllocateUninitialized(unsigned long)
+      1    0.1%    0.0%  malloc_usable_size@@GLIBC_2.2.5
+      1    0.1%    0.0%  epoll_ctl@@GLIBC_2.3.2
+      1    0.1%    0.0%  __socket@@GLIBC_PRIVATE
+      1    0.1%    0.0%  __pthread_once@GLIBC_2.2.5
+      1    0.1%    0.0%  __pthread_mutex_lock@GLIBC_2.2.5
+      1    0.1%    0.0%  __pthread_getspecific@GLIBC_2.2.5
+      1    0.1%    0.0%  __madvise@@GLIBC_PRIVATE
+      1    0.1%    0.0%  _IO_fwrite@@GLIBC_2.2.5
+
+ [Bottom up (heavy) profile]:
+  Note: percentage shows a share of a particular caller in the total
+  amount of its parent calls.
+  Callers occupying less than 1.0% are not shown.
+
+   ticks parent  name
+   2667   35.9%  /home/dana/.nvm/versions/node/v24.18.0/bin/node
+   1574   59.0%    /home/dana/.nvm/versions/node/v24.18.0/bin/node
+    258   16.4%      JS: ^_parse /home/dana/final-project/node_modules/secure-json-parse/index.js:17:17
+    145   56.2%        JS: ^parse /home/dana/final-project/node_modules/secure-json-parse/index.js:129:16
+    145  100.0%          JS: ^defaultJsonParser /home/dana/final-project/node_modules/fastify/lib/content-type-parser.js:313:30
+    145  100.0%            JS: ^onEnd /home/dana/final-project/node_modules/fastify/lib/content-type-parser.js:279:18
+    113   43.8%        JS: +onEnd /home/dana/final-project/node_modules/fastify/lib/content-type-parser.js:279:18
+     61   54.0%          JS: *emit node:events:456:44
+     61  100.0%            JS: +endReadableNT node:internal/streams/readable:1723:23
+     52   46.0%          JS: +emit node:events:456:44
+     52  100.0%            JS: +endReadableNT node:internal/streams/readable:1723:23
+    253   16.1%      JS: +_parse /home/dana/final-project/node_modules/secure-json-parse/index.js:17:17
+    159   62.8%        JS: +defaultJsonParser /home/dana/final-project/node_modules/fastify/lib/content-type-parser.js:313:30
+    159  100.0%          JS: ^onEnd /home/dana/final-project/node_modules/fastify/lib/content-type-parser.js:279:18
+    159  100.0%            JS: *emit node:events:456:44
+     60   23.7%        JS: +parse /home/dana/final-project/node_modules/secure-json-parse/index.js:129:16
+     60  100.0%          JS: ^defaultJsonParser /home/dana/final-project/node_modules/fastify/lib/content-type-parser.js:313:30
+     60  100.0%            JS: ^onEnd /home/dana/final-project/node_modules/fastify/lib/content-type-parser.js:279:18
+     34   13.4%        JS: +onEnd /home/dana/final-project/node_modules/fastify/lib/content-type-parser.js:279:18
+     34  100.0%          JS: *emit node:events:456:44
+     34  100.0%            JS: +endReadableNT node:internal/streams/readable:1723:23
+    179   11.4%      JS: *inst._zod.parse /home/dana/final-project/node_modules/zod/v4/core/schemas.cjs:1455:23
+    178   99.4%        JS: *<anonymous> :1:20
+    141   79.2%          JS: *<anonymous> /home/dana/final-project/dist/utils/validation.js:12:18
+     99   70.2%            JS: +validateBatch /home/dana/final-project/dist/utils/validation.js:9:23
+     42   29.8%            Builtin: ArrayForEach
+     37   20.8%          JS: *<anonymous> /home/dana/final-project/node_modules/zod/v4/core/parse.cjs:59:30
+     35   94.6%            JS: +<anonymous> /home/dana/final-project/dist/utils/validation.js:12:18
+      2    5.4%            JS: +inst.safeParse /home/dana/final-project/node_modules/zod/v4/classic/schemas.cjs:196:22
+    156    9.9%      JS: *inst._zod.check /home/dana/final-project/node_modules/zod/v4/core/schemas.cjs:2246:23
+    156  100.0%        JS: *runChecks /home/dana/final-project/node_modules/zod/v4/core/schemas.cjs:63:27
+    156  100.0%          JS: *inst._zod.run /home/dana/final-project/node_modules/zod/v4/core/schemas.cjs:122:25
+    156  100.0%            JS: *<anonymous> :1:20
+    111    7.1%      JS: +nextTick node:internal/process/task_queues:113:18
+     26   23.4%        JS: +onwrite node:internal/streams/writable:613:17
+     26  100.0%          JS: +WritableState.onwrite node:internal/streams/writable:350:18
+     26  100.0%            JS: +writevGeneric node:internal/stream_base_commons:121:23
+     25   22.5%        JS: +_destroy node:_http_incoming:241:55
+     25  100.0%          JS: +destroy node:internal/streams/destroy:49:17
+     25  100.0%            JS: +endReadableNT node:internal/streams/readable:1723:23
+     17   15.3%        JS: +addChunk node:internal/streams/readable:552:18
+     17  100.0%          JS: +readableAddChunkPushByteMode node:internal/streams/readable:465:38
+     12   70.6%            JS: +onStreamRead node:internal/stream_base_commons:166:22
+      5   29.4%            JS: +Readable.push node:internal/streams/readable:389:35
+      8    7.2%        JS: ^_destroy node:_http_incoming:241:55
+      8  100.0%          JS: ^_destroy node:internal/streams/destroy:90:18
+      8  100.0%            JS: ^destroy node:internal/streams/destroy:49:17
+      8    7.2%        JS: +resume node:internal/streams/readable:1254:16
+      8  100.0%          JS: +Readable.resume node:internal/streams/readable:1234:37
+      8  100.0%            JS: +Readable.on node:internal/streams/readable:1134:33
+      6    5.4%        JS: +resOnFinish node:_http_server:1072:21
+      6  100.0%          JS: *emit node:events:456:44
+      6  100.0%            JS: +onFinish node:_http_outgoing:1029:18
+      5    4.5%        JS: +endReadable node:internal/streams/readable:1713:21
+      5  100.0%          JS: +Readable.read node:internal/streams/readable:649:35
+      5  100.0%            JS: +emitReadable_ node:internal/streams/readable:832:23
+      4    3.6%        JS: ^onwrite node:internal/streams/writable:613:17
+      3   75.0%          JS: ^WritableState.onwrite node:internal/streams/writable:350:18
+      2   66.7%            JS: ^afterWriteDispatched node:internal/stream_base_commons:154:30
+      1   33.3%            JS: +writevGeneric node:internal/stream_base_commons:121:23
+      1   25.0%          JS: +WritableState.onwrite node:internal/streams/writable:350:18
+      1  100.0%            JS: +writevGeneric node:internal/stream_base_commons:121:23
+      4    3.6%        JS: ^onDestroy node:internal/streams/destroy:93:21
+      2   50.0%          JS: +onError node:_http_incoming:471:17
+      2  100.0%            JS: +processTicksAndRejections node:internal/process/task_queues:72:35
+      1   25.0%          JS: ^onError node:_http_incoming:471:17
+      1  100.0%            JS: +processTicksAndRejections node:internal/process/task_queues:72:35
+      1   25.0%          JS: *processTicksAndRejections node:internal/process/task_queues:72:35
+      4    3.6%        JS: ^maybeReadMore node:internal/streams/readable:859:23
+      4  100.0%          JS: ^addChunk node:internal/streams/readable:552:18
+      3   75.0%            JS: +readableAddChunkPushByteMode node:internal/streams/readable:465:38
+      1   25.0%            JS: ^readableAddChunkPushByteMode node:internal/streams/readable:465:38
+      3    2.7%        JS: ^resume node:internal/streams/readable:1254:16
+      2   66.7%          JS: +Readable.resume node:internal/streams/readable:1234:37
+      2  100.0%            JS: +Readable.on node:internal/streams/readable:1134:33
+      1   33.3%          JS: ^Readable.resume node:internal/streams/readable:1234:37
+      1  100.0%            JS: +Readable.on node:internal/streams/readable:1134:33
+    100    6.4%      JS: *<anonymous> /home/dana/final-project/dist/repositories/log.repository.js:117:22
+     63   63.0%        JS: +insertMany /home/dana/final-project/dist/repositories/log.repository.js:111:21
+     59   93.7%          JS: +ingest /home/dana/final-project/dist/services/log.service.js:17:17
+     59  100.0%            JS: +<anonymous> /home/dana/final-project/dist/routes/logs.js:9:23
+      4    6.3%          JS: ^ingest /home/dana/final-project/dist/services/log.service.js:17:17
+      4  100.0%            JS: +<anonymous> /home/dana/final-project/dist/routes/logs.js:9:23
+     37   37.0%        Builtin: ArrayForEach
+     37  100.0%          JS: ^insertMany /home/dana/final-project/dist/repositories/log.repository.js:111:21
+     37  100.0%            JS: ^ingest /home/dana/final-project/dist/services/log.service.js:17:17
+     31    2.0%      JS: +bind node:async_hooks:251:7
+     24   77.4%        JS: +ContentTypeParser.run /home/dana/final-project/node_modules/fastify/lib/content-type-parser.js:187:44
+     24  100.0%          JS: +handleRequest /home/dana/final-project/node_modules/fastify/lib/handle-request.js:25:24
+     24  100.0%            JS: +runPreParsing /home/dana/final-project/node_modules/fastify/lib/route.js:644:24
+      7   22.6%        JS: ^ContentTypeParser.run /home/dana/final-project/node_modules/fastify/lib/content-type-parser.js:187:44
+      6   85.7%          JS: +handleRequest /home/dana/final-project/node_modules/fastify/lib/handle-request.js:25:24
+      6  100.0%            JS: +runPreParsing /home/dana/final-project/node_modules/fastify/lib/route.js:644:24
+      1   14.3%          JS: ^handleRequest /home/dana/final-project/node_modules/fastify/lib/handle-request.js:25:24
+      1  100.0%            JS: +runPreParsing /home/dana/final-project/node_modules/fastify/lib/route.js:644:24
+     21    1.3%      JS: +<anonymous> /home/dana/final-project/dist/repositories/log.repository.js:117:22
+     11   52.4%        JS: +insertMany /home/dana/final-project/dist/repositories/log.repository.js:111:21
+     11  100.0%          JS: +ingest /home/dana/final-project/dist/services/log.service.js:17:17
+     11  100.0%            JS: +<anonymous> /home/dana/final-project/dist/routes/logs.js:9:23
+     10   47.6%        Builtin: ArrayForEach
+      7   70.0%          JS: ^insertMany /home/dana/final-project/dist/repositories/log.repository.js:111:21
+      6   85.7%            JS: ^ingest /home/dana/final-project/dist/services/log.service.js:17:17
+      1   14.3%            JS: ~ingest /home/dana/final-project/dist/services/log.service.js:17:17
+      3   30.0%          JS: ~insertMany /home/dana/final-project/dist/repositories/log.repository.js:111:21
+      3  100.0%            JS: ~ingest /home/dana/final-project/dist/services/log.service.js:17:17
+     20    1.3%      JS: ^bind node:async_hooks:251:7
+     20  100.0%        JS: ^ContentTypeParser.run /home/dana/final-project/node_modules/fastify/lib/content-type-parser.js:187:44
+     20  100.0%          JS: ^handleRequest /home/dana/final-project/node_modules/fastify/lib/handle-request.js:25:24
+     20  100.0%            JS: ^runPreParsing /home/dana/final-project/node_modules/fastify/lib/route.js:644:24
+     20    1.3%      JS: +write /home/dana/final-project/node_modules/pino/lib/proto.js:206:16
+     20  100.0%        JS: +LOG /home/dana/final-project/node_modules/pino/lib/tools.js:47:16
+      9   45.0%          JS: +requestCompleted /home/dana/final-project/node_modules/fastify/lib/log-controller.js:62:20
+      9  100.0%            JS: +onResFinished /home/dana/final-project/node_modules/fastify/lib/reply.js:956:25
+      7   35.0%          JS: +routeHandler /home/dana/final-project/node_modules/fastify/lib/route.js:457:25
+      7  100.0%            JS: +callHandler /home/dana/final-project/node_modules/find-my-way/index.js:560:53
+      2   10.0%          JS: ^requestCompleted /home/dana/final-project/node_modules/fastify/lib/log-controller.js:62:20
+      2  100.0%            JS: ^onResponseCallback /home/dana/final-project/node_modules/fastify/lib/reply.js:997:29
+      2   10.0%          JS: ^incomingRequest /home/dana/final-project/node_modules/fastify/lib/log-controller.js:47:19
+      2  100.0%            JS: ^routeHandler /home/dana/final-project/node_modules/fastify/lib/route.js:457:25
+     16    1.0%      JS: +writevGeneric node:internal/stream_base_commons:121:23
+     16  100.0%        JS: +Socket._writeGeneric node:net:995:42
+     16  100.0%          JS: +doWrite node:internal/streams/writable:585:17
+     16  100.0%            JS: +clearBuffer node:internal/streams/writable:742:21
+    121    4.5%    JS: *write node:buffer:1185:40
+    113   93.4%      JS: *writeValues /home/dana/final-project/node_modules/pg-protocol/dist/serializer.js:63:30
+     80   70.8%        JS: +bind /home/dana/final-project/node_modules/pg-protocol/dist/serializer.js:87:14
+     80  100.0%          JS: +prepare /home/dana/final-project/node_modules/pg/lib/query.js:209:10
+     80  100.0%            JS: +submit /home/dana/final-project/node_modules/pg/lib/query.js:152:9
+     33   29.2%        JS: ^bind /home/dana/final-project/node_modules/pg-protocol/dist/serializer.js:87:14
+     33  100.0%          JS: ^bind /home/dana/final-project/node_modules/pg/lib/connection.js:181:7
+     33  100.0%            JS: ^prepare /home/dana/final-project/node_modules/pg/lib/query.js:209:10
+      7    5.8%      JS: +addCString /home/dana/final-project/node_modules/pg-protocol/dist/buffer-writer.js:37:15
+      5   71.4%        JS: +parse /home/dana/final-project/node_modules/pg-protocol/dist/serializer.js:39:15
+      5  100.0%          JS: +prepare /home/dana/final-project/node_modules/pg/lib/query.js:209:10
+      5  100.0%            JS: +submit /home/dana/final-project/node_modules/pg/lib/query.js:152:9
+      2   28.6%        JS: ^parse /home/dana/final-project/node_modules/pg-protocol/dist/serializer.js:39:15
+      2  100.0%          JS: ^parse /home/dana/final-project/node_modules/pg/lib/connection.js:176:8
+      2  100.0%            JS: ^prepare /home/dana/final-project/node_modules/pg/lib/query.js:209:10
+    118    4.4%    JS: ^wrapSafe node:internal/modules/cjs/loader:1762:18
+    118  100.0%      JS: ^<anonymous> node:internal/modules/cjs/loader:1823:37
+    118  100.0%        JS: ^<anonymous> node:internal/modules/cjs/loader:1967:37
+    118  100.0%          JS: ^<anonymous> node:internal/modules/cjs/loader:1579:33
+    118  100.0%            JS: ^<anonymous> node:internal/modules/cjs/loader:1267:24
+     69    2.6%    JS: ^compileForInternalLoader node:internal/bootstrap/realm:383:27
+     48   69.6%      JS: ^requireBuiltin node:internal/bootstrap/realm:420:24
+      5   10.4%        JS: ~<anonymous> node:http:1:1
+      5  100.0%          JS: ^compileForInternalLoader node:internal/bootstrap/realm:383:27
+      5  100.0%            JS: ^<anonymous> node:internal/modules/cjs/loader:1267:24
+      4    8.3%        JS: ~<anonymous> node:internal/streams/duplex:1:1
+      4  100.0%          JS: ^compileForInternalLoader node:internal/bootstrap/realm:383:27
+      4  100.0%            JS: ^requireBuiltin node:internal/bootstrap/realm:420:24
+      4    8.3%        JS: ~<anonymous> node:http2:1:1
+      4  100.0%          JS: ^compileForInternalLoader node:internal/bootstrap/realm:383:27
+      4  100.0%            JS: ^compileForPublicLoader node:internal/bootstrap/realm:331:25
+      4    8.3%        JS: ~<anonymous> node:crypto:1:1
+      4  100.0%          JS: ^compileForInternalLoader node:internal/bootstrap/realm:383:27
+      4  100.0%            JS: ^requireBuiltin node:internal/bootstrap/realm:420:24
+      4    8.3%        JS: ~<anonymous> node:_http_agent:1:1
+      4  100.0%          JS: ^compileForInternalLoader node:internal/bootstrap/realm:383:27
+      4  100.0%            JS: ^requireBuiltin node:internal/bootstrap/realm:420:24
+      3    6.3%        JS: ~<anonymous> node:stream:1:1
+      3  100.0%          JS: ^compileForInternalLoader node:internal/bootstrap/realm:383:27
+      3  100.0%            JS: ^requireBuiltin node:internal/bootstrap/realm:420:24
+      3    6.3%        JS: ~<anonymous> node:internal/fs/promises:1:1
+      3  100.0%          JS: ^compileForInternalLoader node:internal/bootstrap/realm:383:27
+      3  100.0%            JS: ^requireBuiltin node:internal/bootstrap/realm:420:24
+      2    4.2%        JS: ~<anonymous> node:tls:1:1
+      2  100.0%          JS: ^compileForInternalLoader node:internal/bootstrap/realm:383:27
+      2  100.0%            JS: ^requireBuiltin node:internal/bootstrap/realm:420:24
+      2    4.2%        JS: ~<anonymous> node:net:1:1
+      2  100.0%          JS: ^compileForInternalLoader node:internal/bootstrap/realm:383:27
+      2  100.0%            JS: ^requireBuiltin node:internal/bootstrap/realm:420:24
+      2    4.2%        JS: ~<anonymous> node:internal/cluster/round_robin_handle:1:1
+      2  100.0%          JS: ^compileForInternalLoader node:internal/bootstrap/realm:383:27
+      2  100.0%            JS: ^requireBuiltin node:internal/bootstrap/realm:420:24
+      1    2.1%        JS: ~<anonymous> node:internal/tls/secure-context:1:1
+      1  100.0%          JS: ^compileForInternalLoader node:internal/bootstrap/realm:383:27
+      1  100.0%            JS: ^requireBuiltin node:internal/bootstrap/realm:420:24
+      1    2.1%        JS: ~<anonymous> node:internal/streams/readable:1:1
+      1  100.0%          JS: ^compileForInternalLoader node:internal/bootstrap/realm:383:27
+      1  100.0%            JS: ^requireBuiltin node:internal/bootstrap/realm:420:24
+      1    2.1%        JS: ~<anonymous> node:internal/streams/operators:1:1
+      1  100.0%          JS: ^compileForInternalLoader node:internal/bootstrap/realm:383:27
+      1  100.0%            JS: ^requireBuiltin node:internal/bootstrap/realm:420:24
+      1    2.1%        JS: ~<anonymous> node:internal/streams/compose:1:1
+      1  100.0%          JS: ^compileForInternalLoader node:internal/bootstrap/realm:383:27
+      1  100.0%            JS: ^requireBuiltin node:internal/bootstrap/realm:420:24
+      1    2.1%        JS: ~<anonymous> node:internal/perf/observe:1:1
+      1  100.0%          JS: ^compileForInternalLoader node:internal/bootstrap/realm:383:27
+      1  100.0%            JS: ^requireBuiltin node:internal/bootstrap/realm:420:24
+      1    2.1%        JS: ~<anonymous> node:internal/http2/core:1:1
+      1  100.0%          JS: ^compileForInternalLoader node:internal/bootstrap/realm:383:27
+      1  100.0%            JS: ^requireBuiltin node:internal/bootstrap/realm:420:24
+      1    2.1%        JS: ~<anonymous> node:internal/crypto/util:1:1
+      1  100.0%          JS: ^compileForInternalLoader node:internal/bootstrap/realm:383:27
+      1  100.0%            JS: ^requireBuiltin node:internal/bootstrap/realm:420:24
+      1    2.1%        JS: ~<anonymous> node:internal/cluster/primary:1:1
+      1  100.0%          JS: ^compileForInternalLoader node:internal/bootstrap/realm:383:27
+      1  100.0%            JS: ~<anonymous> node:cluster:1:1
+      1    2.1%        JS: ~<anonymous> node:internal/child_process:1:1
+      1  100.0%          JS: ^compileForInternalLoader node:internal/bootstrap/realm:383:27
+      1  100.0%            JS: ^requireBuiltin node:internal/bootstrap/realm:420:24
+      1    2.1%        JS: ~<anonymous> node:internal/assert/assertion_error:1:1
+      1  100.0%          JS: ^compileForInternalLoader node:internal/bootstrap/realm:383:27
+      1  100.0%            JS: ^requireBuiltin node:internal/bootstrap/realm:420:24
+      1    2.1%        JS: ~<anonymous> node:https:1:1
+      1  100.0%          JS: ^compileForInternalLoader node:internal/bootstrap/realm:383:27
+      1  100.0%            JS: ^<anonymous> node:internal/modules/cjs/loader:1267:24
+      1    2.1%        JS: ~<anonymous> node:child_process:1:1
+      1  100.0%          JS: ^compileForInternalLoader node:internal/bootstrap/realm:383:27
+      1  100.0%            JS: ^requireBuiltin node:internal/bootstrap/realm:420:24
+      1    2.1%        JS: ~<anonymous> node:assert:1:1
+      1  100.0%          JS: ^compileForInternalLoader node:internal/bootstrap/realm:383:27
+      1  100.0%            JS: ^requireBuiltin node:internal/bootstrap/realm:420:24
+      1    2.1%        JS: ~<anonymous> node:_http_common:1:1
+      1  100.0%          JS: ^compileForInternalLoader node:internal/bootstrap/realm:383:27
+      1  100.0%            JS: ^requireBuiltin node:internal/bootstrap/realm:420:24
+      1    2.1%        JS: ~<anonymous> node:_http_client:1:1
+      1  100.0%          JS: ^compileForInternalLoader node:internal/bootstrap/realm:383:27
+      1  100.0%            JS: ^requireBuiltin node:internal/bootstrap/realm:420:24
+     15   21.7%      JS: +requireBuiltin node:internal/bootstrap/realm:420:24
+      3   20.0%        JS: ~<anonymous> node:internal/worker:1:1
+      3  100.0%          JS: ^compileForInternalLoader node:internal/bootstrap/realm:383:27
+      3  100.0%            JS: +requireBuiltin node:internal/bootstrap/realm:420:24
+      2   13.3%        JS: ~<anonymous> node:worker_threads:1:1
+      2  100.0%          JS: ^compileForInternalLoader node:internal/bootstrap/realm:383:27
+      2  100.0%            JS: ^compileForPublicLoader node:internal/bootstrap/realm:331:25
+      2   13.3%        JS: ~<anonymous> node:internal/readline/interface:1:1
+      2  100.0%          JS: ^compileForInternalLoader node:internal/bootstrap/realm:383:27
+      2  100.0%            JS: ^requireBuiltin node:internal/bootstrap/realm:420:24
+      2   13.3%        JS: ~<anonymous> node:internal/http2/core:1:1
+      2  100.0%          JS: ^compileForInternalLoader node:internal/bootstrap/realm:383:27
+      2  100.0%            JS: ^requireBuiltin node:internal/bootstrap/realm:420:24
+      1    6.7%        JS: ~listenInCluster node:net:2056:25
+      1  100.0%          JS: ~<anonymous> node:net:2265:38
+      1  100.0%            JS: ^processTicksAndRejections node:internal/process/task_queues:72:35
+      1    6.7%        JS: ~lazyWebCrypto node:crypto:132:23
+      1  100.0%          JS: ~get node:crypto:361:8
+      1  100.0%            JS: ~<anonymous> /home/dana/final-project/node_modules/pg/lib/crypto/utils.js:1:1
+      1    6.7%        JS: ~getRandomValues node:internal/crypto/webcrypto:1937:25
+      1  100.0%          JS: ~randomBytes /home/dana/final-project/node_modules/pg/lib/crypto/utils.js:31:21
+      1  100.0%            JS: ~startSession /home/dana/final-project/node_modules/pg/lib/crypto/sasl.js:35:22
+      1    6.7%        JS: ~<anonymous> node:perf_hooks:1:1
+      1  100.0%          JS: ^compileForInternalLoader node:internal/bootstrap/realm:383:27
+      1  100.0%            JS: ^compileForPublicLoader node:internal/bootstrap/realm:331:25
+      1    6.7%        JS: ~<anonymous> node:internal/perf/timerify:1:1
+      1  100.0%          JS: ^compileForInternalLoader node:internal/bootstrap/realm:383:27
+      1  100.0%            JS: +requireBuiltin node:internal/bootstrap/realm:420:24
+      1    6.7%        JS: ~<anonymous> node:internal/http2/compat:1:1
+      1  100.0%          JS: ^compileForInternalLoader node:internal/bootstrap/realm:383:27
+      1  100.0%            JS: +requireBuiltin node:internal/bootstrap/realm:420:24
+      3    4.3%      JS: ^compileForPublicLoader node:internal/bootstrap/realm:331:25
+      3  100.0%        JS: ^loadBuiltinModule node:internal/modules/helpers:118:27
+      3  100.0%          JS: ^loadBuiltinWithHooks node:internal/modules/cjs/loader:1233:30
+      3  100.0%            JS: ^<anonymous> node:internal/modules/cjs/loader:1267:24
+      2    2.9%      JS: ~<anonymous> node:cluster:1:1
+      2  100.0%        JS: ^compileForInternalLoader node:internal/bootstrap/realm:383:27
+      2  100.0%          JS: +requireBuiltin node:internal/bootstrap/realm:420:24
+      2  100.0%            JS: ~listenInCluster node:net:2056:25
+      1    1.4%      JS: ^<anonymous> node:internal/modules/cjs/loader:1267:24
+      1  100.0%        JS: ^wrapModuleLoad node:internal/modules/cjs/loader:238:24
+      1  100.0%          JS: ^<anonymous> node:internal/modules/cjs/loader:1609:36
+      1  100.0%            JS: ^require node:internal/modules/helpers:152:19
+     46    1.7%    JS: *writeValues /home/dana/final-project/node_modules/pg-protocol/dist/serializer.js:63:30
+     36   78.3%      JS: +bind /home/dana/final-project/node_modules/pg-protocol/dist/serializer.js:87:14
+     36  100.0%        JS: +prepare /home/dana/final-project/node_modules/pg/lib/query.js:209:10
+     36  100.0%          JS: +submit /home/dana/final-project/node_modules/pg/lib/query.js:152:9
+     36  100.0%            JS: +_pulseQueryQueue /home/dana/final-project/node_modules/pg/lib/client.js:603:19
+     10   21.7%      JS: ^bind /home/dana/final-project/node_modules/pg-protocol/dist/serializer.js:87:14
+     10  100.0%        JS: ^bind /home/dana/final-project/node_modules/pg/lib/connection.js:181:7
+     10  100.0%          JS: ^prepare /home/dana/final-project/node_modules/pg/lib/query.js:209:10
+     10  100.0%            JS: ^submit /home/dana/final-project/node_modules/pg/lib/query.js:152:9
+     36    1.3%    JS: +writevGeneric node:internal/stream_base_commons:121:23
+     34   94.4%      JS: +Socket._writeGeneric node:net:995:42
+     34  100.0%        JS: +doWrite node:internal/streams/writable:585:17
+     34  100.0%          JS: +clearBuffer node:internal/streams/writable:742:21
+     12   35.3%            JS: +submit /home/dana/final-project/node_modules/pg/lib/query.js:152:9
+     12   35.3%            JS: +end node:_http_outgoing:1034:45
+     10   29.4%            JS: +Writable.uncork node:internal/streams/writable:518:37
+      2    5.6%      JS: ^Socket._writeGeneric node:net:995:42
+      2  100.0%        JS: ^Socket._writev node:net:1032:36
+      2  100.0%          JS: ^doWrite node:internal/streams/writable:585:17
+      2  100.0%            JS: ^clearBuffer node:internal/streams/writable:742:21
+     36    1.3%    Builtin: ArrayPrototypeJoin
+     19   52.8%      JS: +insertMany /home/dana/final-project/dist/repositories/log.repository.js:111:21
+     18   94.7%        JS: +ingest /home/dana/final-project/dist/services/log.service.js:17:17
+     18  100.0%          JS: +<anonymous> /home/dana/final-project/dist/routes/logs.js:9:23
+     18  100.0%            JS: +preHandlerCallbackInner /home/dana/final-project/node_modules/fastify/lib/handle-request.js:184:34
+      1    5.3%        JS: ^ingest /home/dana/final-project/dist/services/log.service.js:17:17
+      1  100.0%          JS: +<anonymous> /home/dana/final-project/dist/routes/logs.js:9:23
+      1  100.0%            JS: +preHandlerCallbackInner /home/dana/final-project/node_modules/fastify/lib/handle-request.js:184:34
+     16   44.4%      JS: ^insertMany /home/dana/final-project/dist/repositories/log.repository.js:111:21
+     16  100.0%        JS: ^ingest /home/dana/final-project/dist/services/log.service.js:17:17
+     16  100.0%          JS: ^<anonymous> /home/dana/final-project/dist/routes/logs.js:9:23
+     13   81.3%            JS: ^preHandlerCallbackInner /home/dana/final-project/node_modules/fastify/lib/handle-request.js:184:34
+      3   18.8%            JS: +preHandlerCallbackInner /home/dana/final-project/node_modules/fastify/lib/handle-request.js:184:34
+      1    2.8%      JS: ~insertMany /home/dana/final-project/dist/repositories/log.repository.js:111:21
+      1  100.0%        JS: ~ingest /home/dana/final-project/dist/services/log.service.js:17:17
+      1  100.0%          JS: ~<anonymous> /home/dana/final-project/dist/routes/logs.js:9:23
+      1  100.0%            JS: ^preHandlerCallbackInner /home/dana/final-project/node_modules/fastify/lib/handle-request.js:184:34
+     34    1.3%    JS: +byteLength node:buffer:844:20
+     11   32.4%      JS: +addCString /home/dana/final-project/node_modules/pg-protocol/dist/buffer-writer.js:37:15
+      6   54.5%        JS: +parse /home/dana/final-project/node_modules/pg-protocol/dist/serializer.js:39:15
+      6  100.0%          JS: +prepare /home/dana/final-project/node_modules/pg/lib/query.js:209:10
+      6  100.0%            JS: +submit /home/dana/final-project/node_modules/pg/lib/query.js:152:9
+      5   45.5%        JS: ^parse /home/dana/final-project/node_modules/pg-protocol/dist/serializer.js:39:15
+      5  100.0%          JS: ^parse /home/dana/final-project/node_modules/pg/lib/connection.js:176:8
+      5  100.0%            JS: ^prepare /home/dana/final-project/node_modules/pg/lib/query.js:209:10
+      9   26.5%      JS: ^onData /home/dana/final-project/node_modules/fastify/lib/content-type-parser.js:258:19
+      7   77.8%        JS: *emit node:events:456:44
+      7  100.0%          JS: +Readable.read node:internal/streams/readable:649:35
+      7  100.0%            JS: +resume_ node:internal/streams/readable:1261:17
+      2   22.2%        JS: +emit node:events:456:44
+      1   50.0%          JS: ^Readable.read node:internal/streams/readable:649:35
+      1  100.0%            JS: +flow node:internal/streams/readable:1287:14
+      1   50.0%          JS: +Readable.read node:internal/streams/readable:649:35
+      1  100.0%            JS: +flow node:internal/streams/readable:1287:14
+      6   17.6%      JS: +write /home/dana/final-project/node_modules/sonic-boom/index.js:306:16
+      6  100.0%        JS: +write /home/dana/final-project/node_modules/pino/lib/proto.js:206:16
+      6  100.0%          JS: +LOG /home/dana/final-project/node_modules/pino/lib/tools.js:47:16
+      3   50.0%            JS: +requestCompleted /home/dana/final-project/node_modules/fastify/lib/log-controller.js:62:20
+      2   33.3%            JS: +routeHandler /home/dana/final-project/node_modules/fastify/lib/route.js:457:25
+      1   16.7%            JS: ^requestCompleted /home/dana/final-project/node_modules/fastify/lib/log-controller.js:62:20
+      3    8.8%      JS: ^write /home/dana/final-project/node_modules/sonic-boom/index.js:306:16
+      3  100.0%        JS: ^write /home/dana/final-project/node_modules/pino/lib/proto.js:206:16
+      3  100.0%          JS: ^LOG /home/dana/final-project/node_modules/pino/lib/tools.js:47:16
+      3  100.0%            JS: ^incomingRequest /home/dana/final-project/node_modules/fastify/lib/log-controller.js:47:19
+      3    8.8%      JS: +onData /home/dana/final-project/node_modules/fastify/lib/content-type-parser.js:258:19
+      2   66.7%        JS: *emit node:events:456:44
+      2  100.0%          JS: +Readable.read node:internal/streams/readable:649:35
+      2  100.0%            JS: +resume_ node:internal/streams/readable:1261:17
+      1   33.3%        JS: +emit node:events:456:44
+      1  100.0%          JS: +Readable.read node:internal/streams/readable:649:35
+      1  100.0%            JS: +resume_ node:internal/streams/readable:1261:17
+      1    2.9%      JS: ^onSendEnd /home/dana/final-project/node_modules/fastify/lib/reply.js:585:20
+      1  100.0%        JS: ^onSendHook /home/dana/final-project/node_modules/fastify/lib/reply.js:551:21
+      1  100.0%          JS: ^preSerializationHookEnd /home/dana/final-project/node_modules/fastify/lib/reply.js:524:34
+      1  100.0%            JS: ^preSerializationHook /home/dana/final-project/node_modules/fastify/lib/reply.js:510:31
+      1    2.9%      JS: ^addCString /home/dana/final-project/node_modules/pg-protocol/dist/buffer-writer.js:37:15
+      1  100.0%        JS: ^parse /home/dana/final-project/node_modules/pg-protocol/dist/serializer.js:39:15
+      1  100.0%          JS: ^parse /home/dana/final-project/node_modules/pg/lib/connection.js:176:8
+      1  100.0%            JS: ^prepare /home/dana/final-project/node_modules/pg/lib/query.js:209:10
+
+    782   10.5%  epoll_pwait@@GLIBC_2.6
+
+    303    4.1%  writev@@GLIBC_2.2.5
+    274   90.4%    JS: +writevGeneric node:internal/stream_base_commons:121:23
+    251   91.6%      JS: +Socket._writeGeneric node:net:995:42
+    247   98.4%        JS: +doWrite node:internal/streams/writable:585:17
+    247  100.0%          JS: +clearBuffer node:internal/streams/writable:742:21
+    139   56.3%            JS: +submit /home/dana/final-project/node_modules/pg/lib/query.js:152:9
+     63   25.5%            JS: +end node:_http_outgoing:1034:45
+     45   18.2%            JS: +Writable.uncork node:internal/streams/writable:518:37
+      4    1.6%        JS: ^Socket._writev node:net:1032:36
+      4  100.0%          JS: ^doWrite node:internal/streams/writable:585:17
+      4  100.0%            JS: +clearBuffer node:internal/streams/writable:742:21
+     23    8.4%      JS: ^Socket._writeGeneric node:net:995:42
+     23  100.0%        JS: ^Socket._writev node:net:1032:36
+     23  100.0%          JS: ^doWrite node:internal/streams/writable:585:17
+     16   69.6%            JS: ^clearBuffer node:internal/streams/writable:742:21
+      7   30.4%            JS: +clearBuffer node:internal/streams/writable:742:21
+     28    9.2%    JS: ^writevGeneric node:internal/stream_base_commons:121:23
+     28  100.0%      JS: ^Socket._writeGeneric node:net:995:42
+     28  100.0%        JS: ^Socket._writev node:net:1032:36
+     28  100.0%          JS: ^doWrite node:internal/streams/writable:585:17
+     28  100.0%            JS: ^clearBuffer node:internal/streams/writable:742:21
+
+    235    3.2%  /usr/lib/x86_64-linux-gnu/libc.so.6
+     52   22.1%    /home/dana/.nvm/versions/node/v24.18.0/bin/node
+     12   23.1%      JS: ^_parse /home/dana/final-project/node_modules/secure-json-parse/index.js:17:17
+      7   58.3%        JS: +onEnd /home/dana/final-project/node_modules/fastify/lib/content-type-parser.js:279:18
+      4   57.1%          JS: *emit node:events:456:44
+      4  100.0%            JS: +endReadableNT node:internal/streams/readable:1723:23
+      3   42.9%          JS: +emit node:events:456:44
+      3  100.0%            JS: +endReadableNT node:internal/streams/readable:1723:23
+      5   41.7%        JS: ^parse /home/dana/final-project/node_modules/secure-json-parse/index.js:129:16
+      5  100.0%          JS: ^defaultJsonParser /home/dana/final-project/node_modules/fastify/lib/content-type-parser.js:313:30
+      5  100.0%            JS: ^onEnd /home/dana/final-project/node_modules/fastify/lib/content-type-parser.js:279:18
+     10   19.2%      JS: +_parse /home/dana/final-project/node_modules/secure-json-parse/index.js:17:17
+      5   50.0%        JS: +defaultJsonParser /home/dana/final-project/node_modules/fastify/lib/content-type-parser.js:313:30
+      5  100.0%          JS: ^onEnd /home/dana/final-project/node_modules/fastify/lib/content-type-parser.js:279:18
+      5  100.0%            JS: *emit node:events:456:44
+      3   30.0%        JS: +parse /home/dana/final-project/node_modules/secure-json-parse/index.js:129:16
+      3  100.0%          JS: ^defaultJsonParser /home/dana/final-project/node_modules/fastify/lib/content-type-parser.js:313:30
+      3  100.0%            JS: ^onEnd /home/dana/final-project/node_modules/fastify/lib/content-type-parser.js:279:18
+      2   20.0%        JS: +onEnd /home/dana/final-project/node_modules/fastify/lib/content-type-parser.js:279:18
+      2  100.0%          JS: *emit node:events:456:44
+      2  100.0%            JS: +endReadableNT node:internal/streams/readable:1723:23
+      8   15.4%      JS: *<anonymous> /home/dana/final-project/dist/repositories/log.repository.js:117:22
+      4   50.0%        JS: +insertMany /home/dana/final-project/dist/repositories/log.repository.js:111:21
+      4  100.0%          JS: +ingest /home/dana/final-project/dist/services/log.service.js:17:17
+      4  100.0%            JS: +<anonymous> /home/dana/final-project/dist/routes/logs.js:9:23
+      4   50.0%        Builtin: ArrayForEach
+      4  100.0%          JS: ^insertMany /home/dana/final-project/dist/repositories/log.repository.js:111:21
+      4  100.0%            JS: ^ingest /home/dana/final-project/dist/services/log.service.js:17:17
+      2    3.8%      Builtin: RegExpPrototypeTest
+      1   50.0%        JS: ~_parse /home/dana/final-project/node_modules/secure-json-parse/index.js:17:17
+      1  100.0%          JS: ~parse /home/dana/final-project/node_modules/secure-json-parse/index.js:129:16
+      1  100.0%            JS: ~defaultJsonParser /home/dana/final-project/node_modules/fastify/lib/content-type-parser.js:313:30
+      1   50.0%        JS: ^_parse /home/dana/final-project/node_modules/secure-json-parse/index.js:17:17
+      1  100.0%          JS: +onEnd /home/dana/final-project/node_modules/fastify/lib/content-type-parser.js:279:18
+      1  100.0%            JS: +emit node:events:456:44
+      1    1.9%      JS: ~writeHead node:_http_server:404:19
+      1  100.0%        JS: ~safeWriteHead /home/dana/final-project/node_modules/fastify/lib/reply.js:573:24
+      1  100.0%          JS: ~onSendEnd /home/dana/final-project/node_modules/fastify/lib/reply.js:585:20
+      1  100.0%            JS: ~onSendHook /home/dana/final-project/node_modules/fastify/lib/reply.js:551:21
+      1    1.9%      JS: ~validateInitialConfig /home/dana/final-project/node_modules/fastify/lib/initial-config-validation.js:7:32
+      1  100.0%        JS: ~processOptions /home/dana/final-project/node_modules/fastify/fastify.js:850:25
+      1  100.0%          JS: ~fastify /home/dana/final-project/node_modules/fastify/fastify.js:90:18
+      1  100.0%            JS: ~buildApp /home/dana/final-project/dist/app.js:11:18
+      1    1.9%      JS: ~parse /home/dana/final-project/node_modules/semver/classes/comparator.js:36:9
+      1  100.0%        JS: ~Comparator /home/dana/final-project/node_modules/semver/classes/comparator.js:10:15
+      1  100.0%          JS: ~<anonymous> /home/dana/final-project/node_modules/semver/ranges/subset.js:1:1
+      1  100.0%            JS: ^<anonymous> node:internal/modules/cjs/loader:1823:37
+      1    1.9%      JS: ~init /home/dana/final-project/node_modules/zod/v4/core/core.cjs:12:18
+      1  100.0%        JS: ~_ /home/dana/final-project/node_modules/zod/v4/core/core.cjs:43:15
+      1  100.0%          JS: ~_refine /home/dana/final-project/node_modules/zod/v4/core/api.cjs:1092:17
+      1  100.0%            JS: ~refine /home/dana/final-project/node_modules/zod/v4/classic/schemas.cjs:1458:16
+      1    1.9%      JS: ~emitLookup node:net:1506:46
+      1  100.0%        JS: ^onlookupall node:dns:120:21
+      1    1.9%      JS: ~cache node:internal/http:29:15
+      1  100.0%        JS: +_storeHeader node:_http_outgoing:402:22
+      1  100.0%          JS: +writeHead node:_http_server:404:19
+      1  100.0%            JS: +safeWriteHead /home/dana/final-project/node_modules/fastify/lib/reply.js:573:24
+      1    1.9%      JS: ~Socket.connect node:net:1282:36
+      1  100.0%        JS: ~connect /home/dana/final-project/node_modules/pg/lib/connection.js:39:10
+      1  100.0%          JS: ~_connect /home/dana/final-project/node_modules/pg/lib/client.js:148:11
+      1  100.0%            JS: ~connect /home/dana/final-project/node_modules/pg/lib/client.js:227:10
+      1    1.9%      JS: ^serialize /home/dana/final-project/node_modules/fastify/lib/reply.js:1064:20
+      1  100.0%        JS: ^preSerializationHookEnd /home/dana/final-project/node_modules/fastify/lib/reply.js:524:34
+      1  100.0%          JS: ^preSerializationHook /home/dana/final-project/node_modules/fastify/lib/reply.js:510:31
+      1  100.0%            JS: ^Reply.send /home/dana/final-project/node_modules/fastify/lib/reply.js:150:33
+      1    1.9%      JS: ^onceWrapper node:events:625:21
+      1  100.0%        JS: ^emit node:events:456:44
+      1  100.0%          JS: ~<anonymous> /home/dana/final-project/node_modules/avvio/index.js:99:32
+      1  100.0%            JS: ~<anonymous> /home/dana/final-project/node_modules/avvio/index.js:449:24
+      1    1.9%      JS: ^getCryptoKeyType node:internal/crypto/keys:1089:26
+      1  100.0%        JS: ^importKeySync node:internal/crypto/webcrypto:845:23
+      1  100.0%          JS: ^importKeyImpl node:internal/crypto/webcrypto:967:23
+      1  100.0%            JS: ^callSubtleCryptoMethod node:internal/crypto/webcrypto:94:32
+      1    1.9%      JS: ^emit node:events:456:44
+      1  100.0%        JS: ~Plugin.exec /home/dana/final-project/node_modules/avvio/lib/plugin.js:71:34
+      1  100.0%          JS: ~Boot._loadPlugin /home/dana/final-project/node_modules/avvio/index.js:410:39
+      1  100.0%            JS: ~Boot /home/dana/final-project/node_modules/avvio/index.js:26:15
+      1    1.9%      JS: ^bind node:async_hooks:251:7
+      1  100.0%        JS: ^ContentTypeParser.run /home/dana/final-project/node_modules/fastify/lib/content-type-parser.js:187:44
+      1  100.0%          JS: ^handleRequest /home/dana/final-project/node_modules/fastify/lib/handle-request.js:25:24
+      1  100.0%            JS: ^runPreParsing /home/dana/final-project/node_modules/fastify/lib/route.js:644:24
+      1    1.9%      JS: ^Socket.resume node:net:831:35
+      1  100.0%        JS: ^readStart node:_http_incoming:42:19
+      1  100.0%          JS: ^_read node:_http_incoming:225:49
+      1  100.0%            JS: +Readable.read node:internal/streams/readable:649:35
+      1    1.9%      JS: ^Query /home/dana/final-project/node_modules/pg/lib/query.js:9:14
+      1  100.0%        JS: ^query /home/dana/final-project/node_modules/pg/lib/client.js:626:8
+      1  100.0%          JS: ^<anonymous> /home/dana/final-project/node_modules/pg-pool/index.js:449:18
+      1  100.0%            JS: ^_acquireClient /home/dana/final-project/node_modules/pg-pool/index.js:335:17
+      1    1.9%      JS: +runChecks /home/dana/final-project/node_modules/zod/v4/core/schemas.cjs:63:27
+      1  100.0%        JS: +inst._zod.run /home/dana/final-project/node_modules/zod/v4/core/schemas.cjs:122:25
+      1  100.0%          JS: +<anonymous> :1:20
+      1  100.0%            JS: +<anonymous> /home/dana/final-project/node_modules/zod/v4/core/schemas.cjs:997:16
+      1    1.9%      JS: +asChindings /home/dana/final-project/node_modules/pino/lib/tools.js:238:22
+      1  100.0%        JS: ^child /home/dana/final-project/node_modules/pino/lib/proto.js:85:16
+      1  100.0%          JS: ^defaultChildLoggerFactory /home/dana/final-project/node_modules/fastify/lib/logger-factory.js:51:36
+      1  100.0%            JS: ^createChildLogger /home/dana/final-project/node_modules/fastify/lib/logger-factory.js:29:28
+      1    1.9%      JS: +<anonymous> /home/dana/final-project/dist/utils/validation.js:12:18
+      1  100.0%        Builtin: ArrayForEach
+      1  100.0%          JS: ^validateBatch /home/dana/final-project/dist/utils/validation.js:9:23
+      1  100.0%            JS: ^<anonymous> /home/dana/final-project/dist/routes/logs.js:9:23
+      1    1.9%      Builtin: StringPrototypeMatch
+      1  100.0%        JS: ~parse /home/dana/final-project/node_modules/semver/classes/comparator.js:36:9
+      1  100.0%          JS: ~Comparator /home/dana/final-project/node_modules/semver/classes/comparator.js:10:15
+      1  100.0%            JS: ~<anonymous> /home/dana/final-project/node_modules/semver/ranges/subset.js:1:1
+      1    1.9%      Builtin: RegExpPrototypeExec
+      1  100.0%        JS: ^resolveExports node:internal/modules/cjs/loader:697:24
+      1  100.0%          JS: ^<anonymous> node:internal/modules/cjs/loader:726:28
+      1  100.0%            JS: ^<anonymous> node:internal/modules/cjs/loader:1433:35
+      1    1.9%      Builtin: MapPrototypeGet
+      1  100.0%        JS: ^stat node:internal/modules/cjs/loader:266:14
+      1  100.0%          JS: ^<anonymous> node:internal/modules/cjs/loader:726:28
+      1  100.0%            JS: ^<anonymous> node:internal/modules/cjs/loader:1433:35
+     50   21.3%    Builtin: TypedArrayPrototypeSet
+     36   72.0%      JS: +_copyActual node:buffer:272:21
+     36  100.0%        JS: +copyImpl node:buffer:236:18
+     30   83.3%          JS: *writeValues /home/dana/final-project/node_modules/pg-protocol/dist/serializer.js:63:30
+     30  100.0%            JS: ^bind /home/dana/final-project/node_modules/pg-protocol/dist/serializer.js:87:14
+      4   11.1%          JS: +copy node:buffer:900:16
+      2   50.0%            JS: ^add /home/dana/final-project/node_modules/pg-protocol/dist/buffer-writer.js:76:8
+      2   50.0%            JS: +ensure /home/dana/final-project/node_modules/pg-protocol/dist/buffer-writer.js:12:11
+      2    5.6%          JS: ^copy node:buffer:900:16
+      2  100.0%            JS: ^add /home/dana/final-project/node_modules/pg-protocol/dist/buffer-writer.js:76:8
+     11   22.0%      JS: *copyImpl node:buffer:236:18
+     10   90.9%        JS: *writeValues /home/dana/final-project/node_modules/pg-protocol/dist/serializer.js:63:30
+     10  100.0%          JS: +bind /home/dana/final-project/node_modules/pg-protocol/dist/serializer.js:87:14
+     10  100.0%            JS: +prepare /home/dana/final-project/node_modules/pg/lib/query.js:209:10
+      1    9.1%        JS: +bind /home/dana/final-project/node_modules/pg-protocol/dist/serializer.js:87:14
+      1  100.0%          JS: +prepare /home/dana/final-project/node_modules/pg/lib/query.js:209:10
+      1  100.0%            JS: +submit /home/dana/final-project/node_modules/pg/lib/query.js:152:9
+      3    6.0%      JS: ^_copyActual node:buffer:272:21
+      3  100.0%        JS: ^copyImpl node:buffer:236:18
+      3  100.0%          JS: *writeValues /home/dana/final-project/node_modules/pg-protocol/dist/serializer.js:63:30
+      2   66.7%            JS: ^bind /home/dana/final-project/node_modules/pg-protocol/dist/serializer.js:87:14
+      1   33.3%            JS: ~bind /home/dana/final-project/node_modules/pg-protocol/dist/serializer.js:87:14
+     15    6.4%    Builtin: ArrayPrototypeJoin
+      8   53.3%      JS: +insertMany /home/dana/final-project/dist/repositories/log.repository.js:111:21
+      8  100.0%        JS: +ingest /home/dana/final-project/dist/services/log.service.js:17:17
+      8  100.0%          JS: +<anonymous> /home/dana/final-project/dist/routes/logs.js:9:23
+      8  100.0%            JS: +preHandlerCallbackInner /home/dana/final-project/node_modules/fastify/lib/handle-request.js:184:34
+      7   46.7%      JS: ^insertMany /home/dana/final-project/dist/repositories/log.repository.js:111:21
+      7  100.0%        JS: ^ingest /home/dana/final-project/dist/services/log.service.js:17:17
+      7  100.0%          JS: ^<anonymous> /home/dana/final-project/dist/routes/logs.js:9:23
+      7  100.0%            JS: ^preHandlerCallbackInner /home/dana/final-project/node_modules/fastify/lib/handle-request.js:184:34
+     10    4.3%    JS: +write node:string_decoder:76:47
+     10  100.0%      JS: +readableAddChunkPushByteMode node:internal/streams/readable:465:38
+     10  100.0%        JS: +parserOnBody node:_http_common:128:22
+      9    3.8%    JS: ^write node:string_decoder:76:47
+      5   55.6%      JS: +readableAddChunkPushByteMode node:internal/streams/readable:465:38
+      5  100.0%        JS: +Readable.push node:internal/streams/readable:389:35
+      5  100.0%          JS: ^parserOnBody node:_http_common:128:22
+      4   44.4%      JS: ^readableAddChunkPushByteMode node:internal/streams/readable:465:38
+      2   50.0%        JS: ^Readable.push node:internal/streams/readable:389:35
+      2  100.0%          JS: ^parserOnBody node:_http_common:128:22
+      2   50.0%        JS: +Readable.push node:internal/streams/readable:389:35
+      2  100.0%          JS: ^parserOnBody node:_http_common:128:22
+      7    3.0%    JS: ^wrapSafe node:internal/modules/cjs/loader:1762:18
+      7  100.0%      JS: ^<anonymous> node:internal/modules/cjs/loader:1823:37
+      7  100.0%        JS: ^<anonymous> node:internal/modules/cjs/loader:1967:37
+      7  100.0%          JS: ^<anonymous> node:internal/modules/cjs/loader:1579:33
+      7  100.0%            JS: ^<anonymous> node:internal/modules/cjs/loader:1267:24
+      6    2.6%    JS: ^compileForInternalLoader node:internal/bootstrap/realm:383:27
+      4   66.7%      JS: ^requireBuiltin node:internal/bootstrap/realm:420:24
+      1   25.0%        JS: ~<anonymous> node:net:1:1
+      1  100.0%          JS: ^compileForInternalLoader node:internal/bootstrap/realm:383:27
+      1  100.0%            JS: ^requireBuiltin node:internal/bootstrap/realm:420:24
+      1   25.0%        JS: ~<anonymous> node:internal/streams/pipeline:1:1
+      1  100.0%          JS: ^compileForInternalLoader node:internal/bootstrap/realm:383:27
+      1  100.0%            JS: ^requireBuiltin node:internal/bootstrap/realm:420:24
+      1   25.0%        JS: ~<anonymous> node:http2:1:1
+      1  100.0%          JS: ^compileForInternalLoader node:internal/bootstrap/realm:383:27
+      1  100.0%            JS: ^compileForPublicLoader node:internal/bootstrap/realm:331:25
+      1   25.0%        JS: ~<anonymous> node:crypto:1:1
+      1  100.0%          JS: ^compileForInternalLoader node:internal/bootstrap/realm:383:27
+      1  100.0%            JS: ^requireBuiltin node:internal/bootstrap/realm:420:24
+      2   33.3%      JS: +requireBuiltin node:internal/bootstrap/realm:420:24
+      1   50.0%        JS: ~<anonymous> node:perf_hooks:1:1
+      1  100.0%          JS: ^compileForInternalLoader node:internal/bootstrap/realm:383:27
+      1  100.0%            JS: ^compileForPublicLoader node:internal/bootstrap/realm:331:25
+      1   50.0%        JS: ~<anonymous> node:internal/http2/compat:1:1
+      1  100.0%          JS: ^compileForInternalLoader node:internal/bootstrap/realm:383:27
+      1  100.0%            JS: +requireBuiltin node:internal/bootstrap/realm:420:24
+      6    2.6%    JS: +writevGeneric node:internal/stream_base_commons:121:23
+      6  100.0%      JS: +Socket._writeGeneric node:net:995:42
+      6  100.0%        JS: +doWrite node:internal/streams/writable:585:17
+      6  100.0%          JS: +clearBuffer node:internal/streams/writable:742:21
+      4   66.7%            JS: +end node:_http_outgoing:1034:45
+      1   16.7%            JS: +submit /home/dana/final-project/node_modules/pg/lib/query.js:152:9
+      1   16.7%            JS: +Writable.uncork node:internal/streams/writable:518:37
+      6    2.6%    JS: +createPool node:buffer:177:20
+      6  100.0%      JS: *allocate node:buffer:479:18
+      6  100.0%        JS: *writeValues /home/dana/final-project/node_modules/pg-protocol/dist/serializer.js:63:30
+      6  100.0%          JS: +bind /home/dana/final-project/node_modules/pg-protocol/dist/serializer.js:87:14
+      6  100.0%            JS: +prepare /home/dana/final-project/node_modules/pg/lib/query.js:209:10
+      4    1.7%    JS: +byteLength node:buffer:844:20
+      3   75.0%      JS: +addCString /home/dana/final-project/node_modules/pg-protocol/dist/buffer-writer.js:37:15
+      3  100.0%        JS: +parse /home/dana/final-project/node_modules/pg-protocol/dist/serializer.js:39:15
+      3  100.0%          JS: +prepare /home/dana/final-project/node_modules/pg/lib/query.js:209:10
+      3  100.0%            JS: +submit /home/dana/final-project/node_modules/pg/lib/query.js:152:9
+      1   25.0%      JS: +write /home/dana/final-project/node_modules/sonic-boom/index.js:306:16
+      1  100.0%        JS: +write /home/dana/final-project/node_modules/pino/lib/proto.js:206:16
+      1  100.0%          JS: +LOG /home/dana/final-project/node_modules/pino/lib/tools.js:47:16
+      1  100.0%            JS: +requestCompleted /home/dana/final-project/node_modules/fastify/lib/log-controller.js:62:20
+      3    1.3%    JS: ^write node:fs:807:15
+      3  100.0%      JS: ^actualWrite /home/dana/final-project/node_modules/sonic-boom/index.js:636:22
+      2   66.7%        JS: ^SonicBoom.release /home/dana/final-project/node_modules/sonic-boom/index.js:175:18
+      1   50.0%          JS: ^wrapper node:fs:808:19
+      1   50.0%          JS: +wrapper node:fs:808:19
+      1   33.3%        JS: ^write /home/dana/final-project/node_modules/sonic-boom/index.js:306:16
+      1  100.0%          JS: ^write /home/dana/final-project/node_modules/pino/lib/proto.js:206:16
+      1  100.0%            JS: ^LOG /home/dana/final-project/node_modules/pino/lib/tools.js:47:16
+      3    1.3%    JS: ^createUnsafeBuffer node:internal/buffer:1097:28
+      3  100.0%      JS: ^createPool node:buffer:177:20
+      2   66.7%        JS: +allocate node:buffer:479:18
+      2  100.0%          JS: *writeValues /home/dana/final-project/node_modules/pg-protocol/dist/serializer.js:63:30
+      2  100.0%            JS: ^bind /home/dana/final-project/node_modules/pg-protocol/dist/serializer.js:87:14
+      1   33.3%        JS: ^allocate node:buffer:479:18
+      1  100.0%          JS: *writeValues /home/dana/final-project/node_modules/pg-protocol/dist/serializer.js:63:30
+      1  100.0%            JS: ^bind /home/dana/final-project/node_modules/pg-protocol/dist/serializer.js:87:14
+
+    164    2.2%  UNKNOWN
+
+    153    2.1%  Builtin: LoadIC
+     20   13.1%    JS: *<anonymous> :1:20
+     18   90.0%      JS: *<anonymous> /home/dana/final-project/dist/utils/validation.js:12:18
+     11   61.1%        JS: +validateBatch /home/dana/final-project/dist/utils/validation.js:9:23
+     10   90.9%          JS: +<anonymous> /home/dana/final-project/dist/routes/logs.js:9:23
+     10  100.0%            JS: +preHandlerCallbackInner /home/dana/final-project/node_modules/fastify/lib/handle-request.js:184:34
+      1    9.1%          JS: ^<anonymous> /home/dana/final-project/dist/routes/logs.js:9:23
+      1  100.0%            JS: +preHandlerCallbackInner /home/dana/final-project/node_modules/fastify/lib/handle-request.js:184:34
+      7   38.9%        Builtin: ArrayForEach
+      7  100.0%          JS: ^validateBatch /home/dana/final-project/dist/utils/validation.js:9:23
+      7  100.0%            JS: ^<anonymous> /home/dana/final-project/dist/routes/logs.js:9:23
+      2   10.0%      JS: *<anonymous> /home/dana/final-project/node_modules/zod/v4/core/parse.cjs:59:30
+      2  100.0%        JS: +<anonymous> /home/dana/final-project/dist/utils/validation.js:12:18
+      2  100.0%          JS: +validateBatch /home/dana/final-project/dist/utils/validation.js:9:23
+      2  100.0%            JS: +<anonymous> /home/dana/final-project/dist/routes/logs.js:9:23
+     16   10.5%    JS: *<anonymous> /home/dana/final-project/dist/utils/validation.js:12:18
+     12   75.0%      JS: +validateBatch /home/dana/final-project/dist/utils/validation.js:9:23
+     12  100.0%        JS: +<anonymous> /home/dana/final-project/dist/routes/logs.js:9:23
+     12  100.0%          JS: +preHandlerCallbackInner /home/dana/final-project/node_modules/fastify/lib/handle-request.js:184:34
+     12  100.0%            JS: +preHandlerCallback /home/dana/final-project/node_modules/fastify/lib/handle-request.js:162:29
+      4   25.0%      Builtin: ArrayForEach
+      4  100.0%        JS: ^validateBatch /home/dana/final-project/dist/utils/validation.js:9:23
+      4  100.0%          JS: ^<anonymous> /home/dana/final-project/dist/routes/logs.js:9:23
+      4  100.0%            JS: ^preHandlerCallbackInner /home/dana/final-project/node_modules/fastify/lib/handle-request.js:184:34
+      9    5.9%    JS: *inst._zod.parse /home/dana/final-project/node_modules/zod/v4/core/schemas.cjs:1455:23
+      9  100.0%      JS: *<anonymous> :1:20
+      8   88.9%        JS: *<anonymous> /home/dana/final-project/dist/utils/validation.js:12:18
+      5   62.5%          Builtin: ArrayForEach
+      5  100.0%            JS: ^validateBatch /home/dana/final-project/dist/utils/validation.js:9:23
+      3   37.5%          JS: +validateBatch /home/dana/final-project/dist/utils/validation.js:9:23
+      2   66.7%            JS: +<anonymous> /home/dana/final-project/dist/routes/logs.js:9:23
+      1   33.3%            JS: ^<anonymous> /home/dana/final-project/dist/routes/logs.js:9:23
+      1   11.1%        JS: *<anonymous> /home/dana/final-project/node_modules/zod/v4/core/parse.cjs:59:30
+      1  100.0%          JS: +<anonymous> /home/dana/final-project/dist/utils/validation.js:12:18
+      1  100.0%            JS: +validateBatch /home/dana/final-project/dist/utils/validation.js:9:23
+      4    2.6%    JS: +nextTick node:internal/process/task_queues:113:18
+      1   25.0%      JS: ^onDestroy node:internal/streams/destroy:93:21
+      1  100.0%        JS: ^onError node:_http_incoming:471:17
+      1  100.0%          JS: +processTicksAndRejections node:internal/process/task_queues:72:35
+      1   25.0%      JS: +resume node:internal/streams/readable:1254:16
+      1  100.0%        JS: +Readable.resume node:internal/streams/readable:1234:37
+      1  100.0%          JS: +Readable.on node:internal/streams/readable:1134:33
+      1  100.0%            JS: +rawBody /home/dana/final-project/node_modules/fastify/lib/content-type-parser.js:235:18
+      1   25.0%      JS: +onwrite node:internal/streams/writable:613:17
+      1  100.0%        JS: +WritableState.onwrite node:internal/streams/writable:350:18
+      1  100.0%          JS: +writevGeneric node:internal/stream_base_commons:121:23
+      1  100.0%            JS: +Socket._writeGeneric node:net:995:42
+      1   25.0%      JS: +_destroy node:_http_incoming:241:55
+      1  100.0%        JS: +destroy node:internal/streams/destroy:49:17
+      1  100.0%          JS: +endReadableNT node:internal/streams/readable:1723:23
+      1  100.0%            JS: +processTicksAndRejections node:internal/process/task_queues:72:35
+      3    2.0%    JS: ^from /home/dana/final-project/node_modules/fastify/lib/content-type.js:95:15
+      2   66.7%      JS: ^Reply.send /home/dana/final-project/node_modules/fastify/lib/reply.js:150:33
+      2  100.0%        JS: ^<anonymous> /home/dana/final-project/dist/routes/logs.js:9:23
+      2  100.0%          Builtin: AsyncFunctionAwaitResolveClosure
+      2  100.0%            Builtin: CallApiCallbackOptimizedNoProfiling
+      1   33.3%      JS: ^handleRequest /home/dana/final-project/node_modules/fastify/lib/handle-request.js:25:24
+      1  100.0%        JS: ^runPreParsing /home/dana/final-project/node_modules/fastify/lib/route.js:644:24
+      1  100.0%          JS: ^routeHandler /home/dana/final-project/node_modules/fastify/lib/route.js:457:25
+      1  100.0%            JS: ^callHandler /home/dana/final-project/node_modules/find-my-way/index.js:560:53
+      3    2.0%    JS: +emit node:events:456:44
+      2   66.7%      JS: ^onFinish node:_http_outgoing:1029:18
+      2  100.0%        JS: +callback node:internal/streams/writable:762:63
+      1   50.0%          JS: ^afterWrite node:internal/streams/writable:697:20
+      1  100.0%            JS: ^afterWriteTick node:internal/streams/writable:691:24
+      1   50.0%          JS: +afterWrite node:internal/streams/writable:697:20
+      1  100.0%            JS: ^afterWriteTick node:internal/streams/writable:691:24
+      1   33.3%      JS: +<anonymous> /home/dana/final-project/node_modules/pg/lib/connection.js:131:19
+      1  100.0%        JS: +parse /home/dana/final-project/node_modules/pg-protocol/dist/parser.js:26:10
+      1  100.0%          JS: ^<anonymous> /home/dana/final-project/node_modules/pg-protocol/dist/index.js:12:23
+      1  100.0%            JS: +emit node:events:456:44
+      3    2.0%    JS: +_destroy node:_http_incoming:241:55
+      3  100.0%      JS: +destroy node:internal/streams/destroy:49:17
+      3  100.0%        JS: +endReadableNT node:internal/streams/readable:1723:23
+      2   66.7%          JS: +processTicksAndRejections node:internal/process/task_queues:72:35
+      1   33.3%          JS: *processTicksAndRejections node:internal/process/task_queues:72:35
+      3    2.0%    JS: +ContentTypeParser.run /home/dana/final-project/node_modules/fastify/lib/content-type-parser.js:187:44
+      3  100.0%      JS: +handleRequest /home/dana/final-project/node_modules/fastify/lib/handle-request.js:25:24
+      3  100.0%        JS: +runPreParsing /home/dana/final-project/node_modules/fastify/lib/route.js:644:24
+      3  100.0%          JS: +routeHandler /home/dana/final-project/node_modules/fastify/lib/route.js:457:25
+      3  100.0%            JS: +callHandler /home/dana/final-project/node_modules/find-my-way/index.js:560:53
+      2    1.3%    JS: ^uncork node:_http_outgoing:265:51
+      2  100.0%      JS: +end node:_http_outgoing:1034:45
+      2  100.0%        JS: +writePayload /home/dana/final-project/node_modules/fastify/lib/reply.js:697:23
+      2  100.0%          JS: +onSendEnd /home/dana/final-project/node_modules/fastify/lib/reply.js:585:20
+      2  100.0%            JS: +preSerializationHookEnd /home/dana/final-project/node_modules/fastify/lib/reply.js:524:34
+      2    1.3%    JS: ^routeHandler /home/dana/final-project/node_modules/fastify/lib/route.js:457:25
+      2  100.0%      JS: ^callHandler /home/dana/final-project/node_modules/find-my-way/index.js:560:53
+      2  100.0%        JS: ^lookup /home/dana/final-project/node_modules/find-my-way/index.js:532:43
+      2  100.0%          JS: ^preRouting /home/dana/final-project/node_modules/fastify/fastify.js:802:32
+      2  100.0%            JS: +emit node:events:456:44
+      2    1.3%    JS: ^resOnFinish node:_http_server:1072:21
+      2  100.0%      JS: +emit node:events:456:44
+      2  100.0%        JS: ^onFinish node:_http_outgoing:1029:18
+      2  100.0%          JS: ^callback node:internal/streams/writable:762:63
+      2  100.0%            JS: ^afterWrite node:internal/streams/writable:697:20
+      2    1.3%    JS: ^preRouting /home/dana/final-project/node_modules/fastify/fastify.js:802:32
+      2  100.0%      JS: +emit node:events:456:44
+      2  100.0%        JS: ^parserOnIncoming node:_http_server:1142:26
+      2  100.0%          JS: ^parserOnHeadersComplete node:_http_common:77:33
+      2    1.3%    JS: ^parse /home/dana/final-project/node_modules/pg/lib/connection.js:176:8
+      2  100.0%      JS: ^prepare /home/dana/final-project/node_modules/pg/lib/query.js:209:10
+      2  100.0%        JS: ^submit /home/dana/final-project/node_modules/pg/lib/query.js:152:9
+      2  100.0%          JS: +_pulseQueryQueue /home/dana/final-project/node_modules/pg/lib/client.js:603:19
+      2  100.0%            JS: ^query /home/dana/final-project/node_modules/pg/lib/client.js:626:8
+      2    1.3%    JS: ^fromString node:buffer:527:20
+      2  100.0%      JS: ^from node:buffer:335:28
+      2  100.0%        JS: ^releaseWritingBuf /home/dana/final-project/node_modules/sonic-boom/index.js:275:28
+      2  100.0%          JS: ^SonicBoom.release /home/dana/final-project/node_modules/sonic-boom/index.js:175:18
+      2  100.0%            JS: ^wrapper node:fs:808:19
+      2    1.3%    JS: ^end node:_http_outgoing:1034:45
+      2  100.0%      JS: ^writePayload /home/dana/final-project/node_modules/fastify/lib/reply.js:697:23
+      2  100.0%        JS: ^onSendEnd /home/dana/final-project/node_modules/fastify/lib/reply.js:585:20
+      2  100.0%          JS: ^onSendHook /home/dana/final-project/node_modules/fastify/lib/reply.js:551:21
+      2  100.0%            JS: ^preSerializationHookEnd /home/dana/final-project/node_modules/fastify/lib/reply.js:524:34
+      2    1.3%    JS: ^connect /home/dana/final-project/node_modules/pg-pool/index.js:190:10
+      1   50.0%      JS: ^query /home/dana/final-project/node_modules/pg-pool/index.js:431:8
+      1  100.0%        JS: ^insertMany /home/dana/final-project/dist/repositories/log.repository.js:111:21
+      1  100.0%          JS: ^ingest /home/dana/final-project/dist/services/log.service.js:17:17
+      1  100.0%            JS: ^<anonymous> /home/dana/final-project/dist/routes/logs.js:9:23
+      1   50.0%      JS: +query /home/dana/final-project/node_modules/pg-pool/index.js:431:8
+      1  100.0%        JS: +insertMany /home/dana/final-project/dist/repositories/log.repository.js:111:21
+      1  100.0%          JS: +ingest /home/dana/final-project/dist/services/log.service.js:17:17
+      1  100.0%            JS: +<anonymous> /home/dana/final-project/dist/routes/logs.js:9:23
+      2    1.3%    JS: ^asReqValue /home/dana/final-project/node_modules/fastify/lib/logger-pino.js:47:28
+      2  100.0%      JS: ^_asJson /home/dana/final-project/node_modules/pino/lib/tools.js:144:18
+      2  100.0%        JS: ^asJson /home/dana/final-project/node_modules/pino/lib/tools.js:123:17
+      2  100.0%          JS: ^write /home/dana/final-project/node_modules/pino/lib/proto.js:206:16
+      2  100.0%            JS: ^LOG /home/dana/final-project/node_modules/pino/lib/tools.js:47:16
+      2    1.3%    JS: ^_destroy node:_http_incoming:241:55
+      2  100.0%      JS: ^_destroy node:internal/streams/destroy:90:18
+      2  100.0%        JS: ^destroy node:internal/streams/destroy:49:17
+      2  100.0%          JS: ^endReadableNT node:internal/streams/readable:1723:23
+      2  100.0%            JS: +processTicksAndRejections node:internal/process/task_queues:72:35
+      2    1.3%    JS: ^Readable.removeListener node:internal/streams/readable:1166:45
+      1   50.0%      JS: ^onceWrapper node:events:625:21
+      1  100.0%        JS: ^emit node:events:456:44
+      1  100.0%          JS: ~afterConnect node:net:1650:22
+      1   50.0%      JS: ^onEnd /home/dana/final-project/node_modules/fastify/lib/content-type-parser.js:279:18
+      1  100.0%        JS: +emit node:events:456:44
+      1  100.0%          JS: ^endReadableNT node:internal/streams/readable:1723:23
+      1  100.0%            JS: ^processTicksAndRejections node:internal/process/task_queues:72:35
+      2    1.3%    JS: +socketListenerWrap node:_http_server:1318:37
+      2  100.0%      JS: +parserOnIncoming node:_http_server:1142:26
+      2  100.0%        JS: +parserOnHeadersComplete node:_http_common:77:33
+      2    1.3%    JS: +removeListener node:events:678:28
+      1   50.0%      JS: ^Readable.removeListener node:internal/streams/readable:1166:45
+      1  100.0%        JS: ^onEnd /home/dana/final-project/node_modules/fastify/lib/content-type-parser.js:279:18
+      1  100.0%          JS: +emit node:events:456:44
+      1  100.0%            JS: ^endReadableNT node:internal/streams/readable:1723:23
+      1   50.0%      JS: +onResFinished /home/dana/final-project/node_modules/fastify/lib/reply.js:956:25
+      1  100.0%        JS: *emit node:events:456:44
+      1  100.0%          JS: +onFinish node:_http_outgoing:1029:18
+      1  100.0%            JS: ^callback node:internal/streams/writable:762:63
+      2    1.3%    JS: +realpathSync node:fs:2711:22
+      2  100.0%      JS: ^toRealPath node:internal/modules/helpers:62:20
+      2  100.0%        JS: ^tryFile node:internal/modules/cjs/loader:581:17
+      2  100.0%          JS: ^tryExtensions node:internal/modules/cjs/loader:597:23
+      2  100.0%            JS: ^<anonymous> node:internal/modules/cjs/loader:726:28
+      2    1.3%    JS: +onwrite node:internal/streams/writable:613:17
+      2  100.0%      JS: +WritableState.onwrite node:internal/streams/writable:350:18
+      2  100.0%        JS: +writevGeneric node:internal/stream_base_commons:121:23
+      2  100.0%          JS: +Socket._writeGeneric node:net:995:42
+      2  100.0%            JS: +doWrite node:internal/streams/writable:585:17
+      2    1.3%    JS: +end node:_http_outgoing:1034:45
+      1   50.0%      JS: ^writePayload /home/dana/final-project/node_modules/fastify/lib/reply.js:697:23
+      1  100.0%        JS: +onSendEnd /home/dana/final-project/node_modules/fastify/lib/reply.js:585:20
+      1  100.0%          JS: +preSerializationHookEnd /home/dana/final-project/node_modules/fastify/lib/reply.js:524:34
+      1  100.0%            JS: +Reply.send /home/dana/final-project/node_modules/fastify/lib/reply.js:150:33
+      1   50.0%      JS: +writePayload /home/dana/final-project/node_modules/fastify/lib/reply.js:697:23
+      1  100.0%        JS: +onSendEnd /home/dana/final-project/node_modules/fastify/lib/reply.js:585:20
+      1  100.0%          JS: +preSerializationHookEnd /home/dana/final-project/node_modules/fastify/lib/reply.js:524:34
+      1  100.0%            JS: +Reply.send /home/dana/final-project/node_modules/fastify/lib/reply.js:150:33
+      2    1.3%    JS: +Readable.removeListener node:internal/streams/readable:1166:45
+      1   50.0%      JS: ^onEnd /home/dana/final-project/node_modules/fastify/lib/content-type-parser.js:279:18
+      1  100.0%        JS: *emit node:events:456:44
+      1  100.0%          JS: +endReadableNT node:internal/streams/readable:1723:23
+      1  100.0%            JS: *processTicksAndRejections node:internal/process/task_queues:72:35
+      1   50.0%      JS: +onEnd /home/dana/final-project/node_modules/fastify/lib/content-type-parser.js:279:18
+      1  100.0%        JS: *emit node:events:456:44
+      1  100.0%          JS: +endReadableNT node:internal/streams/readable:1723:23
+      1  100.0%            JS: +processTicksAndRejections node:internal/process/task_queues:72:35
+      2    1.3%    JS: +Query /home/dana/final-project/node_modules/pg/lib/query.js:9:14
+      2  100.0%      JS: +query /home/dana/final-project/node_modules/pg/lib/client.js:626:8
+      2  100.0%        JS: +<anonymous> /home/dana/final-project/node_modules/pg-pool/index.js:449:18
+      2  100.0%          JS: +_acquireClient /home/dana/final-project/node_modules/pg-pool/index.js:335:17
+      2  100.0%            JS: +_pulseQueue /home/dana/final-project/node_modules/pg-pool/index.js:127:14
+
+    145    2.0%  JS: *runChecks /home/dana/final-project/node_modules/zod/v4/core/schemas.cjs:63:27
+     98   67.6%    JS: *<anonymous> :1:20
+     83   84.7%      JS: *<anonymous> /home/dana/final-project/dist/utils/validation.js:12:18
+     48   57.8%        JS: +validateBatch /home/dana/final-project/dist/utils/validation.js:9:23
+     41   85.4%          JS: +<anonymous> /home/dana/final-project/dist/routes/logs.js:9:23
+     41  100.0%            JS: +preHandlerCallbackInner /home/dana/final-project/node_modules/fastify/lib/handle-request.js:184:34
+      7   14.6%          JS: ^<anonymous> /home/dana/final-project/dist/routes/logs.js:9:23
+      7  100.0%            JS: +preHandlerCallbackInner /home/dana/final-project/node_modules/fastify/lib/handle-request.js:184:34
+     35   42.2%        Builtin: ArrayForEach
+     35  100.0%          JS: ^validateBatch /home/dana/final-project/dist/utils/validation.js:9:23
+     35  100.0%            JS: ^<anonymous> /home/dana/final-project/dist/routes/logs.js:9:23
+     15   15.3%      JS: *<anonymous> /home/dana/final-project/node_modules/zod/v4/core/parse.cjs:59:30
+     15  100.0%        JS: +<anonymous> /home/dana/final-project/dist/utils/validation.js:12:18
+      8   53.3%          Builtin: ArrayForEach
+      8  100.0%            JS: ^validateBatch /home/dana/final-project/dist/utils/validation.js:9:23
+      7   46.7%          JS: +validateBatch /home/dana/final-project/dist/utils/validation.js:9:23
+      7  100.0%            JS: +<anonymous> /home/dana/final-project/dist/routes/logs.js:9:23
+     46   31.7%    JS: *inst._zod.run /home/dana/final-project/node_modules/zod/v4/core/schemas.cjs:122:25
+     37   80.4%      JS: *<anonymous> :1:20
+     32   86.5%        JS: *<anonymous> /home/dana/final-project/dist/utils/validation.js:12:18
+     16   50.0%          JS: +validateBatch /home/dana/final-project/dist/utils/validation.js:9:23
+     13   81.3%            JS: +<anonymous> /home/dana/final-project/dist/routes/logs.js:9:23
+      3   18.8%            JS: ^<anonymous> /home/dana/final-project/dist/routes/logs.js:9:23
+     16   50.0%          Builtin: ArrayForEach
+     16  100.0%            JS: ^validateBatch /home/dana/final-project/dist/utils/validation.js:9:23
+      5   13.5%        JS: *<anonymous> /home/dana/final-project/node_modules/zod/v4/core/parse.cjs:59:30
+      5  100.0%          JS: +<anonymous> /home/dana/final-project/dist/utils/validation.js:12:18
+      4   80.0%            Builtin: ArrayForEach
+      1   20.0%            JS: +validateBatch /home/dana/final-project/dist/utils/validation.js:9:23
+      9   19.6%      JS: +<anonymous> :1:20
+      9  100.0%        JS: +<anonymous> /home/dana/final-project/node_modules/zod/v4/core/schemas.cjs:997:16
+      9  100.0%          JS: +inst._zod.parse /home/dana/final-project/node_modules/zod/v4/core/schemas.cjs:1006:23
+      9  100.0%            JS: +<anonymous> /home/dana/final-project/node_modules/zod/v4/core/parse.cjs:59:30
+
+    137    1.8%  Builtin: LoadIC_Megamorphic
+     49   35.8%    JS: *<anonymous> :1:20
+     44   89.8%      JS: *<anonymous> /home/dana/final-project/dist/utils/validation.js:12:18
+     36   81.8%        JS: +validateBatch /home/dana/final-project/dist/utils/validation.js:9:23
+     29   80.6%          JS: +<anonymous> /home/dana/final-project/dist/routes/logs.js:9:23
+     29  100.0%            JS: +preHandlerCallbackInner /home/dana/final-project/node_modules/fastify/lib/handle-request.js:184:34
+      7   19.4%          JS: ^<anonymous> /home/dana/final-project/dist/routes/logs.js:9:23
+      7  100.0%            JS: +preHandlerCallbackInner /home/dana/final-project/node_modules/fastify/lib/handle-request.js:184:34
+      8   18.2%        Builtin: ArrayForEach
+      8  100.0%          JS: ^validateBatch /home/dana/final-project/dist/utils/validation.js:9:23
+      8  100.0%            JS: ^<anonymous> /home/dana/final-project/dist/routes/logs.js:9:23
+      5   10.2%      JS: *<anonymous> /home/dana/final-project/node_modules/zod/v4/core/parse.cjs:59:30
+      4   80.0%        JS: +<anonymous> /home/dana/final-project/dist/utils/validation.js:12:18
+      3   75.0%          JS: +validateBatch /home/dana/final-project/dist/utils/validation.js:9:23
+      3  100.0%            JS: +<anonymous> /home/dana/final-project/dist/routes/logs.js:9:23
+      1   25.0%          Builtin: ArrayForEach
+      1  100.0%            JS: ^validateBatch /home/dana/final-project/dist/utils/validation.js:9:23
+      1   20.0%        JS: +inst.safeParse /home/dana/final-project/node_modules/zod/v4/classic/schemas.cjs:196:22
+      1  100.0%          JS: ^<anonymous> /home/dana/final-project/dist/utils/validation.js:12:18
+      1  100.0%            JS: +validateBatch /home/dana/final-project/dist/utils/validation.js:9:23
+     31   22.6%    JS: *runChecks /home/dana/final-project/node_modules/zod/v4/core/schemas.cjs:63:27
+     17   54.8%      JS: *inst._zod.run /home/dana/final-project/node_modules/zod/v4/core/schemas.cjs:122:25
+     15   88.2%        JS: *<anonymous> :1:20
+     12   80.0%          JS: *<anonymous> /home/dana/final-project/dist/utils/validation.js:12:18
+     10   83.3%            JS: +validateBatch /home/dana/final-project/dist/utils/validation.js:9:23
+      2   16.7%            Builtin: ArrayForEach
+      3   20.0%          JS: *<anonymous> /home/dana/final-project/node_modules/zod/v4/core/parse.cjs:59:30
+      3  100.0%            JS: +<anonymous> /home/dana/final-project/dist/utils/validation.js:12:18
+      2   11.8%        JS: +<anonymous> :1:20
+      2  100.0%          JS: +<anonymous> /home/dana/final-project/node_modules/zod/v4/core/schemas.cjs:997:16
+      2  100.0%            JS: +inst._zod.parse /home/dana/final-project/node_modules/zod/v4/core/schemas.cjs:1006:23
+     13   41.9%      JS: *<anonymous> :1:20
+     10   76.9%        JS: *<anonymous> /home/dana/final-project/dist/utils/validation.js:12:18
+      8   80.0%          JS: +validateBatch /home/dana/final-project/dist/utils/validation.js:9:23
+      7   87.5%            JS: +<anonymous> /home/dana/final-project/dist/routes/logs.js:9:23
+      1   12.5%            JS: ^<anonymous> /home/dana/final-project/dist/routes/logs.js:9:23
+      2   20.0%          Builtin: ArrayForEach
+      2  100.0%            JS: ^validateBatch /home/dana/final-project/dist/utils/validation.js:9:23
+      3   23.1%        JS: *<anonymous> /home/dana/final-project/node_modules/zod/v4/core/parse.cjs:59:30
+      3  100.0%          JS: +<anonymous> /home/dana/final-project/dist/utils/validation.js:12:18
+      3  100.0%            JS: +validateBatch /home/dana/final-project/dist/utils/validation.js:9:23
+      1    3.2%      JS: +inst._zod.run /home/dana/final-project/node_modules/zod/v4/core/schemas.cjs:122:25
+      1  100.0%        JS: +<anonymous> :1:20
+      1  100.0%          JS: +<anonymous> /home/dana/final-project/node_modules/zod/v4/core/schemas.cjs:997:16
+      1  100.0%            JS: +inst._zod.parse /home/dana/final-project/node_modules/zod/v4/core/schemas.cjs:1006:23
+     25   18.2%    JS: *inst._zod.run /home/dana/final-project/node_modules/zod/v4/core/schemas.cjs:122:25
+     24   96.0%      JS: *<anonymous> :1:20
+     19   79.2%        JS: *<anonymous> /home/dana/final-project/dist/utils/validation.js:12:18
+     15   78.9%          JS: +validateBatch /home/dana/final-project/dist/utils/validation.js:9:23
+     14   93.3%            JS: +<anonymous> /home/dana/final-project/dist/routes/logs.js:9:23
+      1    6.7%            JS: ^<anonymous> /home/dana/final-project/dist/routes/logs.js:9:23
+      4   21.1%          Builtin: ArrayForEach
+      4  100.0%            JS: ^validateBatch /home/dana/final-project/dist/utils/validation.js:9:23
+      5   20.8%        JS: *<anonymous> /home/dana/final-project/node_modules/zod/v4/core/parse.cjs:59:30
+      5  100.0%          JS: +<anonymous> /home/dana/final-project/dist/utils/validation.js:12:18
+      4   80.0%            JS: +validateBatch /home/dana/final-project/dist/utils/validation.js:9:23
+      1   20.0%            Builtin: ArrayForEach
+      1    4.0%      JS: +<anonymous> :1:20
+      1  100.0%        JS: +<anonymous> /home/dana/final-project/node_modules/zod/v4/core/schemas.cjs:997:16
+      1  100.0%          JS: +inst._zod.parse /home/dana/final-project/node_modules/zod/v4/core/schemas.cjs:1006:23
+      1  100.0%            JS: +<anonymous> /home/dana/final-project/node_modules/zod/v4/core/parse.cjs:59:30
+      4    2.9%    JS: +Readable.on node:internal/streams/readable:1134:33
+      3   75.0%      JS: +rawBody /home/dana/final-project/node_modules/fastify/lib/content-type-parser.js:235:18
+      3  100.0%        JS: +ContentTypeParser.run /home/dana/final-project/node_modules/fastify/lib/content-type-parser.js:187:44
+      3  100.0%          JS: +handleRequest /home/dana/final-project/node_modules/fastify/lib/handle-request.js:25:24
+      3  100.0%            JS: +runPreParsing /home/dana/final-project/node_modules/fastify/lib/route.js:644:24
+      1   25.0%      JS: ^connectionListenerInternal node:_http_server:747:36
+      1  100.0%        JS: ^defaultTriggerAsyncIdScope node:internal/async_hooks:463:36
+      1  100.0%          JS: ^connectionListener node:_http_server:741:28
+      1  100.0%            JS: +emit node:events:456:44
+      4    2.9%    JS: *emit node:events:456:44
+      3   75.0%      JS: +addChunk node:internal/streams/readable:552:18
+      3  100.0%        JS: +readableAddChunkPushByteMode node:internal/streams/readable:465:38
+      2   66.7%          JS: +Readable.push node:internal/streams/readable:389:35
+      2  100.0%            JS: ^onStreamRead node:internal/stream_base_commons:166:22
+      1   33.3%          JS: +onStreamRead node:internal/stream_base_commons:166:22
+      1   25.0%      JS: +parserOnIncoming node:_http_server:1142:26
+      1  100.0%        JS: +parserOnHeadersComplete node:_http_common:77:33
+      3    2.2%    JS: +Readable node:internal/streams/readable:322:18
+      3  100.0%      JS: +IncomingMessage node:_http_incoming:53:25
+      3  100.0%        JS: +parserOnHeadersComplete node:_http_common:77:33
+      2    1.5%    JS: +parserOnIncoming node:_http_server:1142:26
+      2  100.0%      JS: +parserOnHeadersComplete node:_http_common:77:33
+      2    1.5%    JS: +inst._zod.run /home/dana/final-project/node_modules/zod/v4/core/schemas.cjs:122:25
+      2  100.0%      JS: +<anonymous> :1:20
+      2  100.0%        JS: +<anonymous> /home/dana/final-project/node_modules/zod/v4/core/schemas.cjs:997:16
+      2  100.0%          JS: +inst._zod.parse /home/dana/final-project/node_modules/zod/v4/core/schemas.cjs:1006:23
+      2  100.0%            JS: +<anonymous> /home/dana/final-project/node_modules/zod/v4/core/parse.cjs:59:30
+      2    1.5%    JS: +<anonymous> node:events:332:29
+      1   50.0%      JS: +Stream node:internal/streams/legacy:11:16
+      1  100.0%        JS: ^Readable node:internal/streams/readable:322:18
+      1  100.0%          JS: ^IncomingMessage node:_http_incoming:53:25
+      1  100.0%            JS: ^parserOnHeadersComplete node:_http_common:77:33
+      1   50.0%      JS: +Readable node:internal/streams/readable:322:18
+      1  100.0%        JS: +IncomingMessage node:_http_incoming:53:25
+      1  100.0%          JS: +parserOnHeadersComplete node:_http_common:77:33
+      2    1.5%    JS: *_addListener node:events:540:22
+      1   50.0%      JS: +parserOnIncoming node:_http_server:1142:26
+      1  100.0%        JS: +parserOnHeadersComplete node:_http_common:77:33
+      1   50.0%      JS: +Readable.on node:internal/streams/readable:1134:33
+      1  100.0%        JS: +rawBody /home/dana/final-project/node_modules/fastify/lib/content-type-parser.js:235:18
+      1  100.0%          JS: +ContentTypeParser.run /home/dana/final-project/node_modules/fastify/lib/content-type-parser.js:187:44
+      1  100.0%            JS: +handleRequest /home/dana/final-project/node_modules/fastify/lib/handle-request.js:25:24
+
+    109    1.5%  Builtin: KeyedStoreIC
+      9    8.3%    JS: +clearBuffer node:internal/streams/writable:742:21
+      5   55.6%      JS: +submit /home/dana/final-project/node_modules/pg/lib/query.js:152:9
+      5  100.0%        JS: +_pulseQueryQueue /home/dana/final-project/node_modules/pg/lib/client.js:603:19
+      5  100.0%          JS: +query /home/dana/final-project/node_modules/pg/lib/client.js:626:8
+      5  100.0%            JS: +<anonymous> /home/dana/final-project/node_modules/pg-pool/index.js:449:18
+      2   22.2%      JS: +end node:_http_outgoing:1034:45
+      2  100.0%        JS: +writePayload /home/dana/final-project/node_modules/fastify/lib/reply.js:697:23
+      2  100.0%          JS: +onSendEnd /home/dana/final-project/node_modules/fastify/lib/reply.js:585:20
+      2  100.0%            JS: +preSerializationHookEnd /home/dana/final-project/node_modules/fastify/lib/reply.js:524:34
+      2   22.2%      JS: +Writable.uncork node:internal/streams/writable:518:37
+      1   50.0%        JS: ^submit /home/dana/final-project/node_modules/pg/lib/query.js:152:9
+      1  100.0%          JS: +_pulseQueryQueue /home/dana/final-project/node_modules/pg/lib/client.js:603:19
+      1  100.0%            JS: ^query /home/dana/final-project/node_modules/pg/lib/client.js:626:8
+      1   50.0%        JS: ^end node:_http_outgoing:1034:45
+      1  100.0%          JS: ^writePayload /home/dana/final-project/node_modules/fastify/lib/reply.js:697:23
+      1  100.0%            JS: ^onSendEnd /home/dana/final-project/node_modules/fastify/lib/reply.js:585:20
+      6    5.5%    JS: +_pulseQueryQueue /home/dana/final-project/node_modules/pg/lib/client.js:603:19
+      6  100.0%      JS: +query /home/dana/final-project/node_modules/pg/lib/client.js:626:8
+      6  100.0%        JS: +<anonymous> /home/dana/final-project/node_modules/pg-pool/index.js:449:18
+      6  100.0%          JS: +_acquireClient /home/dana/final-project/node_modules/pg-pool/index.js:335:17
+      6  100.0%            JS: +_pulseQueue /home/dana/final-project/node_modules/pg-pool/index.js:127:14
+      6    5.5%    JS: +Readable node:internal/streams/readable:322:18
+      6  100.0%      JS: +IncomingMessage node:_http_incoming:53:25
+      6  100.0%        JS: +parserOnHeadersComplete node:_http_common:77:33
+      4    3.7%    JS: +readableAddChunkPushByteMode node:internal/streams/readable:465:38
+      3   75.0%      JS: +parserOnMessageComplete node:_http_common:143:33
+      1   25.0%      JS: +onStreamRead node:internal/stream_base_commons:166:22
+      4    3.7%    JS: +parserOnHeadersComplete node:_http_common:77:33
+      4    3.7%    JS: +_release /home/dana/final-project/node_modules/pg-pool/index.js:384:11
+      4  100.0%      JS: +<anonymous> /home/dana/final-project/node_modules/pg-pool/index.js:372:12
+      4  100.0%        JS: +<anonymous> /home/dana/final-project/node_modules/pg-pool/index.js:467:36
+      4  100.0%          JS: +handleReadyForQuery /home/dana/final-project/node_modules/pg/lib/query.js:136:22
+      4  100.0%            JS: +_handleReadyForQuery /home/dana/final-project/node_modules/pg/lib/client.js:368:23
+      4    3.7%    JS: +WritableState.onwrite node:internal/streams/writable:350:18
+      4  100.0%      JS: +writevGeneric node:internal/stream_base_commons:121:23
+      4  100.0%        JS: +Socket._writeGeneric node:net:995:42
+      4  100.0%          JS: +doWrite node:internal/streams/writable:585:17
+      4  100.0%            JS: +clearBuffer node:internal/streams/writable:742:21
+      3    2.8%    JS: +writePayload /home/dana/final-project/node_modules/fastify/lib/reply.js:697:23
+      3  100.0%      JS: +onSendEnd /home/dana/final-project/node_modules/fastify/lib/reply.js:585:20
+      3  100.0%        JS: +preSerializationHookEnd /home/dana/final-project/node_modules/fastify/lib/reply.js:524:34
+      3  100.0%          JS: +Reply.send /home/dana/final-project/node_modules/fastify/lib/reply.js:150:33
+      3  100.0%            JS: +<anonymous> /home/dana/final-project/dist/routes/logs.js:9:23
+      3    2.8%    JS: +processTicksAndRejections node:internal/process/task_queues:72:35
+      3    2.8%    JS: +parserOnIncoming node:_http_server:1142:26
+      3  100.0%      JS: +parserOnHeadersComplete node:_http_common:77:33
+      3    2.8%    JS: +callHandler /home/dana/final-project/node_modules/find-my-way/index.js:560:53
+      2   66.7%      JS: +lookup /home/dana/final-project/node_modules/find-my-way/index.js:532:43
+      2  100.0%        JS: +preRouting /home/dana/final-project/node_modules/fastify/fastify.js:802:32
+      2  100.0%          JS: *emit node:events:456:44
+      2  100.0%            JS: +parserOnIncoming node:_http_server:1142:26
+      1   33.3%      JS: ^lookup /home/dana/final-project/node_modules/find-my-way/index.js:532:43
+      1  100.0%        JS: +preRouting /home/dana/final-project/node_modules/fastify/fastify.js:802:32
+      1  100.0%          JS: +emit node:events:456:44
+      1  100.0%            JS: +parserOnIncoming node:_http_server:1142:26
+      2    1.8%    JS: ^defaultChildLoggerFactory /home/dana/final-project/node_modules/fastify/lib/logger-factory.js:51:36
+      2  100.0%      JS: ^createChildLogger /home/dana/final-project/node_modules/fastify/lib/logger-factory.js:29:28
+      2  100.0%        JS: ^routeHandler /home/dana/final-project/node_modules/fastify/lib/route.js:457:25
+      2  100.0%          JS: ^callHandler /home/dana/final-project/node_modules/find-my-way/index.js:560:53
+      2  100.0%            JS: ^lookup /home/dana/final-project/node_modules/find-my-way/index.js:532:43
+      2    1.8%    JS: ^ServerResponse node:_http_server:201:24
+      2  100.0%      JS: ^parserOnIncoming node:_http_server:1142:26
+      2  100.0%        JS: ^parserOnHeadersComplete node:_http_common:77:33
+      2    1.8%    JS: +unenroll node:timers:71:18
+      1   50.0%      JS: +clearTimeout node:timers:136:22
+      1  100.0%        JS: ^_pulseQueue /home/dana/final-project/node_modules/pg-pool/index.js:127:14
+      1  100.0%          JS: ^_release /home/dana/final-project/node_modules/pg-pool/index.js:384:11
+      1  100.0%            JS: ^<anonymous> /home/dana/final-project/node_modules/pg-pool/index.js:372:12
+      1   50.0%      JS: +_pulseQueue /home/dana/final-project/node_modules/pg-pool/index.js:127:14
+      1  100.0%        JS: +_release /home/dana/final-project/node_modules/pg-pool/index.js:384:11
+      1  100.0%          JS: +<anonymous> /home/dana/final-project/node_modules/pg-pool/index.js:372:12
+      1  100.0%            JS: +<anonymous> /home/dana/final-project/node_modules/pg-pool/index.js:467:36
+      2    1.8%    JS: +resume_ node:internal/streams/readable:1261:17
+      1   50.0%      JS: +processTicksAndRejections node:internal/process/task_queues:72:35
+      1   50.0%      JS: *processTicksAndRejections node:internal/process/task_queues:72:35
+      2    1.8%    JS: +resOnFinish node:_http_server:1072:21
+      2  100.0%      JS: *emit node:events:456:44
+      2  100.0%        JS: +onFinish node:_http_outgoing:1029:18
+      2  100.0%          JS: ^callback node:internal/streams/writable:762:63
+      2  100.0%            JS: +afterWrite node:internal/streams/writable:697:20
+      2    1.8%    JS: +parserOnMessageComplete node:_http_common:143:33
+      2    1.8%    JS: +onFinish node:_http_outgoing:1029:18
+      2  100.0%      JS: +callback node:internal/streams/writable:762:63
+      2  100.0%        JS: +afterWrite node:internal/streams/writable:697:20
+      2  100.0%          JS: +afterWriteTick node:internal/streams/writable:691:24
+      2  100.0%            JS: +processTicksAndRejections node:internal/process/task_queues:72:35
+      2    1.8%    JS: +endReadableNT node:internal/streams/readable:1723:23
+      2  100.0%      JS: +processTicksAndRejections node:internal/process/task_queues:72:35
+      2    1.8%    JS: +end node:_http_outgoing:1034:45
+      1   50.0%      JS: ^writePayload /home/dana/final-project/node_modules/fastify/lib/reply.js:697:23
+      1  100.0%        JS: +onSendEnd /home/dana/final-project/node_modules/fastify/lib/reply.js:585:20
+      1  100.0%          JS: +preSerializationHookEnd /home/dana/final-project/node_modules/fastify/lib/reply.js:524:34
+      1  100.0%            JS: +Reply.send /home/dana/final-project/node_modules/fastify/lib/reply.js:150:33
+      1   50.0%      JS: +writePayload /home/dana/final-project/node_modules/fastify/lib/reply.js:697:23
+      1  100.0%        JS: +onSendEnd /home/dana/final-project/node_modules/fastify/lib/reply.js:585:20
+      1  100.0%          JS: +preSerializationHookEnd /home/dana/final-project/node_modules/fastify/lib/reply.js:524:34
+      1  100.0%            JS: +Reply.send /home/dana/final-project/node_modules/fastify/lib/reply.js:150:33
+      2    1.8%    JS: +defaultChildLoggerFactory /home/dana/final-project/node_modules/fastify/lib/logger-factory.js:51:36
+      2  100.0%      JS: +routeHandler /home/dana/final-project/node_modules/fastify/lib/route.js:457:25
+      2  100.0%        JS: +callHandler /home/dana/final-project/node_modules/find-my-way/index.js:560:53
+      2  100.0%          JS: +lookup /home/dana/final-project/node_modules/find-my-way/index.js:532:43
+      2  100.0%            JS: +preRouting /home/dana/final-project/node_modules/fastify/fastify.js:802:32
+      2    1.8%    JS: +afterWriteTick node:internal/streams/writable:691:24
+      2  100.0%      JS: +processTicksAndRejections node:internal/process/task_queues:72:35
+      2    1.8%    JS: +_write node:internal/streams/writable:451:16
+      2  100.0%      JS: +Writable.write node:internal/streams/writable:502:36
+      1   50.0%        JS: ^_writeRaw node:_http_outgoing:372:19
+      1  100.0%          JS: ^_send node:_http_outgoing:346:49
+      1  100.0%            JS: ^write_ node:_http_outgoing:892:16
+      1   50.0%        JS: +prepare /home/dana/final-project/node_modules/pg/lib/query.js:209:10
+      1  100.0%          JS: +submit /home/dana/final-project/node_modules/pg/lib/query.js:152:9
+      1  100.0%            JS: +_pulseQueryQueue /home/dana/final-project/node_modules/pg/lib/client.js:603:19
+      2    1.8%    JS: +ServerResponse node:_http_server:201:24
+      2  100.0%      JS: +parserOnIncoming node:_http_server:1142:26
+      2  100.0%        JS: +parserOnHeadersComplete node:_http_common:77:33
+      2    1.8%    JS: +Readable.setEncoding node:internal/streams/readable:589:42
+      2  100.0%      JS: +rawBody /home/dana/final-project/node_modules/fastify/lib/content-type-parser.js:235:18
+      2  100.0%        JS: +ContentTypeParser.run /home/dana/final-project/node_modules/fastify/lib/content-type-parser.js:187:44
+      2  100.0%          JS: +handleRequest /home/dana/final-project/node_modules/fastify/lib/handle-request.js:25:24
+      2  100.0%            JS: +runPreParsing /home/dana/final-project/node_modules/fastify/lib/route.js:644:24
+      2    1.8%    JS: +Readable.resume node:internal/streams/readable:1234:37
+      2  100.0%      JS: +Readable.on node:internal/streams/readable:1134:33
+      2  100.0%        JS: +rawBody /home/dana/final-project/node_modules/fastify/lib/content-type-parser.js:235:18
+      2  100.0%          JS: +ContentTypeParser.run /home/dana/final-project/node_modules/fastify/lib/content-type-parser.js:187:44
+      2  100.0%            JS: +handleRequest /home/dana/final-project/node_modules/fastify/lib/handle-request.js:25:24
+      2    1.8%    JS: +<anonymous> /home/dana/final-project/dist/routes/logs.js:9:23
+      2  100.0%      Builtin: AsyncFunctionAwaitResolveClosure
+      2  100.0%        Builtin: CallApiCallbackOptimizedNoProfiling
+      2  100.0%          JS: +processTicksAndRejections node:internal/process/task_queues:72:35
+      2    1.8%    JS: *processTicksAndRejections node:internal/process/task_queues:72:35
+
+    108    1.5%  pthread_cond_signal@@GLIBC_2.3.2
+     41   38.0%    JS: +write node:fs:807:15
+     41  100.0%      JS: +actualWrite /home/dana/final-project/node_modules/sonic-boom/index.js:636:22
+     24   58.5%        JS: +SonicBoom.release /home/dana/final-project/node_modules/sonic-boom/index.js:175:18
+     13   54.2%          JS: ^wrapper node:fs:808:19
+     11   45.8%          JS: +wrapper node:fs:808:19
+     15   36.6%        JS: +write /home/dana/final-project/node_modules/sonic-boom/index.js:306:16
+     15  100.0%          JS: +write /home/dana/final-project/node_modules/pino/lib/proto.js:206:16
+     15  100.0%            JS: +LOG /home/dana/final-project/node_modules/pino/lib/tools.js:47:16
+      2    4.9%        JS: ^SonicBoom.release /home/dana/final-project/node_modules/sonic-boom/index.js:175:18
+      2  100.0%          JS: +wrapper node:fs:808:19
+     37   34.3%    /home/dana/.nvm/versions/node/v24.18.0/bin/node
+      3    8.1%      JS: ^allocate node:buffer:479:18
+      3  100.0%        JS: *writeValues /home/dana/final-project/node_modules/pg-protocol/dist/serializer.js:63:30
+      3  100.0%          JS: ^bind /home/dana/final-project/node_modules/pg-protocol/dist/serializer.js:87:14
+      3  100.0%            JS: ^bind /home/dana/final-project/node_modules/pg/lib/connection.js:181:7
+      2    5.4%      JS: ^wrapSafe node:internal/modules/cjs/loader:1762:18
+      2  100.0%        JS: ^<anonymous> node:internal/modules/cjs/loader:1823:37
+      2  100.0%          JS: ^<anonymous> node:internal/modules/cjs/loader:1967:37
+      2  100.0%            JS: ^<anonymous> node:internal/modules/cjs/loader:1579:33
+      2    5.4%      JS: ^parserOnBody node:_http_common:128:22
+      2    5.4%      JS: +parserOnHeadersComplete node:_http_common:77:33
+      2    5.4%      JS: +emitBeforeScript node:internal/async_hooks:517:26
+      2  100.0%        JS: ^runInAsyncScope node:async_hooks:220:18
+      2  100.0%          JS: ^bound node:async_hooks:256:23
+      2  100.0%            JS: ^defaultJsonParser /home/dana/final-project/node_modules/fastify/lib/content-type-parser.js:313:30
+      2    5.4%      Builtin: RegExpPrototypeTest
+      2  100.0%        JS: ^_parse /home/dana/final-project/node_modules/secure-json-parse/index.js:17:17
+      2  100.0%          JS: ^parse /home/dana/final-project/node_modules/secure-json-parse/index.js:129:16
+      2  100.0%            JS: ^defaultJsonParser /home/dana/final-project/node_modules/fastify/lib/content-type-parser.js:313:30
+      1    2.7%      JS: ~when._a.when /home/dana/final-project/node_modules/zod/v4/core/checks.cjs:346:45
+      1  100.0%        JS: ~runChecks /home/dana/final-project/node_modules/zod/v4/core/schemas.cjs:63:27
+      1  100.0%          JS: ~inst._zod.run /home/dana/final-project/node_modules/zod/v4/core/schemas.cjs:122:25
+      1  100.0%            JS: ~<anonymous> :1:20
+      1    2.7%      JS: ~<anonymous> /home/dana/final-project/node_modules/zod/v4/core/schemas.cjs:148:40
+      1  100.0%        JS: ~get /home/dana/final-project/node_modules/zod/v4/core/util.cjs:121:12
+      1  100.0%          JS: ~<anonymous> /home/dana/final-project/node_modules/zod/v4/classic/schemas.cjs:178:48
+      1  100.0%            JS: ^init /home/dana/final-project/node_modules/zod/v4/core/core.cjs:12:18
+      1    2.7%      JS: ^require node:internal/modules/helpers:152:19
+      1  100.0%        JS: ~<anonymous> /home/dana/final-project/node_modules/zod/v4/core/index.cjs:1:1
+      1  100.0%          JS: ^<anonymous> node:internal/modules/cjs/loader:1823:37
+      1  100.0%            JS: ^<anonymous> node:internal/modules/cjs/loader:1967:37
+      1    2.7%      JS: ^parseCommandCompleteMessage /home/dana/final-project/node_modules/pg-protocol/dist/parser.js:176:37
+      1  100.0%        JS: +handlePacket /home/dana/final-project/node_modules/pg-protocol/dist/parser.js:91:17
+      1  100.0%          JS: +parse /home/dana/final-project/node_modules/pg-protocol/dist/parser.js:26:10
+      1  100.0%            JS: +<anonymous> /home/dana/final-project/node_modules/pg-protocol/dist/index.js:12:23
+      1    2.7%      JS: ^onEnd /home/dana/final-project/node_modules/fastify/lib/content-type-parser.js:279:18
+      1  100.0%        JS: +emit node:events:456:44
+      1  100.0%          JS: ^endReadableNT node:internal/streams/readable:1723:23
+      1  100.0%            JS: +processTicksAndRejections node:internal/process/task_queues:72:35
+      1    2.7%      JS: ^join /home/dana/final-project/node_modules/pg-protocol/dist/buffer-writer.js:82:9
+      1  100.0%        JS: ^flush /home/dana/final-project/node_modules/pg-protocol/dist/buffer-writer.js:91:10
+      1  100.0%          JS: ^bind /home/dana/final-project/node_modules/pg-protocol/dist/serializer.js:87:14
+      1  100.0%            JS: ^bind /home/dana/final-project/node_modules/pg/lib/connection.js:181:7
+      1    2.7%      JS: ^handlePacket /home/dana/final-project/node_modules/pg-protocol/dist/parser.js:91:17
+      1  100.0%        JS: ^parse /home/dana/final-project/node_modules/pg-protocol/dist/parser.js:26:10
+      1  100.0%          JS: ^<anonymous> /home/dana/final-project/node_modules/pg-protocol/dist/index.js:12:23
+      1  100.0%            JS: +emit node:events:456:44
+      1    2.7%      JS: ^handleCommandComplete /home/dana/final-project/node_modules/pg/lib/query.js:102:24
+      1  100.0%        JS: ^_handleCommandComplete /home/dana/final-project/node_modules/pg/lib/client.js:480:25
+      1  100.0%          JS: +emit node:events:456:44
+      1  100.0%            JS: +<anonymous> /home/dana/final-project/node_modules/pg/lib/connection.js:131:19
+      1    2.7%      JS: ^format /home/dana/final-project/node_modules/quick-format-unescaped/index.js:8:16
+      1  100.0%        JS: +LOG /home/dana/final-project/node_modules/pino/lib/tools.js:47:16
+      1  100.0%          JS: ^incomingRequest /home/dana/final-project/node_modules/fastify/lib/log-controller.js:47:19
+      1  100.0%            JS: ^routeHandler /home/dana/final-project/node_modules/fastify/lib/route.js:457:25
+      1    2.7%      JS: ^endReadableNT node:internal/streams/readable:1723:23
+      1  100.0%        JS: ^processTicksAndRejections node:internal/process/task_queues:72:35
+      1    2.7%      JS: ^bind /home/dana/final-project/node_modules/pg-protocol/dist/serializer.js:87:14
+      1  100.0%        JS: ^bind /home/dana/final-project/node_modules/pg/lib/connection.js:181:7
+      1  100.0%          JS: ^prepare /home/dana/final-project/node_modules/pg/lib/query.js:209:10
+      1  100.0%            JS: ^submit /home/dana/final-project/node_modules/pg/lib/query.js:152:9
+      1    2.7%      JS: ^Readable.removeListener node:internal/streams/readable:1166:45
+      1  100.0%        JS: ^onEnd /home/dana/final-project/node_modules/fastify/lib/content-type-parser.js:279:18
+      1  100.0%          JS: +emit node:events:456:44
+      1  100.0%            JS: ^endReadableNT node:internal/streams/readable:1723:23
+      1    2.7%      JS: +write node:buffer:1185:40
+      1  100.0%        JS: *writeValues /home/dana/final-project/node_modules/pg-protocol/dist/serializer.js:63:30
+      1  100.0%          JS: ~bind /home/dana/final-project/node_modules/pg-protocol/dist/serializer.js:87:14
+      1  100.0%            JS: ~bind /home/dana/final-project/node_modules/pg/lib/connection.js:181:7
+      1    2.7%      JS: +resolve node:path:1245:10
+      1  100.0%        JS: +<anonymous> node:internal/modules/cjs/loader:901:37
+      1  100.0%          JS: ^<anonymous> node:internal/modules/cjs/loader:1579:33
+      1  100.0%            JS: ^<anonymous> node:internal/modules/cjs/loader:1267:24
+      1    2.7%      JS: +realpathSync node:fs:2711:22
+      1  100.0%        JS: ^toRealPath node:internal/modules/helpers:62:20
+      1  100.0%          JS: ^<anonymous> node:internal/modules/cjs/loader:726:28
+      1  100.0%            JS: ^<anonymous> node:internal/modules/cjs/loader:1433:35
+      1    2.7%      JS: +insertMany /home/dana/final-project/dist/repositories/log.repository.js:111:21
+      1  100.0%        JS: +ingest /home/dana/final-project/dist/services/log.service.js:17:17
+      1  100.0%          JS: +<anonymous> /home/dana/final-project/dist/routes/logs.js:9:23
+      1  100.0%            JS: +preHandlerCallbackInner /home/dana/final-project/node_modules/fastify/lib/handle-request.js:184:34
+      1    2.7%      JS: +handleRequest /home/dana/final-project/node_modules/fastify/lib/handle-request.js:25:24
+      1  100.0%        JS: +runPreParsing /home/dana/final-project/node_modules/fastify/lib/route.js:644:24
+      1  100.0%          JS: +routeHandler /home/dana/final-project/node_modules/fastify/lib/route.js:457:25
+      1  100.0%            JS: +callHandler /home/dana/final-project/node_modules/find-my-way/index.js:560:53
+      1    2.7%      JS: +get /home/dana/final-project/node_modules/fastify/lib/reply.js:103:9
+      1  100.0%        JS: ^Reply.then /home/dana/final-project/node_modules/fastify/lib/reply.js:476:33
+      1  100.0%          Builtin: CallApiCallbackOptimizedNoProfiling
+      1  100.0%            JS: +processTicksAndRejections node:internal/process/task_queues:72:35
+      1    2.7%      JS: +copyImpl node:buffer:236:18
+      1  100.0%        JS: *writeValues /home/dana/final-project/node_modules/pg-protocol/dist/serializer.js:63:30
+      1  100.0%          JS: +bind /home/dana/final-project/node_modules/pg-protocol/dist/serializer.js:87:14
+      1  100.0%            JS: +prepare /home/dana/final-project/node_modules/pg/lib/query.js:209:10
+      1    2.7%      JS: +WritableState.onwrite node:internal/streams/writable:350:18
+      1  100.0%        JS: +writevGeneric node:internal/stream_base_commons:121:23
+      1  100.0%          JS: ^Socket._writeGeneric node:net:995:42
+      1  100.0%            JS: ^Socket._writev node:net:1032:36
+      1    2.7%      JS: +Socket._writeGeneric node:net:995:42
+      1  100.0%        JS: +doWrite node:internal/streams/writable:585:17
+      1  100.0%          JS: +clearBuffer node:internal/streams/writable:742:21
+      1  100.0%            JS: +Writable.uncork node:internal/streams/writable:518:37
+      1    2.7%      JS: +Readable.on node:internal/streams/readable:1134:33
+      1  100.0%        JS: ^rawBody /home/dana/final-project/node_modules/fastify/lib/content-type-parser.js:235:18
+      1  100.0%          JS: ^ContentTypeParser.run /home/dana/final-project/node_modules/fastify/lib/content-type-parser.js:187:44
+      1  100.0%            JS: ^handleRequest /home/dana/final-project/node_modules/fastify/lib/handle-request.js:25:24
+      1    2.7%      Builtin: ArrayForEach
+      1  100.0%        JS: ^validateBatch /home/dana/final-project/dist/utils/validation.js:9:23
+      1  100.0%          JS: ^<anonymous> /home/dana/final-project/dist/routes/logs.js:9:23
+      1  100.0%            JS: ^preHandlerCallbackInner /home/dana/final-project/node_modules/fastify/lib/handle-request.js:184:34
+     14   13.0%    JS: ^write node:fs:807:15
+     14  100.0%      JS: ^actualWrite /home/dana/final-project/node_modules/sonic-boom/index.js:636:22
+      6   42.9%        JS: ^SonicBoom.release /home/dana/final-project/node_modules/sonic-boom/index.js:175:18
+      4   66.7%          JS: ^wrapper node:fs:808:19
+      2   33.3%          JS: +wrapper node:fs:808:19
+      4   28.6%        JS: ^write /home/dana/final-project/node_modules/sonic-boom/index.js:306:16
+      3   75.0%          JS: ^write /home/dana/final-project/node_modules/pino/lib/proto.js:206:16
+      3  100.0%            JS: ^LOG /home/dana/final-project/node_modules/pino/lib/tools.js:47:16
+      1   25.0%          JS: +write /home/dana/final-project/node_modules/pino/lib/proto.js:206:16
+      1  100.0%            JS: +LOG /home/dana/final-project/node_modules/pino/lib/tools.js:47:16
+      4   28.6%        JS: +write /home/dana/final-project/node_modules/sonic-boom/index.js:306:16
+      4  100.0%          JS: +write /home/dana/final-project/node_modules/pino/lib/proto.js:206:16
+      4  100.0%            JS: +LOG /home/dana/final-project/node_modules/pino/lib/tools.js:47:16
+      2    1.9%    JS: ^jobPromise node:internal/crypto/util:666:20
+      2  100.0%      JS: ^hmacSignVerify node:internal/crypto/mac:176:24
+      2  100.0%        JS: ^signVerify node:internal/crypto/webcrypto:1173:20
+      2  100.0%          JS: ^signImpl node:internal/crypto/webcrypto:1222:18
+      2  100.0%            JS: ^callSubtleCryptoMethod node:internal/crypto/webcrypto:94:32
+
+    106    1.4%  syscall@@GLIBC_2.2.5
+     12   11.3%    JS: +stat node:internal/modules/cjs/loader:266:14
+     11   91.7%      JS: ^<anonymous> node:internal/modules/cjs/loader:726:28
+     11  100.0%        JS: ^<anonymous> node:internal/modules/cjs/loader:1433:35
+     11  100.0%          JS: ^wrapResolveFilename node:internal/modules/cjs/loader:1070:29
+      7   63.6%            JS: +defaultResolveImplForCJSLoading node:internal/modules/cjs/loader:1083:41
+      4   36.4%            JS: ^defaultResolveImplForCJSLoading node:internal/modules/cjs/loader:1083:41
+      1    8.3%      JS: ^tryFile node:internal/modules/cjs/loader:581:17
+      1  100.0%        JS: ^tryExtensions node:internal/modules/cjs/loader:597:23
+      1  100.0%          JS: ^<anonymous> node:internal/modules/cjs/loader:726:28
+      1  100.0%            JS: ^<anonymous> node:internal/modules/cjs/loader:1433:35
+      4    3.8%    JS: +realpathSync node:fs:2711:22
+      4  100.0%      JS: ^toRealPath node:internal/modules/helpers:62:20
+      3   75.0%        JS: ^tryFile node:internal/modules/cjs/loader:581:17
+      1   33.3%          JS: ^tryPackage node:internal/modules/cjs/loader:538:20
+      1  100.0%            JS: ^<anonymous> node:internal/modules/cjs/loader:726:28
+      1   33.3%          JS: ^tryExtensions node:internal/modules/cjs/loader:597:23
+      1  100.0%            JS: ^<anonymous> node:internal/modules/cjs/loader:726:28
+      1   33.3%          JS: ^resolveExports node:internal/modules/cjs/loader:697:24
+      1  100.0%            JS: ^<anonymous> node:internal/modules/cjs/loader:726:28
+      1   25.0%        JS: ^<anonymous> node:internal/modules/cjs/loader:726:28
+      1  100.0%          JS: ^<anonymous> node:internal/modules/cjs/loader:1433:35
+      1  100.0%            JS: ^wrapResolveFilename node:internal/modules/cjs/loader:1070:29
+      2    1.9%    JS: ^readFileSync node:fs:434:22
+      2  100.0%      JS: ^defaultLoadImpl node:internal/modules/cjs/loader:1186:25
+      2  100.0%        JS: ^loadSource node:internal/modules/cjs/loader:1886:20
+      2  100.0%          JS: ^<anonymous> node:internal/modules/cjs/loader:1967:37
+      2  100.0%            JS: ^<anonymous> node:internal/modules/cjs/loader:1579:33
+      2    1.9%    JS: ^compileForInternalLoader node:internal/bootstrap/realm:383:27
+      2  100.0%      JS: ^requireBuiltin node:internal/bootstrap/realm:420:24
+      1   50.0%        JS: ~<anonymous> node:internal/streams/duplex:1:1
+      1  100.0%          JS: ^compileForInternalLoader node:internal/bootstrap/realm:383:27
+      1  100.0%            JS: ^requireBuiltin node:internal/bootstrap/realm:420:24
+      1   50.0%        JS: ~<anonymous> node:internal/crypto/argon2:1:1
+      1  100.0%          JS: ^compileForInternalLoader node:internal/bootstrap/realm:383:27
+      1  100.0%            JS: ^requireBuiltin node:internal/bootstrap/realm:420:24
+
+    106    1.4%  JS: *inst._zod.parse /home/dana/final-project/node_modules/zod/v4/core/schemas.cjs:1455:23
+     99   93.4%    JS: *<anonymous> :1:20
+     81   81.8%      JS: *<anonymous> /home/dana/final-project/dist/utils/validation.js:12:18
+     45   55.6%        Builtin: ArrayForEach
+     45  100.0%          JS: ^validateBatch /home/dana/final-project/dist/utils/validation.js:9:23
+     45  100.0%            JS: ^<anonymous> /home/dana/final-project/dist/routes/logs.js:9:23
+     36   44.4%        JS: +validateBatch /home/dana/final-project/dist/utils/validation.js:9:23
+     32   88.9%          JS: +<anonymous> /home/dana/final-project/dist/routes/logs.js:9:23
+     32  100.0%            JS: +preHandlerCallbackInner /home/dana/final-project/node_modules/fastify/lib/handle-request.js:184:34
+      4   11.1%          JS: ^<anonymous> /home/dana/final-project/dist/routes/logs.js:9:23
+      4  100.0%            JS: +preHandlerCallbackInner /home/dana/final-project/node_modules/fastify/lib/handle-request.js:184:34
+     18   18.2%      JS: *<anonymous> /home/dana/final-project/node_modules/zod/v4/core/parse.cjs:59:30
+     17   94.4%        JS: +<anonymous> /home/dana/final-project/dist/utils/validation.js:12:18
+     14   82.4%          Builtin: ArrayForEach
+     14  100.0%            JS: ^validateBatch /home/dana/final-project/dist/utils/validation.js:9:23
+      3   17.6%          JS: +validateBatch /home/dana/final-project/dist/utils/validation.js:9:23
+      3  100.0%            JS: +<anonymous> /home/dana/final-project/dist/routes/logs.js:9:23
+      1    5.6%        JS: +inst.safeParse /home/dana/final-project/node_modules/zod/v4/classic/schemas.cjs:196:22
+      1  100.0%          JS: ^<anonymous> /home/dana/final-project/dist/utils/validation.js:12:18
+      1  100.0%            JS: +validateBatch /home/dana/final-project/dist/utils/validation.js:9:23
+      7    6.6%    JS: +inst._zod.parse /home/dana/final-project/node_modules/zod/v4/core/schemas.cjs:1838:23
+      7  100.0%      JS: +<anonymous> :1:20
+      7  100.0%        JS: +<anonymous> /home/dana/final-project/node_modules/zod/v4/core/schemas.cjs:997:16
+      7  100.0%          JS: +inst._zod.parse /home/dana/final-project/node_modules/zod/v4/core/schemas.cjs:1006:23
+      7  100.0%            JS: +<anonymous> /home/dana/final-project/node_modules/zod/v4/core/parse.cjs:59:30
+
+     98    1.3%  __write@@GLIBC_2.2.5
+     53   54.1%    /home/dana/.nvm/versions/node/v24.18.0/bin/node
+      4    7.5%      Builtin: FinalizationRegistryRegister
+      4  100.0%        JS: ~<anonymous> node:internal/main/run_main_module:1:1
+      3    5.7%      Builtin: RegExpPrototypeTest
+      2   66.7%        JS: ^_parse /home/dana/final-project/node_modules/secure-json-parse/index.js:17:17
+      1   50.0%          JS: ^parse /home/dana/final-project/node_modules/secure-json-parse/index.js:129:16
+      1  100.0%            JS: ^defaultJsonParser /home/dana/final-project/node_modules/fastify/lib/content-type-parser.js:313:30
+      1   50.0%          JS: +onEnd /home/dana/final-project/node_modules/fastify/lib/content-type-parser.js:279:18
+      1  100.0%            JS: +emit node:events:456:44
+      1   33.3%        JS: ~_parse /home/dana/final-project/node_modules/secure-json-parse/index.js:17:17
+      1  100.0%          JS: ~parse /home/dana/final-project/node_modules/secure-json-parse/index.js:129:16
+      1  100.0%            JS: ~defaultJsonParser /home/dana/final-project/node_modules/fastify/lib/content-type-parser.js:313:30
+      2    3.8%      Builtin: StringPrototypeReplace
+      1   50.0%        JS: ~exports.strToChars /home/dana/final-project/node_modules/ret/dist/util.js:33:22
+      1  100.0%          JS: ~exports.tokenizer /home/dana/final-project/node_modules/ret/dist/tokenizer.js:41:21
+      1  100.0%            JS: ~safeRegex /home/dana/final-project/node_modules/safe-regex2/index.js:50:20
+      1   50.0%        JS: ~escapeRegex /home/dana/final-project/node_modules/zod/v4/core/util.cjs:316:21
+      1  100.0%          JS: ~<anonymous> /home/dana/final-project/node_modules/zod/v4/core/schemas.cjs:1693:14
+      1  100.0%            Builtin: ArrayMap
+      2    3.8%      Builtin: StringPrototypeCharCodeAt
+      1   50.0%        JS: ~_on /home/dana/final-project/node_modules/find-my-way/index.js:154:37
+      1  100.0%          JS: ~on /home/dana/final-project/node_modules/find-my-way/index.js:108:35
+      1  100.0%            JS: ~Router.all /home/dana/final-project/node_modules/find-my-way/index.js:827:33
+      1   50.0%        JS: ^normalizeString node:path:92:25
+      1  100.0%          JS: ^resolve node:path:1245:10
+      1  100.0%            JS: ^realpathSync node:fs:2711:22
+      1    1.9%      JS: ~startup /home/dana/final-project/node_modules/pg-protocol/dist/serializer.js:6:17
+      1  100.0%        JS: ~startup /home/dana/final-project/node_modules/pg/lib/connection.js:144:10
+      1  100.0%          JS: ~<anonymous> /home/dana/final-project/node_modules/pg/lib/client.js:180:32
+      1  100.0%            JS: ^emit node:events:456:44
+      1    1.9%      JS: ~socketOnClose node:_http_server:887:23
+      1  100.0%        JS: *emit node:events:456:44
+      1  100.0%          JS: ~<anonymous> node:net:349:24
+      1    1.9%      JS: ~sendSASLInitialResponseMessage /home/dana/final-project/node_modules/pg/lib/connection.js:156:33
+      1  100.0%        JS: ~<anonymous> /home/dana/final-project/node_modules/pg/lib/client.js:326:23
+      1  100.0%          JS: ~_getPassword /home/dana/final-project/node_modules/pg/lib/client.js:269:15
+      1  100.0%            JS: ~_handleAuthSASL /home/dana/final-project/node_modules/pg/lib/client.js:325:18
+      1    1.9%      JS: ~routeHandler /home/dana/final-project/node_modules/fastify/lib/route.js:457:25
+      1  100.0%        JS: ~callHandler /home/dana/final-project/node_modules/find-my-way/index.js:560:53
+      1  100.0%          JS: ~lookup /home/dana/final-project/node_modules/find-my-way/index.js:532:43
+      1  100.0%            JS: ~preRouting /home/dana/final-project/node_modules/fastify/fastify.js:802:32
+      1    1.9%      JS: ~route /home/dana/final-project/node_modules/fastify/lib/route.js:204:18
+      1  100.0%        JS: ~prepareRoute /home/dana/final-project/node_modules/fastify/lib/route.js:141:25
+      1  100.0%          JS: ~_get /home/dana/final-project/node_modules/fastify/fastify.js:184:24
+      1  100.0%            JS: ~healthRoute /home/dana/final-project/dist/routes/health.js:5:27
+      1    1.9%      JS: ~registerPlugin /home/dana/final-project/node_modules/fastify/lib/plugin-utils.js:147:25
+      1  100.0%        JS: ~override /home/dana/final-project/node_modules/fastify/lib/plugin-override.js:28:36
+      1  100.0%          JS: ~Boot._loadPlugin /home/dana/final-project/node_modules/avvio/index.js:410:39
+      1  100.0%            JS: ^processTicksAndRejections node:internal/process/task_queues:72:35
+      1    1.9%      JS: ~processOptions /home/dana/final-project/node_modules/fastify/fastify.js:850:25
+      1  100.0%        JS: ~fastify /home/dana/final-project/node_modules/fastify/fastify.js:90:18
+      1  100.0%          JS: ~buildApp /home/dana/final-project/dist/app.js:11:18
+      1  100.0%            JS: ~<anonymous> /home/dana/final-project/dist/server.js:1:1
+      1    1.9%      JS: ~preHandlerCallbackInner /home/dana/final-project/node_modules/fastify/lib/handle-request.js:184:34
+      1  100.0%        JS: ~preHandlerCallback /home/dana/final-project/node_modules/fastify/lib/handle-request.js:162:29
+      1  100.0%          JS: ~validationCompleted /home/dana/final-project/node_modules/fastify/lib/handle-request.js:139:30
+      1  100.0%            JS: ~preValidationCallback /home/dana/final-project/node_modules/fastify/lib/handle-request.js:119:32
+      1    1.9%      JS: ~now /home/dana/final-project/node_modules/fastify/lib/logger-factory.js:145:14
+      1  100.0%        JS: ~setupResponseListeners /home/dana/final-project/node_modules/fastify/lib/reply.js:953:33
+      1  100.0%          JS: ~routeHandler /home/dana/final-project/node_modules/fastify/lib/route.js:457:25
+      1  100.0%            JS: ~callHandler /home/dana/final-project/node_modules/find-my-way/index.js:560:53
+      1    1.9%      JS: ~inst._zod.parse /home/dana/final-project/node_modules/zod/v4/core/schemas.cjs:1838:23
+      1  100.0%        JS: ~<anonymous> :1:20
+      1  100.0%          JS: ~<anonymous> /home/dana/final-project/node_modules/zod/v4/core/schemas.cjs:997:16
+      1  100.0%            JS: ~inst._zod.parse /home/dana/final-project/node_modules/zod/v4/core/schemas.cjs:1006:23
+      1    1.9%      JS: ~importKeySync node:internal/crypto/webcrypto:845:23
+      1  100.0%        JS: ~importKeyImpl node:internal/crypto/webcrypto:967:23
+      1  100.0%          JS: ~callSubtleCryptoMethod node:internal/crypto/webcrypto:94:32
+      1  100.0%            JS: ~importKey node:internal/crypto/webcrypto:958:19
+      1    1.9%      JS: ~importGenericSecretKey node:internal/crypto/keys:1187:32
+      1  100.0%        JS: ~importKeySync node:internal/crypto/webcrypto:845:23
+      1  100.0%          JS: ~importKeyImpl node:internal/crypto/webcrypto:967:23
+      1  100.0%            JS: ~callSubtleCryptoMethod node:internal/crypto/webcrypto:94:32
+      1    1.9%      JS: ~hasCryptoKeyUsage node:internal/crypto/keys:1135:27
+      1  100.0%        JS: ~deriveBitsImpl node:internal/crypto/webcrypto:239:24
+      1  100.0%          JS: ~callSubtleCryptoMethod node:internal/crypto/webcrypto:94:32
+      1  100.0%            JS: ~deriveBits node:internal/crypto/webcrypto:235:20
+      1    1.9%      JS: ~fastify /home/dana/final-project/node_modules/fastify/fastify.js:90:18
+      1  100.0%        JS: ~buildApp /home/dana/final-project/dist/app.js:11:18
+      1  100.0%          JS: ~<anonymous> /home/dana/final-project/dist/server.js:1:1
+      1  100.0%            JS: ~<anonymous> node:internal/main/run_main_module:1:1
+      1    1.9%      JS: ~createLogger /home/dana/final-project/node_modules/fastify/lib/logger-factory.js:82:23
+      1  100.0%        JS: ~processOptions /home/dana/final-project/node_modules/fastify/fastify.js:850:25
+      1  100.0%          JS: ~fastify /home/dana/final-project/node_modules/fastify/fastify.js:90:18
+      1  100.0%            JS: ~buildApp /home/dana/final-project/dist/app.js:11:18
+      1    1.9%      JS: ~continueSession /home/dana/final-project/node_modules/pg/lib/crypto/sasl.js:62:31
+      1  100.0%        Builtin: AsyncFunctionAwaitResolveClosure
+      1    1.9%      JS: ~buildApp /home/dana/final-project/dist/app.js:11:18
+      1  100.0%        JS: ~<anonymous> /home/dana/final-project/dist/server.js:1:1
+      1  100.0%          JS: ~<anonymous> node:internal/main/run_main_module:1:1
+      1    1.9%      JS: ~addHandler /home/dana/final-project/node_modules/find-my-way/lib/handler-storage.js:22:14
+      1  100.0%        JS: ~addRoute /home/dana/final-project/node_modules/find-my-way/lib/node.js:18:12
+      1  100.0%          JS: ~_on /home/dana/final-project/node_modules/find-my-way/index.js:154:37
+      1  100.0%            JS: ~on /home/dana/final-project/node_modules/find-my-way/index.js:108:35
+      1    1.9%      JS: ~_pulseQueue /home/dana/final-project/node_modules/pg-pool/index.js:127:14
+      1  100.0%        JS: ~<anonymous> /home/dana/final-project/node_modules/pg-pool/index.js:203:26
+      1    1.9%      JS: ~Socket.read node:net:840:33
+      1  100.0%        JS: ~resume_ node:internal/streams/readable:1261:17
+      1    1.9%      JS: ~<anonymous> node:internal/main/run_main_module:1:1
+      1    1.9%      JS: ~<anonymous> /home/dana/final-project/node_modules/zod/v4/locales/ko.cjs:1:1
+      1  100.0%        JS: ^<anonymous> node:internal/modules/cjs/loader:1823:37
+      1  100.0%          JS: ^<anonymous> node:internal/modules/cjs/loader:1967:37
+      1  100.0%            JS: ^<anonymous> node:internal/modules/cjs/loader:1579:33
+      1    1.9%      JS: ~<anonymous> /home/dana/final-project/node_modules/zod/v4/core/registries.cjs:1:1
+      1  100.0%        JS: ^<anonymous> node:internal/modules/cjs/loader:1823:37
+      1  100.0%          JS: ^<anonymous> node:internal/modules/cjs/loader:1967:37
+      1  100.0%            JS: ^<anonymous> node:internal/modules/cjs/loader:1579:33
+      1    1.9%      JS: ~<anonymous> /home/dana/final-project/node_modules/ret/dist/sets-lookup.js:1:1
+      1  100.0%        JS: ^<anonymous> node:internal/modules/cjs/loader:1823:37
+      1  100.0%          JS: ^<anonymous> node:internal/modules/cjs/loader:1967:37
+      1  100.0%            JS: ^<anonymous> node:internal/modules/cjs/loader:1579:33
+      1    1.9%      JS: ~<anonymous> /home/dana/final-project/node_modules/ajv/dist/refs/jtd-schema.js:108:15
+      1  100.0%        Builtin: ArrayMap
+      1  100.0%          JS: ~schema /home/dana/final-project/node_modules/ajv/dist/refs/jtd-schema.js:96:16
+      1  100.0%            JS: ~<anonymous> /home/dana/final-project/node_modules/ajv/dist/refs/jtd-schema.js:1:1
+      1    1.9%      JS: ~<anonymous> /home/dana/final-project/node_modules/ajv/dist/compile/util.js:1:1
+      1  100.0%        JS: ^<anonymous> node:internal/modules/cjs/loader:1823:37
+      1  100.0%          JS: ^<anonymous> node:internal/modules/cjs/loader:1967:37
+      1  100.0%            JS: ^<anonymous> node:internal/modules/cjs/loader:1579:33
+      1    1.9%      JS: ~<anonymous> /home/dana/final-project/dist/server.js:1:1
+      1  100.0%        JS: ~<anonymous> node:internal/main/run_main_module:1:1
+      1    1.9%      JS: ~<anonymous> /home/dana/final-project/dist/schemas/log.schema.js:1:1
+      1  100.0%        JS: ^<anonymous> node:internal/modules/cjs/loader:1823:37
+      1  100.0%          JS: ^<anonymous> node:internal/modules/cjs/loader:1967:37
+      1  100.0%            JS: ^<anonymous> node:internal/modules/cjs/loader:1579:33
+      1    1.9%      JS: ^validateTopLevel /home/dana/final-project/dist/utils/validation.js:6:26
+      1  100.0%        JS: ^<anonymous> /home/dana/final-project/dist/routes/logs.js:9:23
+      1  100.0%          JS: ^preHandlerCallbackInner /home/dana/final-project/node_modules/fastify/lib/handle-request.js:184:34
+      1  100.0%            JS: ^preHandlerCallback /home/dana/final-project/node_modules/fastify/lib/handle-request.js:162:29
+      1    1.9%      JS: ^onStreamRead node:internal/stream_base_commons:166:22
+      1    1.9%      JS: ^emit node:events:456:44
+      1  100.0%        JS: ~onFinish node:_http_outgoing:1029:18
+      1  100.0%          JS: ~callback node:internal/streams/writable:762:63
+      1  100.0%            JS: ~afterWrite node:internal/streams/writable:697:20
+      1    1.9%      JS: ^dirname node:path:1441:10
+      1  100.0%        JS: ~<anonymous> /home/dana/final-project/node_modules/avvio/index.js:1:1
+      1  100.0%          JS: ~<anonymous> /home/dana/final-project/node_modules/fastify/fastify.js:1:1
+      1  100.0%            JS: ~<anonymous> /home/dana/final-project/dist/app.js:1:1
+      1    1.9%      JS: ^_getMaxListeners node:events:410:26
+      1  100.0%        JS: +_addListener node:events:540:22
+      1  100.0%          JS: +addListener node:events:607:58
+      1  100.0%            JS: ^setupResponseListeners /home/dana/final-project/node_modules/fastify/lib/reply.js:953:33
+      1    1.9%      JS: ^_ /home/dana/final-project/node_modules/zod/v4/core/core.cjs:43:15
+      1  100.0%        JS: ~_overwrite /home/dana/final-project/node_modules/zod/v4/core/api.cjs:819:20
+      1  100.0%          JS: ~_trim /home/dana/final-project/node_modules/zod/v4/core/api.cjs:832:15
+      1  100.0%            JS: ~trim /home/dana/final-project/node_modules/zod/v4/classic/schemas.cjs:362:13
+      1    1.9%      JS: ^WritableState.onwrite node:internal/streams/writable:350:18
+      1  100.0%        JS: +writevGeneric node:internal/stream_base_commons:121:23
+      1  100.0%          JS: ^Socket._writeGeneric node:net:995:42
+      1  100.0%            JS: ^Socket._writev node:net:1032:36
+      1    1.9%      JS: ^<anonymous> node:internal/webidl:690:18
+      1  100.0%        JS: ^normalizeAlgorithm node:internal/crypto/util:545:28
+      1  100.0%          JS: ^importKeyImpl node:internal/crypto/webcrypto:967:23
+      1  100.0%            JS: ^callSubtleCryptoMethod node:internal/crypto/webcrypto:94:32
+      1    1.9%      JS: +<anonymous> /home/dana/final-project/dist/utils/validation.js:12:18
+      1  100.0%        Builtin: ArrayForEach
+      1  100.0%          JS: ^validateBatch /home/dana/final-project/dist/utils/validation.js:9:23
+      1  100.0%            JS: ~<anonymous> /home/dana/final-project/dist/routes/logs.js:9:23
+      1    1.9%      JS: *inst._zod.parse /home/dana/final-project/node_modules/zod/v4/core/schemas.cjs:1455:23
+      1  100.0%        JS: *<anonymous> :1:20
+      1  100.0%          JS: *<anonymous> /home/dana/final-project/dist/utils/validation.js:12:18
+      1  100.0%            Builtin: ArrayForEach
+      1    1.9%      Builtin: TypedArrayPrototypeSlice
+      1  100.0%        JS: ^normalizeAlgorithm node:internal/crypto/util:545:28
+      1  100.0%          JS: ~deriveBitsImpl node:internal/crypto/webcrypto:239:24
+      1  100.0%            JS: ~callSubtleCryptoMethod node:internal/crypto/webcrypto:94:32
+      1    1.9%      Builtin: NumberIsSafeInteger
+      1  100.0%        JS: ^AsyncResource node:async_hooks:181:14
+      1  100.0%          JS: ^ContentTypeParser.run /home/dana/final-project/node_modules/fastify/lib/content-type-parser.js:187:44
+      1  100.0%            JS: ^handleRequest /home/dana/final-project/node_modules/fastify/lib/handle-request.js:25:24
+      1    1.9%      Builtin: CEntry_Return1_ArgvOnStack_NoBuiltinExit
+      1  100.0%        JS: ~<anonymous> /home/dana/final-project/node_modules/zod/v4/classic/from-json-schema.cjs:1:1
+      1  100.0%          JS: ^<anonymous> node:internal/modules/cjs/loader:1823:37
+      1  100.0%            JS: ^<anonymous> node:internal/modules/cjs/loader:1967:37
+     15   15.3%    JS: ^compileForInternalLoader node:internal/bootstrap/realm:383:27
+     11   73.3%      JS: ^requireBuiltin node:internal/bootstrap/realm:420:24
+      2   18.2%        JS: ~<anonymous> node:child_process:1:1
+      2  100.0%          JS: ^compileForInternalLoader node:internal/bootstrap/realm:383:27
+      2  100.0%            JS: ^requireBuiltin node:internal/bootstrap/realm:420:24
+      1    9.1%        JS: ~<anonymous> node:tty:1:1
+      1  100.0%          JS: ^compileForInternalLoader node:internal/bootstrap/realm:383:27
+      1  100.0%            JS: ^requireBuiltin node:internal/bootstrap/realm:420:24
+      1    9.1%        JS: ~<anonymous> node:tls:1:1
+      1  100.0%          JS: ^compileForInternalLoader node:internal/bootstrap/realm:383:27
+      1  100.0%            JS: ^requireBuiltin node:internal/bootstrap/realm:420:24
+      1    9.1%        JS: ~<anonymous> node:internal/tls/common:1:1
+      1  100.0%          JS: ^compileForInternalLoader node:internal/bootstrap/realm:383:27
+      1  100.0%            JS: ^requireBuiltin node:internal/bootstrap/realm:420:24
+      1    9.1%        JS: ~<anonymous> node:internal/streams/duplex:1:1
+      1  100.0%          JS: ^compileForInternalLoader node:internal/bootstrap/realm:383:27
+      1  100.0%            JS: ^requireBuiltin node:internal/bootstrap/realm:420:24
+      1    9.1%        JS: ~<anonymous> node:internal/http2/core:1:1
+      1  100.0%          JS: ^compileForInternalLoader node:internal/bootstrap/realm:383:27
+      1  100.0%            JS: ^requireBuiltin node:internal/bootstrap/realm:420:24
+      1    9.1%        JS: ~<anonymous> node:internal/child_process:1:1
+      1  100.0%          JS: ^compileForInternalLoader node:internal/bootstrap/realm:383:27
+      1  100.0%            JS: ^requireBuiltin node:internal/bootstrap/realm:420:24
+      1    9.1%        JS: ~<anonymous> node:crypto:1:1
+      1  100.0%          JS: ^compileForInternalLoader node:internal/bootstrap/realm:383:27
+      1  100.0%            JS: ^requireBuiltin node:internal/bootstrap/realm:420:24
+      1    9.1%        JS: ~<anonymous> node:_http_client:1:1
+      1  100.0%          JS: ^compileForInternalLoader node:internal/bootstrap/realm:383:27
+      1  100.0%            JS: ^requireBuiltin node:internal/bootstrap/realm:420:24
+      1    9.1%        JS: ~<anonymous> node:_http_agent:1:1
+      1  100.0%          JS: ^compileForInternalLoader node:internal/bootstrap/realm:383:27
+      1  100.0%            JS: ^requireBuiltin node:internal/bootstrap/realm:420:24
+      2   13.3%      JS: +requireBuiltin node:internal/bootstrap/realm:420:24
+      1   50.0%        JS: ~lazyWebCrypto node:crypto:132:23
+      1  100.0%          JS: ~get node:crypto:361:8
+      1  100.0%            JS: ~<anonymous> /home/dana/final-project/node_modules/pg/lib/crypto/utils.js:1:1
+      1   50.0%        JS: ~<anonymous> node:module:1:1
+      1  100.0%          JS: ^compileForInternalLoader node:internal/bootstrap/realm:383:27
+      1  100.0%            JS: ^compileForPublicLoader node:internal/bootstrap/realm:331:25
+      1    6.7%      JS: ~<anonymous> node:cluster:1:1
+      1  100.0%        JS: ^compileForInternalLoader node:internal/bootstrap/realm:383:27
+      1  100.0%          JS: +requireBuiltin node:internal/bootstrap/realm:420:24
+      1  100.0%            JS: ~listenInCluster node:net:2056:25
+      1    6.7%      JS: ^<anonymous> node:internal/modules/cjs/loader:1267:24
+      1  100.0%        JS: ^wrapModuleLoad node:internal/modules/cjs/loader:238:24
+      1  100.0%          JS: ^<anonymous> node:internal/modules/cjs/loader:1609:36
+      1  100.0%            JS: ^require node:internal/modules/helpers:152:19
+     14   14.3%    JS: ^wrapSafe node:internal/modules/cjs/loader:1762:18
+     13   92.9%      JS: ^<anonymous> node:internal/modules/cjs/loader:1823:37
+     13  100.0%        JS: ^<anonymous> node:internal/modules/cjs/loader:1967:37
+     13  100.0%          JS: ^<anonymous> node:internal/modules/cjs/loader:1579:33
+     13  100.0%            JS: ^<anonymous> node:internal/modules/cjs/loader:1267:24
+      1    7.1%      JS: ~<anonymous> /home/dana/final-project/node_modules/avvio/index.js:1:1
+      1  100.0%        JS: ~<anonymous> /home/dana/final-project/node_modules/fastify/fastify.js:1:1
+      1  100.0%          JS: ~<anonymous> /home/dana/final-project/dist/app.js:1:1
+      1  100.0%            JS: ~<anonymous> /home/dana/final-project/dist/server.js:1:1
+      3    3.1%    JS: ^handleWriteReq node:internal/stream_base_commons:46:24
+      3  100.0%      JS: ^writeGeneric node:internal/stream_base_commons:146:22
+      3  100.0%        JS: ^Socket._writeGeneric node:net:995:42
+      3  100.0%          JS: ^Socket._write node:net:1037:35
+      3  100.0%            JS: ^writeOrBuffer node:internal/streams/writable:546:23
+      2    2.0%    JS: ~handleWriteReq node:internal/stream_base_commons:46:24
+      2  100.0%      JS: ~writeGeneric node:internal/stream_base_commons:146:22
+      1   50.0%        JS: ~Socket._writeGeneric node:net:995:42
+      1  100.0%          JS: ~Socket._write node:net:1037:35
+      1  100.0%            JS: ~writeOrBuffer node:internal/streams/writable:546:23
+      1   50.0%        JS: ^Socket._writeGeneric node:net:995:42
+      1  100.0%          JS: ~Socket._write node:net:1037:35
+      1  100.0%            JS: ^writeOrBuffer node:internal/streams/writable:546:23
+
+     85    1.1%  JS: *<anonymous> /home/dana/final-project/dist/repositories/log.repository.js:117:22
+     51   60.0%    JS: +insertMany /home/dana/final-project/dist/repositories/log.repository.js:111:21
+     50   98.0%      JS: +ingest /home/dana/final-project/dist/services/log.service.js:17:17
+     50  100.0%        JS: +<anonymous> /home/dana/final-project/dist/routes/logs.js:9:23
+     50  100.0%          JS: +preHandlerCallbackInner /home/dana/final-project/node_modules/fastify/lib/handle-request.js:184:34
+     50  100.0%            JS: +preHandlerCallback /home/dana/final-project/node_modules/fastify/lib/handle-request.js:162:29
+      1    2.0%      JS: ^ingest /home/dana/final-project/dist/services/log.service.js:17:17
+      1  100.0%        JS: +<anonymous> /home/dana/final-project/dist/routes/logs.js:9:23
+      1  100.0%          JS: +preHandlerCallbackInner /home/dana/final-project/node_modules/fastify/lib/handle-request.js:184:34
+      1  100.0%            JS: +preHandlerCallback /home/dana/final-project/node_modules/fastify/lib/handle-request.js:162:29
+     34   40.0%    Builtin: ArrayForEach
+     34  100.0%      JS: ^insertMany /home/dana/final-project/dist/repositories/log.repository.js:111:21
+     34  100.0%        JS: ^ingest /home/dana/final-project/dist/services/log.service.js:17:17
+     34  100.0%          JS: ^<anonymous> /home/dana/final-project/dist/routes/logs.js:9:23
+     25   73.5%            JS: ^preHandlerCallbackInner /home/dana/final-project/node_modules/fastify/lib/handle-request.js:184:34
+      9   26.5%            JS: +preHandlerCallbackInner /home/dana/final-project/node_modules/fastify/lib/handle-request.js:184:34
+
+     79    1.1%  __read@@GLIBC_2.2.5
+      5    6.3%    JS: ^readFileSync node:fs:434:22
+      5  100.0%      JS: ^defaultLoadImpl node:internal/modules/cjs/loader:1186:25
+      5  100.0%        JS: ^loadSource node:internal/modules/cjs/loader:1886:20
+      5  100.0%          JS: ^<anonymous> node:internal/modules/cjs/loader:1967:37
+      5  100.0%            JS: ^<anonymous> node:internal/modules/cjs/loader:1579:33
+
+     78    1.1%  JS: *<anonymous> :1:20
+     68   87.2%    JS: *<anonymous> /home/dana/final-project/dist/utils/validation.js:12:18
+     38   55.9%      Builtin: ArrayForEach
+     38  100.0%        JS: ^validateBatch /home/dana/final-project/dist/utils/validation.js:9:23
+     38  100.0%          JS: ^<anonymous> /home/dana/final-project/dist/routes/logs.js:9:23
+     38  100.0%            JS: ^preHandlerCallbackInner /home/dana/final-project/node_modules/fastify/lib/handle-request.js:184:34
+     30   44.1%      JS: +validateBatch /home/dana/final-project/dist/utils/validation.js:9:23
+     27   90.0%        JS: +<anonymous> /home/dana/final-project/dist/routes/logs.js:9:23
+     27  100.0%          JS: +preHandlerCallbackInner /home/dana/final-project/node_modules/fastify/lib/handle-request.js:184:34
+     27  100.0%            JS: +preHandlerCallback /home/dana/final-project/node_modules/fastify/lib/handle-request.js:162:29
+      3   10.0%        JS: ^<anonymous> /home/dana/final-project/dist/routes/logs.js:9:23
+      3  100.0%          JS: +preHandlerCallbackInner /home/dana/final-project/node_modules/fastify/lib/handle-request.js:184:34
+      3  100.0%            JS: +preHandlerCallback /home/dana/final-project/node_modules/fastify/lib/handle-request.js:162:29
+     10   12.8%    JS: *<anonymous> /home/dana/final-project/node_modules/zod/v4/core/parse.cjs:59:30
+     10  100.0%      JS: +<anonymous> /home/dana/final-project/dist/utils/validation.js:12:18
+      5   50.0%        JS: +validateBatch /home/dana/final-project/dist/utils/validation.js:9:23
+      5  100.0%          JS: +<anonymous> /home/dana/final-project/dist/routes/logs.js:9:23
+      5  100.0%            JS: +preHandlerCallbackInner /home/dana/final-project/node_modules/fastify/lib/handle-request.js:184:34
+      5   50.0%        Builtin: ArrayForEach
+      5  100.0%          JS: ^validateBatch /home/dana/final-project/dist/utils/validation.js:9:23
+      5  100.0%            JS: ^<anonymous> /home/dana/final-project/dist/routes/logs.js:9:23
+

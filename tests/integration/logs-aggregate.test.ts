@@ -9,6 +9,7 @@ import {
 
 import { buildApp } from "../../src/app.js";
 import { clearLogs } from "../helpers/database.js";
+import { flushIngestion } from "../helpers/flush.js";
 
 const app = buildApp();
 
@@ -30,13 +31,37 @@ async function seedLogs() {
     url: "/logs",
     payload: {
       logs: [
-        { timestamp: "2026-08-02T12:02:00Z", level: "info", service: "payments", message: "a", attributes: { region: "eu" } },
-        { timestamp: "2026-08-02T12:03:00Z", level: "error", service: "payments", message: "b", attributes: { region: "us" } },
-        { timestamp: "2026-08-02T12:07:00Z", level: "info", service: "checkout", message: "c" },
-        { timestamp: "2026-08-02T13:15:00Z", level: "warn", service: "checkout", message: "d" },
+        {
+          timestamp: "2026-08-02T12:02:00Z",
+          level: "info",
+          service: "payments",
+          message: "a",
+          attributes: { region: "eu" },
+        },
+        {
+          timestamp: "2026-08-02T12:03:00Z",
+          level: "error",
+          service: "payments",
+          message: "b",
+          attributes: { region: "us" },
+        },
+        {
+          timestamp: "2026-08-02T12:07:00Z",
+          level: "info",
+          service: "checkout",
+          message: "c",
+        },
+        {
+          timestamp: "2026-08-02T13:15:00Z",
+          level: "warn",
+          service: "checkout",
+          message: "d",
+        },
       ],
     },
   });
+
+  await flushIngestion();
 }
 
 describe("GET /logs/aggregate — bucket sizes", () => {
@@ -49,12 +74,21 @@ describe("GET /logs/aggregate — bucket sizes", () => {
       method: "GET",
       url: "/logs/aggregate?since=2026-08-02T12:00:00Z&until=2026-08-02T13:00:00Z&bucket=5m",
     });
+
     const body = response.json();
 
     expect(response.statusCode).toBe(200);
     expect(body.buckets).toEqual([
-      { start: "2026-08-02T12:00:00.000Z", group: null, count: 2 },
-      { start: "2026-08-02T12:05:00.000Z", group: null, count: 1 },
+      {
+        start: "2026-08-02T12:00:00.000Z",
+        group: null,
+        count: 2,
+      },
+      {
+        start: "2026-08-02T12:05:00.000Z",
+        group: null,
+        count: 1,
+      },
     ]);
   });
 
@@ -63,13 +97,26 @@ describe("GET /logs/aggregate — bucket sizes", () => {
       method: "GET",
       url: "/logs/aggregate?since=2026-08-02T12:02:00Z&until=2026-08-02T12:08:00Z&bucket=1m",
     });
+
     const body = response.json();
 
     expect(response.statusCode).toBe(200);
     expect(body.buckets).toEqual([
-      { start: "2026-08-02T12:02:00.000Z", group: null, count: 1 },
-      { start: "2026-08-02T12:03:00.000Z", group: null, count: 1 },
-      { start: "2026-08-02T12:07:00.000Z", group: null, count: 1 },
+      {
+        start: "2026-08-02T12:02:00.000Z",
+        group: null,
+        count: 1,
+      },
+      {
+        start: "2026-08-02T12:03:00.000Z",
+        group: null,
+        count: 1,
+      },
+      {
+        start: "2026-08-02T12:07:00.000Z",
+        group: null,
+        count: 1,
+      },
     ]);
   });
 
@@ -78,12 +125,21 @@ describe("GET /logs/aggregate — bucket sizes", () => {
       method: "GET",
       url: "/logs/aggregate?since=2026-08-02T12:00:00Z&until=2026-08-02T14:00:00Z&bucket=1h",
     });
+
     const body = response.json();
 
     expect(response.statusCode).toBe(200);
     expect(body.buckets).toEqual([
-      { start: "2026-08-02T12:00:00.000Z", group: null, count: 3 },
-      { start: "2026-08-02T13:00:00.000Z", group: null, count: 1 },
+      {
+        start: "2026-08-02T12:00:00.000Z",
+        group: null,
+        count: 3,
+      },
+      {
+        start: "2026-08-02T13:00:00.000Z",
+        group: null,
+        count: 1,
+      },
     ]);
   });
 
@@ -92,11 +148,16 @@ describe("GET /logs/aggregate — bucket sizes", () => {
       method: "GET",
       url: "/logs/aggregate?since=2026-08-02T00:00:00Z&until=2026-08-03T00:00:00Z&bucket=1d",
     });
+
     const body = response.json();
 
     expect(response.statusCode).toBe(200);
     expect(body.buckets).toEqual([
-      { start: "2026-08-02T00:00:00.000Z", group: null, count: 4 },
+      {
+        start: "2026-08-02T00:00:00.000Z",
+        group: null,
+        count: 4,
+      },
     ]);
   });
 
@@ -105,10 +166,12 @@ describe("GET /logs/aggregate — bucket sizes", () => {
       method: "GET",
       url: "/logs/aggregate?since=2026-08-02T12:00:00Z&until=2026-08-02T14:00:00Z&bucket=1h",
     });
+
     const body = response.json();
 
     const starts = body.buckets.map((b: any) => b.start);
     const sorted = [...starts].sort();
+
     expect(starts).toEqual(sorted);
   });
 });
@@ -116,15 +179,23 @@ describe("GET /logs/aggregate — bucket sizes", () => {
 describe("GET /logs/aggregate — bucket alignment", () => {
   beforeEach(async () => {
     await clearLogs();
+
     await app.inject({
       method: "POST",
       url: "/logs",
       payload: {
         logs: [
-          { timestamp: "2026-08-02T12:04:00Z", level: "info", service: "a", message: "x" },
+          {
+            timestamp: "2026-08-02T12:04:00Z",
+            level: "info",
+            service: "a",
+            message: "x",
+          },
         ],
       },
     });
+
+    await flushIngestion();
   });
 
   it("aligns 5-minute buckets to clock boundaries, not to since", async () => {
@@ -132,28 +203,49 @@ describe("GET /logs/aggregate — bucket alignment", () => {
       method: "GET",
       url: "/logs/aggregate?since=2026-08-02T12:03:00Z&until=2026-08-02T12:08:00Z&bucket=5m",
     });
+
     const body = response.json();
 
     expect(response.statusCode).toBe(200);
     expect(body.buckets).toHaveLength(1);
-    expect(body.buckets[0].start).toBe("2026-08-02T12:00:00.000Z");
+    expect(body.buckets[0].start).toBe(
+      "2026-08-02T12:00:00.000Z"
+    );
   });
 });
 
 describe("GET /logs/aggregate — time range boundaries", () => {
   beforeEach(async () => {
     await clearLogs();
+
     await app.inject({
       method: "POST",
       url: "/logs",
       payload: {
         logs: [
-          { timestamp: "2026-08-02T12:00:00Z", level: "info", service: "a", message: "at since boundary" },
-          { timestamp: "2026-08-02T12:30:00Z", level: "info", service: "a", message: "inside range" },
-          { timestamp: "2026-08-02T13:00:00Z", level: "info", service: "a", message: "at until boundary" },
+          {
+            timestamp: "2026-08-02T12:00:00Z",
+            level: "info",
+            service: "a",
+            message: "at since boundary",
+          },
+          {
+            timestamp: "2026-08-02T12:30:00Z",
+            level: "info",
+            service: "a",
+            message: "inside range",
+          },
+          {
+            timestamp: "2026-08-02T13:00:00Z",
+            level: "info",
+            service: "a",
+            message: "at until boundary",
+          },
         ],
       },
     });
+
+    await flushIngestion();
   });
 
   it("includes logs exactly at since and excludes logs exactly at until", async () => {
@@ -161,10 +253,16 @@ describe("GET /logs/aggregate — time range boundaries", () => {
       method: "GET",
       url: "/logs/aggregate?since=2026-08-02T12:00:00Z&until=2026-08-02T13:00:00Z&bucket=1h",
     });
+
     const body = response.json();
 
     expect(response.statusCode).toBe(200);
-    const totalCount = body.buckets.reduce((sum: number, b: any) => sum + b.count, 0);
+
+    const totalCount = body.buckets.reduce(
+      (sum: number, b: any) => sum + b.count,
+      0
+    );
+
     expect(totalCount).toBe(2);
   });
 
@@ -173,6 +271,7 @@ describe("GET /logs/aggregate — time range boundaries", () => {
       method: "GET",
       url: "/logs/aggregate?since=2026-08-02T12:00:00Z&until=2026-08-02T12:00:00Z&bucket=1h",
     });
+
     const body = response.json();
 
     expect(response.statusCode).toBe(200);
@@ -183,16 +282,29 @@ describe("GET /logs/aggregate — time range boundaries", () => {
 describe("GET /logs/aggregate — omits empty buckets", () => {
   beforeEach(async () => {
     await clearLogs();
+
     await app.inject({
       method: "POST",
       url: "/logs",
       payload: {
         logs: [
-          { timestamp: "2026-08-02T12:02:00Z", level: "info", service: "a", message: "x" },
-          { timestamp: "2026-08-02T12:15:00Z", level: "info", service: "a", message: "y" },
+          {
+            timestamp: "2026-08-02T12:02:00Z",
+            level: "info",
+            service: "a",
+            message: "x",
+          },
+          {
+            timestamp: "2026-08-02T12:15:00Z",
+            level: "info",
+            service: "a",
+            message: "y",
+          },
         ],
       },
     });
+
+    await flushIngestion();
   });
 
   it("does not return buckets for time windows with no data", async () => {
@@ -200,12 +312,22 @@ describe("GET /logs/aggregate — omits empty buckets", () => {
       method: "GET",
       url: "/logs/aggregate?since=2026-08-02T12:00:00Z&until=2026-08-02T12:20:00Z&bucket=5m",
     });
+
     const body = response.json();
 
     expect(response.statusCode).toBe(200);
+
     expect(body.buckets).toEqual([
-      { start: "2026-08-02T12:00:00.000Z", group: null, count: 1 },
-      { start: "2026-08-02T12:15:00.000Z", group: null, count: 1 },
+      {
+        start: "2026-08-02T12:00:00.000Z",
+        group: null,
+        count: 1,
+      },
+      {
+        start: "2026-08-02T12:15:00.000Z",
+        group: null,
+        count: 1,
+      },
     ]);
   });
 });
@@ -213,17 +335,35 @@ describe("GET /logs/aggregate — omits empty buckets", () => {
 describe("GET /logs/aggregate — multiple groups within the same bucket", () => {
   beforeEach(async () => {
     await clearLogs();
+
     await app.inject({
       method: "POST",
       url: "/logs",
       payload: {
         logs: [
-          { timestamp: "2026-08-02T12:01:00Z", level: "info", service: "payments", message: "x" },
-          { timestamp: "2026-08-02T12:02:00Z", level: "info", service: "checkout", message: "y" },
-          { timestamp: "2026-08-02T12:03:00Z", level: "info", service: "payments", message: "z" },
+          {
+            timestamp: "2026-08-02T12:01:00Z",
+            level: "info",
+            service: "payments",
+            message: "x",
+          },
+          {
+            timestamp: "2026-08-02T12:02:00Z",
+            level: "info",
+            service: "checkout",
+            message: "y",
+          },
+          {
+            timestamp: "2026-08-02T12:03:00Z",
+            level: "info",
+            service: "payments",
+            message: "z",
+          },
         ],
       },
     });
+
+    await flushIngestion();
   });
 
   it("splits a single bucket into multiple group rows", async () => {
@@ -231,15 +371,26 @@ describe("GET /logs/aggregate — multiple groups within the same bucket", () =>
       method: "GET",
       url: "/logs/aggregate?since=2026-08-02T12:00:00Z&until=2026-08-02T12:05:00Z&bucket=5m&group_by=service",
     });
+
     const body = response.json();
 
     expect(response.statusCode).toBe(200);
+
     expect(body.buckets).toEqual(
       expect.arrayContaining([
-        { start: "2026-08-02T12:00:00.000Z", group: "payments", count: 2 },
-        { start: "2026-08-02T12:00:00.000Z", group: "checkout", count: 1 },
+        {
+          start: "2026-08-02T12:00:00.000Z",
+          group: "payments",
+          count: 2,
+        },
+        {
+          start: "2026-08-02T12:00:00.000Z",
+          group: "checkout",
+          count: 1,
+        },
       ])
     );
+
     expect(body.buckets).toHaveLength(2);
   });
 });
@@ -254,15 +405,26 @@ describe("GET /logs/aggregate — group_by", () => {
       method: "GET",
       url: "/logs/aggregate?since=2026-08-02T12:00:00Z&until=2026-08-02T13:00:00Z&bucket=5m&group_by=service",
     });
+
     const body = response.json();
 
     expect(response.statusCode).toBe(200);
+
     expect(body.buckets).toEqual(
       expect.arrayContaining([
-        { start: "2026-08-02T12:00:00.000Z", group: "payments", count: 2 },
-        { start: "2026-08-02T12:05:00.000Z", group: "checkout", count: 1 },
+        {
+          start: "2026-08-02T12:00:00.000Z",
+          group: "payments",
+          count: 2,
+        },
+        {
+          start: "2026-08-02T12:05:00.000Z",
+          group: "checkout",
+          count: 1,
+        },
       ])
     );
+
     expect(body.buckets).toHaveLength(2);
   });
 
@@ -271,16 +433,31 @@ describe("GET /logs/aggregate — group_by", () => {
       method: "GET",
       url: "/logs/aggregate?since=2026-08-02T12:00:00Z&until=2026-08-02T13:00:00Z&bucket=5m&group_by=level",
     });
+
     const body = response.json();
 
     expect(response.statusCode).toBe(200);
+
     expect(body.buckets).toEqual(
       expect.arrayContaining([
-        { start: "2026-08-02T12:00:00.000Z", group: "info", count: 1 },
-        { start: "2026-08-02T12:00:00.000Z", group: "error", count: 1 },
-        { start: "2026-08-02T12:05:00.000Z", group: "info", count: 1 },
+        {
+          start: "2026-08-02T12:00:00.000Z",
+          group: "info",
+          count: 1,
+        },
+        {
+          start: "2026-08-02T12:00:00.000Z",
+          group: "error",
+          count: 1,
+        },
+        {
+          start: "2026-08-02T12:05:00.000Z",
+          group: "info",
+          count: 1,
+        },
       ])
     );
+
     expect(body.buckets).toHaveLength(3);
   });
 
@@ -289,6 +466,7 @@ describe("GET /logs/aggregate — group_by", () => {
       method: "GET",
       url: "/logs/aggregate?since=2026-08-02T12:00:00Z&until=2026-08-02T13:00:00Z&bucket=5m",
     });
+
     const body = response.json();
 
     expect(response.statusCode).toBe(200);
@@ -299,17 +477,35 @@ describe("GET /logs/aggregate — group_by", () => {
 describe("GET /logs/aggregate — group_by combined with a filter", () => {
   beforeEach(async () => {
     await clearLogs();
+
     await app.inject({
       method: "POST",
       url: "/logs",
       payload: {
         logs: [
-          { timestamp: "2026-08-02T12:01:00Z", level: "info", service: "payments", message: "x" },
-          { timestamp: "2026-08-02T12:02:00Z", level: "error", service: "payments", message: "y" },
-          { timestamp: "2026-08-02T12:03:00Z", level: "info", service: "checkout", message: "z" },
+          {
+            timestamp: "2026-08-02T12:01:00Z",
+            level: "info",
+            service: "payments",
+            message: "x",
+          },
+          {
+            timestamp: "2026-08-02T12:02:00Z",
+            level: "error",
+            service: "payments",
+            message: "y",
+          },
+          {
+            timestamp: "2026-08-02T12:03:00Z",
+            level: "info",
+            service: "checkout",
+            message: "z",
+          },
         ],
       },
     });
+
+    await flushIngestion();
   });
 
   it("applies the service filter before grouping by level", async () => {
@@ -317,15 +513,26 @@ describe("GET /logs/aggregate — group_by combined with a filter", () => {
       method: "GET",
       url: "/logs/aggregate?since=2026-08-02T12:00:00Z&until=2026-08-02T12:05:00Z&bucket=5m&group_by=level&service=payments",
     });
+
     const body = response.json();
 
     expect(response.statusCode).toBe(200);
+
     expect(body.buckets).toEqual(
       expect.arrayContaining([
-        { start: "2026-08-02T12:00:00.000Z", group: "info", count: 1 },
-        { start: "2026-08-02T12:00:00.000Z", group: "error", count: 1 },
+        {
+          start: "2026-08-02T12:00:00.000Z",
+          group: "info",
+          count: 1,
+        },
+        {
+          start: "2026-08-02T12:00:00.000Z",
+          group: "error",
+          count: 1,
+        },
       ])
     );
+
     expect(body.buckets).toHaveLength(2);
   });
 });
@@ -340,10 +547,16 @@ describe("GET /logs/aggregate — filters", () => {
       method: "GET",
       url: "/logs/aggregate?since=2026-08-02T12:00:00Z&until=2026-08-02T14:00:00Z&bucket=1h&service=checkout",
     });
+
     const body = response.json();
 
     expect(response.statusCode).toBe(200);
-    const totalCount = body.buckets.reduce((sum: number, b: any) => sum + b.count, 0);
+
+    const totalCount = body.buckets.reduce(
+      (sum: number, b: any) => sum + b.count,
+      0
+    );
+
     expect(totalCount).toBe(2);
   });
 
@@ -352,10 +565,16 @@ describe("GET /logs/aggregate — filters", () => {
       method: "GET",
       url: "/logs/aggregate?since=2026-08-02T12:00:00Z&until=2026-08-02T14:00:00Z&bucket=1h&level=error",
     });
+
     const body = response.json();
 
     expect(response.statusCode).toBe(200);
-    const totalCount = body.buckets.reduce((sum: number, b: any) => sum + b.count, 0);
+
+    const totalCount = body.buckets.reduce(
+      (sum: number, b: any) => sum + b.count,
+      0
+    );
+
     expect(totalCount).toBe(1);
   });
 
@@ -364,10 +583,16 @@ describe("GET /logs/aggregate — filters", () => {
       method: "GET",
       url: "/logs/aggregate?since=2026-08-02T12:00:00Z&until=2026-08-02T14:00:00Z&bucket=1h&attr.region=eu",
     });
+
     const body = response.json();
 
     expect(response.statusCode).toBe(200);
-    const totalCount = body.buckets.reduce((sum: number, b: any) => sum + b.count, 0);
+
+    const totalCount = body.buckets.reduce(
+      (sum: number, b: any) => sum + b.count,
+      0
+    );
+
     expect(totalCount).toBe(1);
   });
 
@@ -376,6 +601,7 @@ describe("GET /logs/aggregate — filters", () => {
       method: "GET",
       url: "/logs/aggregate?since=2027-01-01T00:00:00Z&until=2027-01-02T00:00:00Z&bucket=1h",
     });
+
     const body = response.json();
 
     expect(response.statusCode).toBe(200);
@@ -386,17 +612,47 @@ describe("GET /logs/aggregate — filters", () => {
 describe("GET /logs/aggregate — multiple attribute filters", () => {
   beforeEach(async () => {
     await clearLogs();
+
     await app.inject({
       method: "POST",
       url: "/logs",
       payload: {
         logs: [
-          { timestamp: "2026-08-02T12:01:00Z", level: "info", service: "a", message: "x", attributes: { user_id: "123", region: "eu" } },
-          { timestamp: "2026-08-02T12:02:00Z", level: "info", service: "a", message: "y", attributes: { user_id: "123", region: "us" } },
-          { timestamp: "2026-08-02T12:03:00Z", level: "info", service: "a", message: "z", attributes: { user_id: "456", region: "eu" } },
+          {
+            timestamp: "2026-08-02T12:01:00Z",
+            level: "info",
+            service: "a",
+            message: "x",
+            attributes: {
+              user_id: "123",
+              region: "eu",
+            },
+          },
+          {
+            timestamp: "2026-08-02T12:02:00Z",
+            level: "info",
+            service: "a",
+            message: "y",
+            attributes: {
+              user_id: "123",
+              region: "us",
+            },
+          },
+          {
+            timestamp: "2026-08-02T12:03:00Z",
+            level: "info",
+            service: "a",
+            message: "z",
+            attributes: {
+              user_id: "456",
+              region: "eu",
+            },
+          },
         ],
       },
     });
+
+    await flushIngestion();
   });
 
   it("combines multiple attr.<key> filters with AND", async () => {
@@ -404,10 +660,16 @@ describe("GET /logs/aggregate — multiple attribute filters", () => {
       method: "GET",
       url: "/logs/aggregate?since=2026-08-02T12:00:00Z&until=2026-08-02T12:05:00Z&bucket=5m&attr.user_id=123&attr.region=eu",
     });
+
     const body = response.json();
 
     expect(response.statusCode).toBe(200);
-    const totalCount = body.buckets.reduce((sum: number, b: any) => sum + b.count, 0);
+
+    const totalCount = body.buckets.reduce(
+      (sum: number, b: any) => sum + b.count,
+      0
+    );
+
     expect(totalCount).toBe(1);
   });
 });
@@ -418,6 +680,7 @@ describe("GET /logs/aggregate — invalid parameters", () => {
       method: "GET",
       url: "/logs/aggregate?until=2026-08-02T13:00:00Z&bucket=1h",
     });
+
     expect(response.statusCode).toBe(400);
     expect(response.json()).toHaveProperty("error");
   });
@@ -427,6 +690,7 @@ describe("GET /logs/aggregate — invalid parameters", () => {
       method: "GET",
       url: "/logs/aggregate?since=2026-08-02T12:00:00Z&bucket=1h",
     });
+
     expect(response.statusCode).toBe(400);
   });
 
@@ -435,6 +699,7 @@ describe("GET /logs/aggregate — invalid parameters", () => {
       method: "GET",
       url: "/logs/aggregate?since=2026-08-02T12:00:00Z&until=2026-08-02T13:00:00Z",
     });
+
     expect(response.statusCode).toBe(400);
   });
 
@@ -443,6 +708,7 @@ describe("GET /logs/aggregate — invalid parameters", () => {
       method: "GET",
       url: "/logs/aggregate?since=2026-08-02T12:00:00Z&until=2026-08-02T13:00:00Z&bucket=2m",
     });
+
     expect(response.statusCode).toBe(400);
   });
 
@@ -451,6 +717,7 @@ describe("GET /logs/aggregate — invalid parameters", () => {
       method: "GET",
       url: "/logs/aggregate?since=2026-08-02T14:00:00Z&until=2026-08-02T10:00:00Z&bucket=1h",
     });
+
     expect(response.statusCode).toBe(400);
   });
 
@@ -459,6 +726,7 @@ describe("GET /logs/aggregate — invalid parameters", () => {
       method: "GET",
       url: "/logs/aggregate?since=2026-08-02T12:00:00Z&until=2026-08-02T13:00:00Z&bucket=1h&group_by=message",
     });
+
     expect(response.statusCode).toBe(400);
   });
 
@@ -467,6 +735,7 @@ describe("GET /logs/aggregate — invalid parameters", () => {
       method: "GET",
       url: "/logs/aggregate?since=2026-08-02T12:00:00Z&until=2026-08-02T13:00:00Z&bucket=1h&level=critical",
     });
+
     expect(response.statusCode).toBe(400);
   });
 });

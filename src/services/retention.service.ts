@@ -1,4 +1,4 @@
-import pool from "../db/client.js";
+import { readPool, writePool } from "../db/client.js";
 
 function getRetentionDays(): number {
   const raw = process.env.RETENTION_DAYS ?? "30";
@@ -17,7 +17,7 @@ interface PartitionInfo {
 }
 
 async function listLogPartitions(): Promise<PartitionInfo[]> {
-  const result = await pool.query<{ relname: string }>(`
+  const result = await readPool.query<{ relname: string }>(`
     SELECT c.relname
     FROM pg_inherits i
     JOIN pg_class c ON c.oid = i.inhrelid
@@ -58,7 +58,7 @@ export async function runRetention(retentionDaysOverride?: number): Promise<Rete
 
   for (const partition of partitions) {
     if (partition.partitionStart < cutoff) {
-      await pool.query(`DROP TABLE IF EXISTS ${partition.partitionName}`);
+      await readPool.query(`DROP TABLE IF EXISTS ${partition.partitionName}`);
       droppedPartitions.push(partition.partitionName);
     }
   }

@@ -13,8 +13,8 @@ export const logsQuerySchema = z
   })
   .refine(
     (data) =>
-      !data.since || !data.until || new Date(data.until) > new Date(data.since),
-    { message: "until must be later than since" }
+      !data.since || !data.until || new Date(data.until) >= new Date(data.since),
+    {message: "until must not be earlier than since"},
   );
 
 export type LogsQueryInput = z.infer<typeof logsQuerySchema>;

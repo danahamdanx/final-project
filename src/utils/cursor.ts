@@ -1,3 +1,4 @@
+
 // src/utils/cursor.ts
 import { z } from "zod";
 
@@ -11,7 +12,6 @@ const cursorTimestampSchema = z.iso.datetime();
 export function encodeCursor(cursor: Cursor): string {
   return Buffer.from(JSON.stringify(cursor), "utf8").toString("base64url");
 }
-
 export function decodeCursor(raw: string): Cursor {
   let parsed: unknown;
 

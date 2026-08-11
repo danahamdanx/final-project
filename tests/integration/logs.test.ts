@@ -9,6 +9,7 @@ import {
 
 import { buildApp } from "../../src/app.js";
 import { clearLogs, countLogs } from "../helpers/database.js";
+import { flushIngestion } from "../helpers/flush.js";
 
 const app = buildApp();
 
@@ -43,6 +44,7 @@ describe("POST /logs", () => {
         ],
       },
     });
+    await flushIngestion();
 
     expect(response.statusCode).toBe(200);
     expect(await countLogs()).toBe(1);
@@ -75,6 +77,7 @@ describe("POST /logs", () => {
         ],
       },
     });
+    await flushIngestion();
 
     expect(response.statusCode).toBe(200);
 
@@ -100,6 +103,7 @@ describe("POST /logs", () => {
         ],
       },
     });
+    await flushIngestion();
 
     expect(response.statusCode).toBe(400);
     expect(await countLogs()).toBe(0);
@@ -131,6 +135,7 @@ describe("POST /logs", () => {
       ],
     },
   });
+  await flushIngestion();
 
   expect(response.statusCode).toBe(200);
 
