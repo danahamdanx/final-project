@@ -1,11 +1,12 @@
 import { beforeAll, afterAll, describe, expect, it, vi } from "vitest";
 
-vi.mock("../src/services/health.service.js", () => ({
+vi.mock("../../src/services/health.service.js", () => ({
   checkHealth: vi.fn().mockResolvedValue({
     status: "ok",
-  checks: {
-    database: "up",
-  },  
+    checks: {
+      database: "up",
+      migrations: "applied",
+    },
   }),
 }));
 
@@ -29,11 +30,13 @@ describe("GET /health", () => {
     });
 
     expect(response.statusCode).toBe(200);
+
     expect(response.json()).toEqual({
       status: "ok",
-  checks: {
-    database: "up",
-  },
+      checks: {
+        database: "up",
+        migrations: "applied",
+      },
     });
   });
 });

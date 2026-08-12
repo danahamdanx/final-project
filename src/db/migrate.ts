@@ -2,6 +2,12 @@ import { readdir, readFile } from "node:fs/promises";
 import path from "node:path";
 import { readPool, writePool } from "../db/client.js";
 
+let migrationsApplied = false;
+
+export function isMigrationsApplied(): boolean {
+  return migrationsApplied;
+}
+
 export async function runMigrations(): Promise<void> {
   await readPool.query(`
     CREATE TABLE IF NOT EXISTS schema_migrations (
@@ -32,16 +38,12 @@ export async function runMigrations(): Promise<void> {
 
     try {
       await client.query("BEGIN");
-
       await client.query(sql);
-
       await client.query(
         "INSERT INTO schema_migrations(version) VALUES($1)",
         [file]
       );
-
       await client.query("COMMIT");
-
       console.log(`Migration ${file} applied.`);
     } catch (err) {
       await client.query("ROLLBACK");
@@ -50,4 +52,6 @@ export async function runMigrations(): Promise<void> {
       client.release();
     }
   }
+
+  migrationsApplied = true;
 }
