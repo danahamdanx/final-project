@@ -3,14 +3,18 @@ import { logRepository } from "../repositories/log.repository.js";
 
 const FLUSH_INTERVAL_MS = 500;
 const MAX_ROWS_PER_INSERT = 500;
-
+const MAX_BUFFER_SIZE = 25000; // هامش أمان واسع بناء على القياس الفعلي (~49MB لـ 15,000 سجل)
 class IngestionBuffer {
   private buffer: LogInput[] = [];
   private flushTimer: NodeJS.Timeout | null = null;
   private flushing = false;
 
-  add(logs: LogInput[]): void {
+  add(logs: LogInput[]): { accepted: boolean } {
+    if (this.buffer.length >= MAX_BUFFER_SIZE) {
+      return { accepted: false };
+    }
     this.buffer.push(...logs);
+    return { accepted: true };
   }
 
   start(): void {
@@ -54,6 +58,8 @@ class IngestionBuffer {
   size(): number {
     return this.buffer.length;
   }
+
+  
 }
 
 export const ingestionBuffer = new IngestionBuffer();

@@ -1,5 +1,6 @@
 import { readPool, writePool } from "../db/client.js";
 import { LogInput } from "../schemas/log.schema.js";
+import { ingestionBuffer } from "../services/ingestion-buffer.service.js";
 import { ParsedAggregateQuery } from "../utils/aggregate-params.js";
 import { ParsedLogsQuery } from "../utils/query-params.js";
 
@@ -187,6 +188,8 @@ async insertMany(logs: LogInput[]): Promise<void> {
     attributesArr.push(JSON.stringify(log.attributes));
   }
 
+  
+
   await writePool.query(
     `
     INSERT INTO logs (timestamp, level, service, message, attributes)
@@ -196,6 +199,10 @@ async insertMany(logs: LogInput[]): Promise<void> {
     `,
     [timestamps, levels, services, messages, attributesArr]
   );
+}
+
+  async ingest(logs: LogInput[]): Promise<{ accepted: boolean }> {
+  return ingestionBuffer.add(logs);
 }
   async findMany(params: ParsedLogsQuery): Promise<LogRow[]> {
     const { sql, values } = buildLogQuery(params);

@@ -42,8 +42,10 @@ function formatRow(row: LogRow): LogApiShape {
 }
 
 export class LogService {
-  async ingest(logs: LogInput[]): Promise<void> {
-        ingestionBuffer.add(logs);
+  async ingest(logs: LogInput[]): Promise<{ accepted: boolean }> {
+    const result = ingestionBuffer.add(logs);
+    return result;
+
 
   }
 
