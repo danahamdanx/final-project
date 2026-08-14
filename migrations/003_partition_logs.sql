@@ -2,6 +2,7 @@
 -- Convert logs table to be RANGE partitioned by timestamp
 -- Required for efficient retention (DROP PARTITION instead of DELETE)
 -- ==========================================
+-- migrations/003_query_indexes.sql
 
 DROP TABLE IF EXISTS logs;
 

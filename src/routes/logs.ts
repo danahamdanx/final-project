@@ -4,27 +4,44 @@ import { validateTopLevel, validateBatch } from "../utils/validation.js";
 import { parseLogsQuery } from "../utils/query-params.js";
 import { logService } from "../services/log.service.js";
 import { parseAggregateQuery } from "../utils/aggregate-params.js";
+import { ingestionBuffer } from "../services/ingestion-buffer.service.js";
 
 export async function logsRoute(app: FastifyInstance) {
   app.post("/logs", async (request, reply) => {
-    const topLevel = validateTopLevel(request.body);
+  // فحص السعة أول شي — رخيص جدًا (مجرد مقارنة رقم)، يوقف الدورة العكسية فورًا
+  if (ingestionBuffer.isFull()) {
+    reply.header("Retry-After", "1");
+    return reply.status(503).send({
+      error: "ingestion buffer full, retry shortly",
+      accepted: 0,
+      rejected: [],
+    });
+  }
 
-    if (!topLevel.success) {
-      return reply.status(400).send({
-        error: "request body must be an object with a non-empty 'logs' array",
-      });
-    }
+  const topLevel = validateTopLevel(request.body);
+  if (!topLevel.success) {
+    return reply.status(400).send({
+      error: "request body must be an object with a non-empty 'logs' array",
+    });
+  }
 
-    const { accepted, rejected } = validateBatch(topLevel.data.logs);
+  const { accepted, rejected } = validateBatch(topLevel.data.logs);
+  if (accepted.length === 0) {
+    return reply.status(400).send({ accepted: 0, rejected });
+  }
 
-    if (accepted.length === 0) {
-      return reply.status(400).send({ accepted: 0, rejected });
-    }
+  const bufferResult = await logService.ingest(accepted);
+  if (!bufferResult.accepted) {
+    reply.header("Retry-After", "1");
+    return reply.status(503).send({
+      error: "ingestion buffer full, retry shortly",
+      accepted: 0,
+      rejected,
+    });
+  }
 
-    await logService.ingest(accepted);
-
-    return reply.status(200).send({ accepted: accepted.length, rejected });
-  });
+  return reply.status(200).send({ accepted: accepted.length, rejected });
+});
 
   app.get("/logs", async (request, reply) => {
     const parsed = parseLogsQuery(request.query as Record<string, unknown>);

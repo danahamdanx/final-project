@@ -1,13 +1,14 @@
 import { LogInput } from "../schemas/log.schema.js";
 import { logRepository } from "../repositories/log.repository.js";
 
-const FLUSH_INTERVAL_MS = 500;
-const MAX_ROWS_PER_INSERT = 500;
-const MAX_BUFFER_SIZE = 25000; // هامش أمان واسع بناء على القياس الفعلي (~49MB لـ 15,000 سجل)
+const FLUSH_INTERVAL_MS = 1000;
+const MAX_ROWS_PER_INSERT = 2000;
+const MAX_BUFFER_SIZE = 80000; // هامش أمان واسع بناء على القياس الفعلي (~49MB لـ 15,000 سجل)
 class IngestionBuffer {
   private buffer: LogInput[] = [];
   private flushTimer: NodeJS.Timeout | null = null;
   private flushing = false;
+  private draining = false; // جديد: يمنع أكتر من drainLoop شغالة بنفس الوقت
 
   add(logs: LogInput[]): { accepted: boolean } {
     if (this.buffer.length >= MAX_BUFFER_SIZE) {
@@ -20,10 +21,20 @@ class IngestionBuffer {
   start(): void {
     if (this.flushTimer) return;
     this.flushTimer = setInterval(() => {
-      this.flush().catch((err) => {
-        console.error("ingestion buffer flush failed", err);
-      });
+      void this.drainLoop();
     }, FLUSH_INTERVAL_MS);
+  }
+
+  private async drainLoop(): Promise<void> {
+    if (this.draining) return; // دورة تانية شغالة أصلًا، ما في داعي نبلش وحدة جديدة
+    this.draining = true;
+    try {
+      while (this.buffer.length > 0) {
+        await this.flush();
+      }
+    } finally {
+      this.draining = false;
+    }
   }
 
   async flush(): Promise<void> {
@@ -39,8 +50,7 @@ class IngestionBuffer {
         await logRepository.insertMany(chunk);
       }
     } catch (err) {
-      // إعادة آمنة بدون تمرير عدد ضخم من المعاملات دفعة وحدة
-      this.buffer = toWrite.concat(this.buffer);
+      this.buffer.unshift(...toWrite);
       throw err;
     } finally {
       this.flushing = false;
@@ -52,14 +62,16 @@ class IngestionBuffer {
       clearInterval(this.flushTimer);
       this.flushTimer = null;
     }
-    await this.flush();
+    await this.drainLoop();
   }
 
   size(): number {
     return this.buffer.length;
   }
-
-  
+  // src/services/ingestion-buffer.service.ts
+  isFull(): boolean {
+    return this.buffer.length >= MAX_BUFFER_SIZE;
+}
 }
 
 export const ingestionBuffer = new IngestionBuffer();
