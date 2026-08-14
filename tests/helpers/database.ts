@@ -1,7 +1,7 @@
 import pool from "../../src/db/client.js";
 
 export async function clearLogs() {
-  await pool.query("DELETE FROM logs");
+  await pool.query("TRUNCATE logs, logs_rollup_1m");
 }
 
 export async function countLogs(): Promise<number> {
