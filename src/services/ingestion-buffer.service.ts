@@ -49,6 +49,8 @@ class IngestionBuffer {
         const chunk = toWrite.slice(i, i + MAX_ROWS_PER_INSERT);
         await logRepository.insertMany(chunk);
       }
+  // تحديث الـ rollup بعد نجاح كل الكتابة الخام — دفعة وحدة للـ batch كامل، مش لكل chunk
+      await logRepository.upsertRollup(toWrite);
     } catch (err) {
       this.buffer.unshift(...toWrite);
       throw err;

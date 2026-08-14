@@ -168,7 +168,57 @@ export function buildAggregateQuery(
 
   return { sql, values };
 }
+export function canUseRollup(params: ParsedAggregateQuery): boolean {
+  return (
+    params.bucket === "1m" &&
+    !params.q &&
+    Object.keys(params.attributes).length === 0
+  );
+}
 
+function buildRollupQuery(params: ParsedAggregateQuery): BuiltQuery {
+  const conditions: string[] = [];
+  const values: unknown[] = [];
+
+  values.push(params.since);
+  conditions.push(`bucket_start >= $${values.length}`);
+
+  values.push(params.until);
+  conditions.push(`bucket_start < $${values.length}`);
+
+  if (params.service) {
+    values.push(params.service);
+    conditions.push(`service = $${values.length}`);
+  }
+
+  if (params.level) {
+    values.push(params.level);
+    conditions.push(`level = $${values.length}`);
+  }
+
+  const whereClause = `WHERE ${conditions.join(" AND ")}`;
+
+  const selectGroupColumn = params.group_by
+    ? params.group_by
+    : "NULL";
+
+  const groupByExpr = params.group_by
+    ? `bucket_start, ${params.group_by}`
+    : "bucket_start";
+
+  const sql = `
+    SELECT
+      bucket_start,
+      ${selectGroupColumn} AS group_value,
+      SUM(count) AS count
+    FROM logs_rollup_1m
+    ${whereClause}
+    GROUP BY ${groupByExpr}
+    ORDER BY bucket_start ASC
+  `;
+
+  return { sql, values };
+}
 export class LogRepository {
 // رجعي log.repository.ts لنسخته يلي كانت قبل worker thread
 async insertMany(logs: LogInput[]): Promise<void> {
@@ -200,6 +250,52 @@ async insertMany(logs: LogInput[]): Promise<void> {
     [timestamps, levels, services, messages, attributesArr]
   );
 }
+async upsertRollup(logs: LogInput[]): Promise<void> {
+  if (logs.length === 0) return;
+
+  interface RollupEntry {
+    bucket: string;
+    service: string;
+    level: string;
+    count: number;
+  }
+
+  const counts = new Map<string, RollupEntry>();
+
+  for (const log of logs) {
+    const bucket = log.timestamp.slice(0, 16) + ":00.000Z";
+    const key = `${bucket}|${log.service}|${log.level}`;
+
+    const existing = counts.get(key);
+    if (existing) {
+      existing.count += 1;
+    } else {
+      counts.set(key, { bucket, service: log.service, level: log.level, count: 1 });
+    }
+  }
+
+  const buckets: string[] = [];
+  const services: string[] = [];
+  const levels: string[] = [];
+  const amounts: number[] = [];
+
+  for (const entry of counts.values()) {
+    buckets.push(entry.bucket);
+    services.push(entry.service);
+    levels.push(entry.level);
+    amounts.push(entry.count);
+  }
+
+  await writePool.query(
+    `
+    INSERT INTO logs_rollup_1m (bucket_start, service, level, count)
+    SELECT * FROM UNNEST($1::timestamptz[], $2::text[], $3::log_level[], $4::bigint[])
+    ON CONFLICT (bucket_start, service, level)
+    DO UPDATE SET count = logs_rollup_1m.count + EXCLUDED.count
+    `,
+    [buckets, services, levels, amounts]
+  );
+}
 
   async ingest(logs: LogInput[]): Promise<{ accepted: boolean }> {
   return ingestionBuffer.add(logs);
@@ -213,14 +309,16 @@ async insertMany(logs: LogInput[]): Promise<void> {
   }
 
   async aggregate(
-    params: ParsedAggregateQuery
-  ): Promise<AggregateRow[]> {
-    const { sql, values } = buildAggregateQuery(params);
+  params: ParsedAggregateQuery
+): Promise<AggregateRow[]> {
+  const { sql, values } = canUseRollup(params)
+    ? buildRollupQuery(params)
+    : buildAggregateQuery(params);
 
-    const result = await readPool.query(sql, values);
+  const result = await readPool.query<AggregateRow>(sql, values);
 
-    return result.rows;
-  }
+  return result.rows;
+}
 }
 
 export const logRepository = new LogRepository();
