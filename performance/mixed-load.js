@@ -7,14 +7,14 @@ export const options = {
     ingestion: {
       executor: "constant-vus",
       vus: 75,
-      duration: "30s",
+      duration: "120s",
       exec: "ingest",
     },
     aggregation: {
       executor: "constant-arrival-rate",
       rate: 1,
       timeUnit: "1s",
-      duration: "30s",
+      duration: "120s",
       preAllocatedVUs: 20,
       exec: "aggregate",
     },

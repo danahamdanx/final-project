@@ -13,8 +13,6 @@ export async function logsRoute(app: FastifyInstance) {
     reply.header("Retry-After", "1");
     return reply.status(503).send({
       error: "ingestion buffer full, retry shortly",
-      accepted: 0,
-      rejected: [],
     });
   }
 
