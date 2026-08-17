@@ -242,11 +242,39 @@ Diagnosis of the aggregation-latency bottleneck (see below) went beyond just rea
 
 ## Measured Performance Results
 
-**Test environment:** Docker Desktop on WSL2 (Windows), app container limited to 0.5 CPU / 256MB, PostgreSQL 16 container limited to 1 CPU / 1GB, per `docker-compose.yml`.
+**Test environment (primary):** Official load generator (loadgen.foothilltech.net), running against the full resource-constrained deployment (app: 0.5 CPU/256MB, PostgreSQL: 1 CPU/1GB) as specified. Local testing (WSL2/Docker Desktop, described below) was used for iterative diagnosis; the official results below are authoritative.
 
-**Dataset size:** up to ~600,000 rows accumulated during a single 30s mixed-load run (representative of the "~1M rows / ~1 month of data" target at smaller scale, given partitioning and retention logic don't depend on absolute row count).
+**Dataset size:** up to ~1.5M rows accepted per scenario during official benchmarking.
 
-**Batch size:** 100 logs per ingestion request (client-side); server-side flush batches up to 500 rows per `INSERT`, every 500ms.
+**Batch size:** 100 logs/request (load generator default); server-side flush batches up to 2,000 rows per INSERT, every ~1s.
+
+### Official Load Generator Results (best submission: 67.29/100, rank #9)
+
+| Metric        | Value                                                                           |
+| ------------- | ------------------------------------------------------------------------------- |
+| Overall score | 67.29 / 100                                                                     |
+| Performance   | 24.58 / 50                                                                      |
+| Reliability   | 20.00 / 20 (zero crashes, zero dropped/malformed requests across all scenarios) |
+| Correctness   | 14.00 / 15                                                                      |
+| Queries       | 8.71 / 15                                                                       |
+
+**Load scenario** (15,000 logs/s target, 120s sustained):
+
+- Achieved ~10,935 logs/sec accepted
+- Ingestion latency p95: 42ms
+- Aggregate query p95: **16ms** (via the rollup table, see below)
+- Application CPU: 23% avg / 38% max (well under the 0.5-CPU limit)
+- PostgreSQL CPU: 30% avg / 52% max (well under the 1-CPU limit)
+
+**Stress / Spike / Breakpoint scenarios** (up to 45,000 logs/s): the service degrades gracefully via backpressure (503 + Retry-After) rather than crashing or dropping requests silently — 0 requests were ever dropped or errored with 5xx-uncaught failures across any scenario; rejected requests are explicit and countable.
+
+### Local baseline (isolated ingestion, no concurrent queries)
+
+- Sustained throughput: ~19,000–23,000 logs/sec, exceeding the 15,000 logs/sec baseline target.
+
+### Aggregate query latency, isolated from the application
+
+Measured via `pg_stat_statements` under concurrent write load: **mean 11–25ms, max well under 100ms**, consistently — confirming PostgreSQL itself is not the bottleneck for aggregation once the rollup table is in place.
 
 ### Ingestion (isolated, `ingestion-baseline.js`)
 
@@ -306,3 +334,16 @@ In the order they were found and fixed/mitigated:
 - **Run-to-run variance was higher than expected** for identical code and configuration — mixed-load throughput ranged from 129 to 234 req/sec, and aggregate-under-1s ranged from 4% to 33%, across consecutive runs with no changes in between. This is likely attributable to the WSL2/Docker Desktop development environment (background OS activity, virtualization scheduling) rather than the application itself; the reported "best run" numbers above should be read as an upper bound observed in this environment, not a guaranteed floor. Testing in a native Linux environment (the likely target evaluation environment) is expected to show less variance.
 - `pg-copy-streams` remains in `package.json` as a dependency from an earlier `COPY`-protocol approach that was tried and abandoned in favor of `UNNEST` (see Bottlenecks) once `pg_stat_statements` showed PostgreSQL itself was not the constrained resource. It's unused in the current code and can be removed.
 - Query-parameter validation (`GET /logs`, `GET /logs/aggregate`) still uses Zod; this wasn't a measured bottleneck (query volume is far lower than ingestion volume) so it wasn't rewritten, but it's a place to look first if query-side latency ever becomes an issue.
+
+---
+
+## Optional Features
+
+No optional features (authentication, API keys, multi-tenancy, or rate limiting) are implemented in this submission. `AUTH_ENABLED` is not applicable — the service has no auth code path at all, so it cannot be accidentally enabled.
+
+`docker compose up` with no environment file, no arguments, and no manual setup yields the plain, unauthenticated core service exactly as specified: `GET /health`, `POST /logs`, `GET /logs`, and `GET /logs/aggregate` all accept unauthenticated requests with no rate limit, quota, or tenancy restriction.
+
+**Implemented beyond the minimum (documented, not gated behind config):**
+
+- **Backpressure** (stretch goal): `POST /logs` returns `503` with `Retry-After: 1` when the in-memory ingestion buffer is full, rather than crashing or silently dropping data. This is always on and cannot be disabled — it is core reliability behavior, not an optional feature requiring configuration.
+- **Pre-aggregated rollup table** (stretch goal): a `logs_rollup_1m` table is maintained incrementally during ingestion and used transparently by `GET /logs/aggregate` when `bucket=1m` and no `q`/`attr.*` filters are present (falling back to the raw-table query otherwise). This is always on; it changes response _latency_, never response _shape_.

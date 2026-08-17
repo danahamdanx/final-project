@@ -3,9 +3,6 @@ import { ingestRequestSchema, logSchema } from "../schemas/log.schema.js";
 import { LogInput } from "../schemas/log.schema.js";
 
 
-
-// src/utils/validate-batch.ts
-
 const VALID_LEVELS = new Set(["debug", "info", "warn", "error"]);
 const ISO_DATETIME_RE =
   /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[+-]\d{2}:\d{2})$/;
