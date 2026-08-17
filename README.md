@@ -248,23 +248,23 @@ Diagnosis of the aggregation-latency bottleneck (see below) went beyond just rea
 
 **Batch size:** 100 logs/request (load generator default); server-side flush batches up to 2,000 rows per INSERT, every ~1s.
 
-### Official Load Generator Results (best submission: 67.29/100, rank #9)
+### Official Load Generator Results (best submission: 68.37/100, rank #9)
 
 | Metric        | Value                                                                           |
 | ------------- | ------------------------------------------------------------------------------- |
-| Overall score | 67.29 / 100                                                                     |
-| Performance   | 24.58 / 50                                                                      |
+| Overall score | 68.37 / 100                                                                     |
+| Performance   | 24.64 / 50                                                                      |
 | Reliability   | 20.00 / 20 (zero crashes, zero dropped/malformed requests across all scenarios) |
-| Correctness   | 14.00 / 15                                                                      |
-| Queries       | 8.71 / 15                                                                       |
+| Correctness   | 15.00 / 15                                                                      |
+| Queries       | 8.73 / 15                                                                       |
 
 **Load scenario** (15,000 logs/s target, 120s sustained):
 
-- Achieved ~10,935 logs/sec accepted
-- Ingestion latency p95: 42ms
+- Achieved ~10983 logs/sec accepted
+- Ingestion latency p95: 15ms
 - Aggregate query p95: **16ms** (via the rollup table, see below)
-- Application CPU: 23% avg / 38% max (well under the 0.5-CPU limit)
-- PostgreSQL CPU: 30% avg / 52% max (well under the 1-CPU limit)
+- Application CPU: 24.64% avg / 42.73% max (well under the 0.5-CPU limit)
+- PostgreSQL CPU: 31.75% avg / 60.63% max (well under the 1-CPU limit)
 
 **Stress / Spike / Breakpoint scenarios** (up to 45,000 logs/s): the service degrades gracefully via backpressure (503 + Retry-After) rather than crashing or dropping requests silently — 0 requests were ever dropped or errored with 5xx-uncaught failures across any scenario; rejected requests are explicit and countable.
 
